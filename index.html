@@ -9,6 +9,7 @@
     <link href="./css/style.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -227,9 +228,22 @@
   </div>
   <!--Nội dung chính của content-->
   <div class="container-fluid">
-    <h2>Our AI Doctor ( AID ) Services</h2>
+    <h2 class="service-title">Our AI Doctor ( AID ) Services</h2>
+    <!--Hoạt ảnh cho h2-->
+    <script>
+      var service = document.querySelector(".service-title");
+      //console.log(service);
+      service.classList.add('animate__animated', 'animate__backInLeft');
+      service.style.setProperty('--animate-duration', '1.5s');
+    </script>
     <div class="container text-center mt-5">
-      <div class="row">
+      <div class="row service-detail-1">
+        <script>
+          var service_detail_1 = document.querySelector(".service-detail-1");
+          //console.log(service);
+          service_detail_1.classList.add('animate__animated', 'animate__fadeIn');
+          service_detail_1.style.setProperty('--animate-duration', '1.5s');
+        </script>
         <div class="col-md-4">
           <div>
             <img src="https://theme.hstatic.net/1000382884/1000489473/14/hservice_icon1.png?v=2427" alt="health-diagnose">
@@ -255,7 +269,22 @@
           <div><a href="#" class="btn btn-outline-success" role="button">Looking for more information</a></div>
         </div>
       </div>
-      <div class="row mt-5">
+      <div class="row mt-5 service-detail-2">
+        <script>
+          document.addEventListener("DOMContentLoaded", function(){
+            var service_detail_2 = document.querySelector(".service-detail-2");
+            //console.log(service_detail_2);
+            window.addEventListener("scroll", function(){
+            var x = pageYOffset;
+            //console.log(x);
+            if (x > 10) {
+              service_detail_2.classList.add('animate__animated', 'animate__fadeIn');
+              service_detail_2.style.setProperty('--animate-duration', '1.5s');
+              service_detail_2.style.setProperty('--animate-delay', '0.5s');
+            }
+            })
+          })
+        </script>
         <div class="col-md-4">
           <div>
             <img src="https://theme.hstatic.net/1000382884/1000489473/14/hservice_icon4.png?v=2427" alt="patient">
