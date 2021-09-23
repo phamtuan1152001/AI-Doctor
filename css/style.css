@@ -2,7 +2,7 @@
 html, body {
     width: 100%;
     height: 100%;
-    font-family: 'Koh Santepheap', cursive;
+    font-family: 'Koh Santepheap', cursive !important;
     font-size: 15px;
 }
 
@@ -48,19 +48,19 @@ header a:hover {
 	display: none;
 	position: absolute;
 	z-index: 1;
-	background-color: #45b5ce;
-    padding: 12px 16px;
-    min-width: 160px;
+	background-color: #45b5ce !important;
+    padding: 12px 16px !important;
+    min-width: 160px !important;
   
 }
 .dropdown-item{
-  color: white;
-  border: none;
-  cursor: pointer;
+  color: white !important;
+  border: none !important;
+  cursor: pointer !important;
 }
 
 #navbarDropdown{
-    padding: 16px 20px;
+    padding: 20px 20px;
     font-size: 18px;
     
 }
