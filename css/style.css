@@ -17,6 +17,10 @@ header a {
     color: white;
     margin: 1rem
 }
+header a:hover {
+    color: white;
+    
+}
 #header-left{
     float: left; 
     color: #ffffff;  
