@@ -238,10 +238,11 @@
     </script>
     <div class="container text-center mt-5">
       <div class="row service-detail-1">
+        <!--Hoạt ảnh cho các dịch vụ chi tiết dòng 1-->
         <script>
           var service_detail_1 = document.querySelector(".service-detail-1");
           //console.log(service);
-          service_detail_1.classList.add('animate__animated', 'animate__fadeIn');
+          service_detail_1.classList.add('animate__animated', 'animate__fadeInLeft');
           service_detail_1.style.setProperty('--animate-duration', '1.5s');
         </script>
         <div class="col-md-4">
@@ -270,19 +271,17 @@
         </div>
       </div>
       <div class="row mt-5 service-detail-2">
+        <!--Hoạt ảnh cho các dịch vụ chi tiết dòng 2-->
         <script>
-          document.addEventListener("DOMContentLoaded", function(){
-            var service_detail_2 = document.querySelector(".service-detail-2");
-            //hoat anh ne
-            window.addEventListener("scroll", function(){
-            var x = pageYOffset;
-            //console.log(x);
+          var service_detail_2 = document.querySelector(".service-detail-2");
+          window.addEventListener("scroll", function(){
+          var x = pageYOffset;
+          //console.log(x);
             if (x > 10) {
-              service_detail_2.classList.add('animate__animated', 'animate__fadeIn');
+              service_detail_2.classList.add('animate__animated', 'animate__fadeInRight');
               service_detail_2.style.setProperty('--animate-duration', '1.5s');
               service_detail_2.style.setProperty('--animate-delay', '0.5s');
             }
-            })
           })
         </script>
         <div class="col-md-4">
@@ -314,7 +313,20 @@
   </div>
   <!--Tiện ích của việc sử dụng AID-->
   <div class="container-fluid wrapper mt-5 text-center">
-    <div class="row text-center">
+    <div class="row text-center utility-of-AID mt-5 mb-5">
+    <!--Hoạt ảnh cho tiện ích khi sử dụng AID-->
+    <script>
+      var utility_detail = document.querySelector(".utility-of-AID");
+      window.addEventListener("scroll", function(){
+      var x = pageYOffset;
+      //console.log(x);
+        if(x > 400) {
+          utility_detail.classList.add('animate__animated', 'animate__fadeInDown');
+          service_detail_2.style.setProperty('--animate-duration', '1.5s');
+          service_detail_2.style.setProperty('--animate-delay', '1s');
+        }
+      })
+    </script>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
     <div class="box">
       <img src="./images/image-1.jpg" alt="images1" width="200" height="200">
@@ -331,7 +343,7 @@
         is just a few minutes away from you by phone call.</p>
     </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3"><
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
     <div class="box">
       <img src="./images/image-3.jpg" alt="image3" width="200" height="200">
       <a href="#">Direct drug delivery</a>
@@ -351,10 +363,35 @@
 </div>
   <!--Phần tin tức của AID-->
   <div class="container">
-    <h2 class="mb-4">Featured news</h2>
+    <h2 class="mb-4 news-title">Featured news</h2>
+    <!--Hoạt ảnh cho new title-->
+    <script>
+      var news = document.querySelector(".news-title");
+      window.addEventListener("scroll", function(){
+      var x = pageYOffset;
+      //console.log(x);
+        if(x > 900) {
+          news.classList.add('animate__animated', 'animate__flipInX');
+          news.style.setProperty('--animate-duration', '1.5s');
+          news.style.setProperty('--animate-delay', '1s');
+        }
+      })
+    </script>
     <div class="row">
       <div class="col-md-12">
-            <div id="news" class="carousel slide" data-ride="carousel" style="background: pink;">
+            <div id="news" class="carousel slide animation-carousel" data-ride="carousel">
+              <script>
+                var anim_carousel = document.querySelector(".animation-carousel");
+                window.addEventListener("scroll", function(){
+                var x = pageYOffset;
+                //console.log(x);
+                  if(x > 1000) {
+                    anim_carousel.classList.add('animate__animated', 'animate__zoomIn');
+                    anim_carousel.style.setProperty('--animate-duration', '1.5s');
+                    anim_carousel.style.setProperty('--animate-delay', '1s');
+                  }
+                })
+              </script>
                 <div class="carousel-inner text-center">
                     <div class="carousel-item active mt-2 mb-2">
                         <div id="new-slide" class="col-md-4 sapxep">
