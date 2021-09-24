@@ -280,7 +280,6 @@
             if (x > 10) {
               service_detail_2.classList.add('animate__animated', 'animate__fadeInRight');
               service_detail_2.style.setProperty('--animate-duration', '1.5s');
-              service_detail_2.style.setProperty('--animate-delay', '0.5s');
             }
           })
         </script>
@@ -323,7 +322,6 @@
         if(x > 400) {
           utility_detail.classList.add('animate__animated', 'animate__fadeInDown');
           service_detail_2.style.setProperty('--animate-duration', '1.5s');
-          service_detail_2.style.setProperty('--animate-delay', '1s');
         }
       })
     </script>
@@ -372,23 +370,22 @@
       //console.log(x);
         if(x > 900) {
           news.classList.add('animate__animated', 'animate__flipInX');
-          news.style.setProperty('--animate-duration', '1.5s');
-          news.style.setProperty('--animate-delay', '1s');
+          news.style.setProperty('--animate-duration', '1s');
         }
       })
     </script>
     <div class="row">
       <div class="col-md-12">
-            <div id="news" class="carousel slide animation-carousel" data-ride="carousel">
+            <div id="news-carousel" class="carousel slide animation-carousel mt-3" data-ride="carousel">
+              <!--Hoạt ảnh cho slide tin tức-->
               <script>
                 var anim_carousel = document.querySelector(".animation-carousel");
                 window.addEventListener("scroll", function(){
                 var x = pageYOffset;
                 //console.log(x);
-                  if(x > 1000) {
+                  if(x > 950) {
                     anim_carousel.classList.add('animate__animated', 'animate__zoomIn');
                     anim_carousel.style.setProperty('--animate-duration', '1.5s');
-                    anim_carousel.style.setProperty('--animate-delay', '1s');
                   }
                 })
               </script>
@@ -429,10 +426,10 @@
                     </div>
                     
                 </div>
-                <a class="carousel-control-prev" href="#news" data-slide="prev">
+                <a class="carousel-control-prev" href="#news-carousel" data-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </a>
-                <a class="carousel-control-next" href="#news" data-slide="next">
+                <a class="carousel-control-next" href="#news-carousel" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </a>
             </div>
