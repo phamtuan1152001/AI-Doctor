@@ -120,9 +120,12 @@ footer{
 }
 
 #footer-logo{
- margin-bottom: 0px;
- border: 5px;
- align-items: center;
+ margin-bottom: 5px;
+ margin-left: auto;
+ margin-right: auto;
+ border-bottom: 10px;
+ flex: auto;
+ text-align: center;
 
 }
 footer .container{
