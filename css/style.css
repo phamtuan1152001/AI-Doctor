@@ -50,7 +50,7 @@ header a:hover {
 	z-index: 1;
 	background-color: #45b5ce !important;
     padding: 12px 16px !important;
-    min-width: 160px !important;
+    min-width: 260px !important;
   
 }
 .dropdown-item{
@@ -158,4 +158,223 @@ footer .container .feedback{
     position: relative;
     font-weight: bold;
     float: right;
+}
+/*about us*/
+
+#test{
+    background-color: #9ef3fa;
+  background-image: linear-gradient(#9ef3fa, #45b5ce); 
+  padding: 0px 0px;
+}
+#test h1{
+    padding-top: 100px;
+}
+
+  
+  .Integrity {
+    --bg-color: #ffd861;
+    --bg-color-light: #ffeeba;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(255, 215, 97, 0.48);
+  }
+  
+  .Prompt {
+    --bg-color: #B8F9D3;
+    --bg-color-light: #e2fced;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(184, 249, 211, 0.48);
+  }
+  
+  .Diversity {
+    --bg-color: #CEB2FC;
+    --bg-color-light: #F0E7FF;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(206, 178, 252, 0.48);
+  }
+  
+  .Develop {
+    --bg-color: #DCE9FF;
+    --bg-color-light: #f1f7ff;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(220, 233, 255, 0.48);
+  }
+  
+  .card {
+    width: 220px;
+    height: 351px;
+    background: #fff;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+    transition: all 0.3s ease-out;
+    text-decoration: none;
+   
+  }
+  #hr{
+    border-top: 2px solid rgb(62,44,100);
+    width: 95%;
+    margin-bottom: 2rem;
+  }
+
+  .card:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+      0 24px 46px var(--box-shadow-color);
+  }
+  
+  .card:hover .overlay {
+    transform: scale(4) translateZ(0);
+  }
+  
+  .card:hover .circle {
+    border-color: var(--bg-color-light);
+    background: var(--bg-color);
+  }
+  
+  .card:hover .circle:after {
+    background: var(--bg-color-light);
+  }
+  
+  .card:hover p {
+    color: var(--text-color-hover);
+  }
+  
+  .card:active {
+    transform: scale(1) translateZ(0);
+    box-shadow: 0 15px 24px rgba(0,0,0,0.11),
+      0 15px 24px var(--box-shadow-color);
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #4C5656;
+    margin-top: 30px;
+    z-index: 1;
+    transition: color 0.3s ease-out;
+  }
+  
+  .circle {
+    width: 131px;
+    height: 131px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-out;
+  }
+  
+  .circle:after {
+    content: "";
+    width: 118px;
+    height: 118px;
+    display: block;
+    position: absolute;
+    background: var(--bg-color);
+    border-radius: 50%;
+    top: 7px;
+    left: 7px;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .circle svg {
+    z-index: 10000;
+    transform: translateZ(0);
+  }
+  
+  .overlay {
+    width: 118px;
+    position: absolute; 
+    height: 118px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    top: 20px;
+    left: 50px;
+    z-index: 0;
+    transition: transform 0.3s ease-out;
+  }
+
+
+
+  body {margin:2rem;}
+
+  .modal-dialog {
+        max-width: 800px;
+        margin: 30px auto;
+    }
+  
+  
+  
+  .modal-body {
+    position:relative;
+    padding:0px;
+  }
+  .close {
+    position:absolute;
+    right:-30px;
+    top:0;
+    z-index:999;
+    font-size:2rem;
+    font-weight: normal;
+    color:#fff;
+    opacity:1;
+  }
+.button {
+  margin: auto;
+  display:block;
+}
+.btn-primary{
+  background-color: #FF0000 !important;
+  border-color: black !important;
+}
+#test1{
+  color: white;
+  background-color: #45b5ce;
+background-image: linear-gradient(#9ef3fa, #45b5ce); 
+padding: 100px 100px 100px 100px;
+}
+
+
+/*FAQ*/
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+p {
+  text-align: left;
+}
+/* Định dạng các button mô tả cho nội dung*/
+button.accordion {
+  background-color: #45b5ce;
+  color: white;
+  cursor: pointer;
+  margin-top: 2px;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border:none;
+  border-radius: 0.6rem;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Thêm màu nền cho button được active hoặc được hover*/
+button.accordion.active, button.accordion:hover {
+  background-color: #006F5B;
+}
+
+/* Thiết lập cho phần nội dung, mặc định sẽ được ẩn đi */
+div.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
 }
