@@ -25,12 +25,58 @@ $(document).ready(function() {
         $("#video").attr('src',$videoSrc); 
     }) 
         
-        
+    $(function() {
+  
+  // contact form animations
+  $('#contact').click(function() {
+    $('#contactForm').fadeToggle();
+  })
+  $(document).mouseup(function (e) {
+    var container = $("#contactForm");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.fadeOut();
+    }
+  });
+  
+});
     
     
       
       
     // document ready  
     });
-   
+    $('document').ready(function(){
+        $('input[type="text"], input[type="email"], textarea').focus(function(){
+            var background = $(this).attr('id');
+            $('#' + background + '-form').addClass('formgroup-active');
+            $('#' + background + '-form').removeClass('formgroup-error');
+        });
+        $('input[type="text"], input[type="email"], textarea').blur(function(){
+            var background = $(this).attr('id');
+            $('#' + background + '-form').removeClass('formgroup-active');
+        });
+    
+    function errorfield(field){
+        $(field).addClass('formgroup-error');
+        console.log(field);	
+    }
+    
+    $("#waterform").submit(function() {
+        var stopsubmit = false;
+    
+    if($('#name').val() == "") {
+        errorfield('#name-form');
+        stopsubmit=true;
+    }
+    if($('#email').val() == "") {
+        errorfield('#email-form');
+        stopsubmit=true;
+    }
+      if(stopsubmit) return false;
+    });
+            
+    });
     
