@@ -286,7 +286,7 @@ footer .container .feedback{
   }
   
   .circle svg {
-    z-index: 10000;
+    z-index: 1000;
     transform: translateZ(0);
   }
   
@@ -327,13 +327,13 @@ footer .container .feedback{
     color:#fff;
     opacity:1;
   }
-.button {
-  margin: auto;
-  display:block;
-}
+
 .btn-primary{
   background-color: #FF0000 !important;
-  border-color: black !important;
+  border-color: red !important;
+}
+.btn:hover{
+  transform: translateY(-3px);
 }
 #test1{
   color: white;
@@ -351,30 +351,47 @@ padding: 100px 100px 100px 100px;
 }
 p {
   text-align: left;
+  font-size: 12px;
+}
+.accordion {
+  font-weight: 800!important;
 }
 /* Định dạng các button mô tả cho nội dung*/
 button.accordion {
-  background-color: #45b5ce;
-  color: white;
+  background-color: transparent;
+  color: black;
   cursor: pointer;
   margin-top: 2px;
   padding: 18px;
   width: 100%;
   text-align: left;
-  border:none;
-  border-radius: 0.6rem;
+  border: none ;
   outline: none;
   transition: 0.4s;
+
 }
 
 /* Thêm màu nền cho button được active hoặc được hover*/
-button.accordion.active, button.accordion:hover {
-  background-color: #006F5B;
+button.accordion.active {
+  background-color: transparent;
+  border-style:none !important;
+  transform: translateY(-3px);
 }
+button.accordion:hover {
+  border: none;
+  transform: translateY(-3px);
+}
+
 
 /* Thiết lập cho phần nội dung, mặc định sẽ được ẩn đi */
 div.panel {
   padding: 0 18px;
   background-color: white;
   display: none;
+  outline: 0;
 }
+button.accordion.active:focus { 
+  outline: none;
+  border:none; 
+}
+button.accordion:focus {outline: none}
