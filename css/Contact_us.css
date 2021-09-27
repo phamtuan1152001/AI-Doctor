@@ -10,6 +10,23 @@ body, html{
 	margin: 0;
 	font-family: 'Sniglet', cursive;
 }
+#test{
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c2e59c, #64b3f4);
+    
+  }
+  #test h1{
+      padding-top: 100px;
+  }
+  #test2{
+    display: flex;
+    justify-content: center;
+  }
+  #test p {
+    text-align: left;
+    font-size: 12px;
+  }
 #contact1 h1{
 	font-weight: normal;
 	font-size: 4em;
