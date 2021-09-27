@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <link rel="shortcut icon" type="image/png" href="images/LogoAI.png" />
-    <title>AI Doctor</title>
+    <title>Diagnose of AID</title>
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,34 +20,41 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="Javascript.js"></script>
 
+    <!--CDN of Datatable-->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+
+
     <style>
-      .btn {
-        border-radius: 1rem;
-      }
-      .carousel-item .sapxep {
-            float: left;
-      }
-      #new-slide {
-        padding: 0 30px 0 30px;
-      } 
-      .carousel-control-prev {
-        top: 30%;
-        bottom: 30%;
-        width: 3%;
-        background: gray;
-      }
-      .carousel-control-next {
-        top: 30%;
-        bottom: 30%;
-        width: 3%;
-        background: gray;
-      }
+        .container {
+            text-align: initial;
+        }
+        .close {
+          position: initial;
+        }
     </style>
 
     <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
-      });
+        $(document).ready(function() {
+        // Cấu hình các nhãn phân trang
+            $('#symptom-detail').dataTable( {
+                "language": {
+                "sInfoPostFix":  "",
+                "sSearch":       "Enter your symptom:",
+                "sUrl":          "",
+                "oPaginate": {
+                "sFirst":    "The First",
+                "sPrevious": "Previous",
+                "sNext":     "Next",
+                "sLast":     "The Last"
+            }
+        },
+                "processing": true, // tiền xử lý trước
+                "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển thị bảng
+                "order": [[ 1, 'desc' ]] //sắp xếp giảm dần theo cột thứ 1
+            } );    
+        } );
     </script>
   </head>
   <body>
@@ -199,5 +206,116 @@
   </nav>
   <!--End of header-->
   
+  <!-- Content of Diagnose -->
+  <div class="container-fluid">
+    <h1 class="text-center">Diagnosing by AID Technical</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-md-6">
+          <img class="img-fluid" src="./images/diagnose-1.jpg" alt="Diagnose-img">
+        </div>
+        <div class="col-sm-8 col-md-6 diagnose-box">
+          <!-- Input a symptom -->
+          <label class="mt-2" id="symptom-title" for="symptom">Enter your symptom:</label>
+          <input type="text" id="symptom" class="symptom-text">
+          <!-- Button to open a top-up box to enter symptom -->
+          <button type="button" class="btn btn-outline-info mt-2" data-toggle="modal" data-target="#myModal">
+            Searching
+          </button>
+          <!-- Top-up box -->
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Information about your symptom.</h4>
+                  </div>
+                <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="container">
+                      <table id="symptom-detail" class="table table-striped table-bordered table-dark table-hover">
+                        <thead>
+                          <tr>
+                            <th>Name of illness</th>
+                            <th>Detail</th>
+                            <th>Medicines</th>
+                            <th>Doctor's advice</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>abc</th>
+                            <th>xyz</th>
+                            <th>ijk</th>
+                            <th>hihi do ngok</th>
+                          </tr>
+                          <tr>
+                            <th>abc</th>
+                            <th>xyz</th>
+                            <th>ijk</th>
+                            <th>hihi do ngok</th>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <th>Name of illness</th>
+                            <th>Detail</th>
+                            <th>Medicines</th>
+                            <th>Doctor's advice</th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Content of Diagnose -->
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer-logo">
+      <figure>
+        <img src="./images/LogoAI.png" width="150px" height="auto" alt="Logo of AI Doctor" /> <br>
+      </figure>
+    </div>
+    <div class="container">
+    <div class="about">
+      <h3>About:</h3>
+      <ul>
+        <li><span>Phone:</span> 0912345678</li>
+        <li></lo><span>Email:</span> AIDoctor@gmail.com</li>
+      </ul>
+      <p> This is a website about helping people to figure out their illness at home, with conveniences services. 
+        That you can predict your diseases,book an appointment with the correct doctor
+        at the time that you feel suit the best to you!!! We also have a very good team of doctors for you if you need!!!
+      </p>
+      <p><span>Địa chỉ:</span> Bitexco building,TOP floor.</p>
+      <p>&copy;Copyright is belong to Group s3 </p>
+    </div>
+    <div class="service">
+      <h3>Services:</h3>
+      <ul>
+        <li> Predict diseases</li>
+        <li>an appointment to the right doctor</li> 
+      </ul>
+    </div>
+    <div class="feedback">
+      <h3>Feedback:</h3>
+      <a href="#">Câu hỏi thường gặp </a><br>
+      <a href="#">Khiếu nại của khách hàng</a>
+    </div>
+    </div>
+  </footer>
+  <!-- End of Footer -->
   </body>
 </html>

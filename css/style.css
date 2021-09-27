@@ -545,3 +545,20 @@ textarea {
 .contact-form input:focus, textarea:focus {
   border-color: #CC5B00
 }
+/* Diagnose */
+#symptom-title {
+  font-size: 30px;
+  text-align: center;
+}
+.diagnose-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+.symptom-text {
+  border-radius: 10px;
+  font-size: 15px;
+  margin: 5px;
+  padding: 5px;
+}
