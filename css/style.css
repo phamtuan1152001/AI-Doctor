@@ -510,6 +510,10 @@ h1{
 	position: relative;
 	
 }
+.contact-form input:focus, textarea:focus {
+  border-color: #CC5B00
+}
+
 form{
 	margin: 0 auto;
 	width: 500px;
