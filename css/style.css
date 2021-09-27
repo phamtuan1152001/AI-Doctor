@@ -513,28 +513,6 @@ h1{
 .contact-form input:focus, textarea:focus {
   border-color: #CC5B00
 }
-/* Diagnose */
-#symptom-title {
-  font-size: 30px;
-  text-align: center;
-}
-.diagnose-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.symptom-text {
-  border-radius: 10px;
-  font-size: 15px;
-  margin: 5px;
-  padding: 5px;
-  width: 100%;
-}
-.diagnose-title {
-  color: initial;
-  width: 100%;
-}
 
 form{
 	margin: 0 auto;
