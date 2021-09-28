@@ -90,7 +90,7 @@ body, html{
 }
 
 #form{
-	height: 70%;	
+	height: 120%;	
 	background-color: #98d4f3;
 	overflow: hidden;
 	position: relative;
@@ -160,6 +160,9 @@ input, textarea{
     box-sizing:border-box;
     
   }
+  #map{
+    width: 992px;
+  }
   
 }
 @media (max-width: 768px){
@@ -189,6 +192,9 @@ input, textarea{
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
+  }
+  #map{
+    width: 768px;
   }
 }
 @media (max-width: 576px){
@@ -220,15 +226,31 @@ input, textarea{
     box-sizing:border-box;
   
 }
+#map{
+  width: 500px;
+}
 }
 input:focus, textarea:focus{
 	border: solid 3px #77bde0;	
 }
 
-textarea{
+/* textarea{
 	height: 100px;	
 	resize: none; 
 	overflow: auto;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: gray !important;
+  border-radius: 5px;
+  background:lightcyan;
+} */
+#comment textarea{
+  overflow-y: scroll;
+  height: 300px;
+  resize: none;
 }
 input[type="submit"]{
 	background-color: #F90;
@@ -273,4 +295,8 @@ label{
 .formgroup-error{
 	background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo-error.png');
 	color: red;
+}
+
+#waterform h4{
+  color: black;
 }
