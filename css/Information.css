@@ -241,3 +241,45 @@
   button.accordion:focus {
     outline: none
   }
+  /* -------- */
+  .container h2 {
+    font-size: 30px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 20px;
+    display: inline-block;
+    
+  }
+  .container h2::before {
+    position: absolute;
+    content: "";
+    width: 320px;
+    height: 5px;
+    background-color: #d8d8d8;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+   
+  }
+  .container h2::after {
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 5px;
+    background-color: #FF7200;
+    left: 0;
+    bottom: 0;
+    left: 33%;
+    margin-left: -25px;
+  }
+  /* test */
+  *, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.mb-4 {
+  margin-bottom: 1.5rem!important;
+}
+section {
+  display: block;
+}
