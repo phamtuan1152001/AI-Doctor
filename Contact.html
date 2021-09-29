@@ -3,17 +3,17 @@
   <head>
     <link rel="shortcut icon" type="image/png" href="images/LogoAI.png" />
     <title>AI Doctor</title>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="./css/header-footer.css" rel="stylesheet" />
-    <link href="./css/Contact_us.css" rel="stylesheet"/>
+    <link href="./css/Contact_us.css" rel="stylesheet" />
+  
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href = "https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"  rel = "stylesheet" >
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -21,9 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="Javascript.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    
+
     <style>
       .btn {
         border-radius: 1rem;
@@ -53,18 +51,6 @@
         $('[data-toggle="tooltip"]').tooltip();   
       });
     </script>
-
-    <!-- <script>
-      $(document).ready(function() {
-        $(window).scroll(function(){
-            if ($(this).scrollTop()){
-                $('headernav').addClass('sticky-top');
-        } else {
-                $('headernav').removeClass('sticky-top');
-        }
-        });
-    });
-    </script> -->
   </head>
   <body>
   <!--Header of this web-->
@@ -126,7 +112,7 @@
   </header>
 
 <!--Navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-light pt-1 pb-1 sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light  pt-1 pb-1 sticky-top">
     <div class="container">
       <a class="navbar-branch "href="index.html" id="logo">
         <img src="images/LogoAI.png" height="80">
@@ -145,7 +131,7 @@
               SERVICES
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="Diagnose.html" target="_blank">
                 DIAGNOSE
               </a>
               <!--chèn link in # -->
@@ -178,7 +164,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="Information.html" id="navbarDropdown" >
+            <a class="nav-link dropdown-toggle" href="Information.html" id="navbarDropdown" ">
               INFORMATION
             </a>
             <div class="dropdown-menu">
@@ -192,7 +178,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" >
+            <a class="nav-link dropdown-toggle" href="Contact.html" id="navbarDropdown" >
               CONTACT US
             </a>
           </li>
@@ -213,88 +199,106 @@
       </div>
     </div>
   </nav>
-
-  <nav>
-    <div class="container-fluid padding" id="test">	
-        <div class="row text-center padding">
-          <div class="col-md-6">	
-            <img src="./images/contact.png" height="330px" With="auto">
-          </div>
-       
+  <!--End of header-->
+   <nav>
+    <div class="container-fluid padding" id="test">
+      <div class="row text-center padding">
         <div class="col-md-6">
-            <h1>Contact</h1>
-            <p>Take care of your health anywhere, anytime, wholeheartedly answer your questions</p>
+          <img src="./images/contact.png" class="img-fluid">
+        </div>
+
+        <div class="col-md-6">
+          <h1>Contact</h1>
+          <p>Take care of your health anywhere, anytime, wholeheartedly answer your questions</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,800,900%7cRaleway:300,400,500,600,700"
+    rel="stylesheet">
+  </body>
+ 
+    <div id="contact1">
+      <h1 class="text-center">Contact us</h1>
+    </div>
+
+    <div id="form">
+
+      <div class="comment_fly" id="comment_fly1"></div>
+      <div class="comment_fly" id="comment_fly2"></div>
+      <div class="comment_fly" id="comment_fly3"></div>
+
+      <form id="waterform" method="post">
+
+        <div class="formgroup" id="name-form">
+          <label for="name">Your name*</label>
+          <input type="text" id="name" name="name" />
+        </div>
+
+        <div class="formgroup" id="message-form">
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" ></textarea>
+        </div>
+
+     
+        <div class="formgroup">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Unsatisfied
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Satisfied
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
+            <label class="form-check-label" for="flexRadioDefault3">
+              Extremely satisfied
+            </label>
+          </div>
+      </div>
+
+
+        <input  type="submit" data-toggle="modal" data-target="#modalDelele" value="Feedback" />
+
+        <div class="formgroup" id="comment">
+          <label>all comments</label>
+          <textarea disabled > </textarea>
+        </div>
+
+       
+      
+      
+      </form>
+      
+    </div>
+    <div class="modal fade" id="modalDelele">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Error</h4>
+            <button type="button" class="close" data-dismiss="modal"><span
+                aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <h4>Please enter information</h4>
           </div>
         </div>
       </div>
-  </nav>
+    </div> <!-- end modal -->
+    <!-- <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d149134.12912316382!2d106.70801062905318!3d10.815247071869582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBRdeG7kWMgVOG6vyAt!5e0!3m2!1svi!2s!4v1632753313229!5m2!1svi!2s"
+        width="1340px" height="450" style="border:0;" allow="fullscreen" loading="lazy" id="map"></iframe>
 
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,800,900%7cRaleway:300,400,500,600,700" rel="stylesheet">
-<body>
-  <header id="contact1">
-    <h1 class="text-center">Contact us</h1>
-  </header>
-  
-  <div id="form">
-  
-  <div class="fish" id="fish"></div>
-  <div class="fish" id="fish2"></div>
-  <div class="fish" id="fish3"></div>
-  
-  <form id="waterform" method="post">
-  
-  <div class="formgroup" id="name-form">
-      <label for="name">Your name*</label>
-      <input type="text" id="name" name="name" />
-  </div>
-  
-  <div class="formgroup" id="message-form">
-      <label for="message">Your message</label>
-      <textarea id="message" name="message"></textarea>
-  </div>
-  
-    <input type="submit" value="Send your feedback!" />
-  </form>
-  </div>
-   <!-- Footer of the web-->
-   <footer>
-    <div id="footer-logo">
-        <figure>
-        <img src="./images/LogoAI.png" width="150px" height="auto" alt="Logo of AI Doctor" /> <br>
-     
-</figure>
-    </div>
-    <div class="container">
-    <div class="about">
-        <h3>About:</h3>
-      <ul>
-        <li><span>Phone:</span> 0912345678</li>
-      <li></lo><span>Email:</span> AIDoctor@gmail.com</li>
-    </ul>
-<p> This is a website about helping people to figure out their illness at home, with conveniences services. 
-    That you can predict your diseases,book an appointment with the correct doctor
-    at the time that you feel suit the best to you!!! We also have a very good team of doctors for you if you need!!!
-      </p>
-      <p><span>Địa chỉ:</span> Bitexco building,TOP floor.</p>
-      <p>&copy;Copyright is belong to Group s3 </p>
-</div>
-<div class="service">
-   <h3>Services:</h3>
-   <ul>
-  <li> Predict diseases</li>
-   <li>an appointment to the right doctor</li>
-   
-</ul>
-</div>
-<div class="feedback">
-   <h3>Feedback:</h3>
-<a href="#">Câu hỏi thường gặp </a><br>
-<a href="#">Khiếu nại của khách hàng</a>
-
-
-</div>
-</div>
-</footer>
-  </body>
-  </html>
+    </div> -->
+    <!-- Footer of the web-->
+</body>
+</html>
