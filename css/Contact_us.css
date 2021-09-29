@@ -123,6 +123,9 @@ input, textarea{
 	box-sizing:border-box;
 	
 }
+.message{
+  margin-bottom: 2rem;
+}
 
 @media (max-width: 992px){
   form{
@@ -274,17 +277,16 @@ label{
 	-moz-transition: background-image 0.7s;
 	-o-transition: background-image 0.7s;
 	width: 300px;
-	padding-top: 2px;
+	padding-top: 1rem;
 }
 
 .formgroup{
 	background-image: url('http://www.geertjanhendriks.nl/codepen/form/pixel.gif');	
 }
 .formgroup-active{
-	background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo.png');
+	color: rgb(0, 180, 0);
 }
 .formgroup-error{
-	background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo-error.png');
 	color: red;
 }
 

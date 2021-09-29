@@ -5,7 +5,6 @@ html, body {
     height: 100%;
     font-family: 'Koh Santepheap', cursive !important;
     font-size: 15px !important;
-    
 }
 .container {
     margin: auto;
@@ -13,9 +12,9 @@ html, body {
 }
 .navbar {
   background: #c2e59c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4) !important; /*Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4) !important; Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #c2e59c, #64b3f4) !important;  
-  
+
 }
 header {
   background: #c2e59c; /* fallback for old browsers */
