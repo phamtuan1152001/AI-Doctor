@@ -210,12 +210,22 @@
   <!-- Content of Diagnose -->
   <div class="container-fluid">
     <h1 class="text-center diagnose-title">Diagnosing by AID Technical</h1>
+    <script>
+      var diagnose_title = document.querySelector('.diagnose-title');
+      diagnose_title.classList.add('animate__animated', 'animate__fadeIn');
+      diagnose_title.style.setProperty('--animate-duration', '1.5s');
+    </script>
     <div class="container">
       <div class="row">
         <div class="col-sm-4 col-md-6">
-          <img class="img-fluid" src="./images/diagnose-1.jpg" alt="Diagnose-img">
+          <img class="img-fluid image-left" src="./images/diagnose-1.jpg" alt="Diagnose-img">
         </div>
-        <div class="col-sm-8 col-md-6 diagnose-box">
+        <script>
+          var image_left = document.querySelector('.image-left');
+          image_left.classList.add('animate__animated', 'animate__fadeInLeft');
+          image_left.style.setProperty('--animate-duration', '2s');
+        </script>
+        <div class="col-sm-8 col-md-6 diagnose-box diagnose-right">
           <!-- Input a symptom -->
           <label class="mt-2" id="symptom-title" for="symptom">Enter your symptom:</label>
           <input type="text" id="symptom" class="symptom-text">
@@ -277,6 +287,11 @@
             </div>
           </div>
         </div>
+        <script>
+          var diagnose_right = document.querySelector('.diagnose-right');
+          diagnose_right.classList.add('animate__animated', 'animate__fadeInRight');
+          diagnose_right.style.setProperty('--animate-duration', '2s');
+        </script>
       </div>
     </div>
   </div>

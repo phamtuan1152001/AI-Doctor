@@ -1,0 +1,10 @@
+#list {
+    font-size: 15px;
+}
+#hospital-title {
+    padding-left: 0px;
+}
+#list_hospital {
+    width: 500px;
+    color: gray;
+}
