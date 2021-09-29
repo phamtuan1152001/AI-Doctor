@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/header-footer.css" rel="stylesheet" />
     <link href="./css/Diagnose.css" rel="stylesheet" />
 
     <!-- Bootstrap CSS -->
@@ -225,17 +225,17 @@
           image_left.classList.add('animate__animated', 'animate__fadeInLeft');
           image_left.style.setProperty('--animate-duration', '2s');
         </script>
-        <div class="col-sm-8 col-md-6 diagnose-box diagnose-right">
+        <div class="col-sm-8 col-md-6 diagnose-box">
           <!-- Input a symptom -->
           <label class="mt-2" id="symptom-title" for="symptom">Enter your symptom:</label>
           <input type="text" id="symptom" class="symptom-text">
           <!-- Button to open a top-up box to enter symptom -->
-          <button type="button" class="btn btn-outline-info mt-2" data-toggle="modal" data-target="#myModal">
+          <button type="button" class="btn btn-outline-info mt-2" data-toggle="modal" data-target="#Symptom-Information">
             Searching
           </button>
           <!-- Top-up box -->
           <!-- The Modal -->
-          <div class="modal fade" id="myModal">
+          <div class="modal fade" id="Symptom-Information">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content">
                 <!-- Modal Header -->
@@ -255,6 +255,30 @@
                           </tr>
                         </thead>
                         <tbody>
+                          <tr>
+                            <th>abc</th>
+                            <th>xyz</th>
+                            <th>ijk</th>
+                            <th>hihi do ngok</th>
+                          </tr>
+                          <tr>
+                            <th>abc</th>
+                            <th>xyz</th>
+                            <th>ijk</th>
+                            <th>hihi do ngok</th>
+                          </tr>
+                          <tr>
+                            <th>abc</th>
+                            <th>xyz</th>
+                            <th>ijk</th>
+                            <th>hihi do ngok</th>
+                          </tr>
+                          <tr>
+                            <th>abc</th>
+                            <th>xyz</th>
+                            <th>ijk</th>
+                            <th>hihi do ngok</th>
+                          </tr>
                           <tr>
                             <th>abc</th>
                             <th>xyz</th>
@@ -287,11 +311,7 @@
             </div>
           </div>
         </div>
-        <script>
-          var diagnose_right = document.querySelector('.diagnose-right');
-          diagnose_right.classList.add('animate__animated', 'animate__fadeInRight');
-          diagnose_right.style.setProperty('--animate-duration', '2s');
-        </script>
+        
       </div>
     </div>
   </div>

@@ -8,6 +8,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: fadeInRight; 
+    animation-duration: 1.5s;
   }
   .symptom-text {
     border-radius: 10px;
