@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/header-footer.css" rel="stylesheet" />
     <link href="./css/Booking.css" rel="stylesheet" />
     
     <!-- Bootstrap CSS -->
@@ -23,6 +23,13 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+
+    <!--Library of Datapicker -->
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <style>
         .container {
@@ -186,20 +193,87 @@
 
   <!-- Content -->
   <div class="container">
-    <div class="form-group">
-      <label id="hospital-title" for="hospital_name">1. Choosing a hospital:</label>
-      <p id="list">The list of hospital for you to select:</p>
-      <select id="list_hospital" class="form-control">
-        <option disabled selected value>List of Hospital</option>
-        <option>Hospital A</option>
-        <option>Hospital B</option>
-        <option>Hospital C</option>
-        <option>Hospital D</option>
-        <option>Hospital E</option>
-        <option>Hospital F</option>
-        <option>Hospital G</option>
-        <option>Hospital H</option>
-      </select>
+    <h1 class="text-center booking-title">Making an oppointment with a Doctor in AID</h1>
+    <script>
+      var booking_title = document.querySelector('.booking-title');
+      booking_title.classList.add('animate__animated', 'animate__zoomIn');
+      booking_title.style.setProperty('--animate-duration', '1.0s');
+    </script>
+    <div class="row">
+      <div class="col-sm-8 col-md-6 mt-3 booking-left">
+        <!-- Selection list of hospital -->
+        <div class="form-group">
+          <label id="form-title" for="hospital_name">1. Choosing a hospital:</label>
+          <p id="list">The list of hospital for you to select.</p>
+          <select id="list_hospital" class="form-control">
+            <option disabled selected value>List of Hospital</option>
+            <option>Hospital A</option>
+            <option>Hospital B</option>
+            <option>Hospital C</option>
+            <option>Hospital D</option>
+            <option>Hospital E</option>
+            <option>Hospital F</option>
+            <option>Hospital G</option>
+            <option>Hospital H</option>
+          </select>
+        </div>
+        <!-- Radio list of Departments-->
+        <div class="form-group">
+          <label for="department" id="form-title">2. Choosing a department:</label>
+          <p id="list">List of department for you to select.</p>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio">INTERNAL MEDICINE
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio">PEDIATRICS
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio">OTORHINOLARYNGOLOGY
+            </label>
+          </div>
+        </div>
+        <!-- Calender to choose -->
+        <div class="form-group">
+          <label for="time" id="form-title-day">3. Choosing a day to have a oppointment with doctor:</label>
+          <p id="list">Anytime, Doctors in AID can spend time for you.</p>
+          <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+            <input class="form-control" readonly="" type="text"> 
+            <span class="input-group-addon"><i class="far fa-calendar-plus"></i></span>
+          </div>
+          <script type="text/javascript">
+            $(function () {  
+              $("#datepicker").datepicker({         
+                autoclose: true,         
+                todayHighlight: true 
+              }).datepicker('update', new Date());
+            });
+          </script>
+        </div>
+        <!-- Submit button -->
+        <div class="form-group">
+          <button type="button" class="btn btn-outline-success">Submit</button>
+        </div>
+      </div>
+      <script>
+        var booking_left = document.querySelector('.booking-left');
+        booking_left.classList.add('animate__animated', 'animate__zoomInLeft');
+        booking_left.style.setProperty('--animate-duration', '1.5s');
+      </script>
+      <div class="col-sm-4 col-md-6 mt-3 booking-Right">
+        <div>
+          <img class="img-fluid" src="./images/booking-1.jpg" alt="booking-right">
+        </div>
+      </div>
+      <script>
+        var booking_right = document.querySelector('.booking-Right');
+        booking_right.classList.add('animate__animated', 'animate__zoomInRight');
+        booking_right.style.setProperty('--animate-duration', '1.5s');
+      </script>
     </div>
   </div>
   <!-- End of Content -->
