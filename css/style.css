@@ -128,60 +128,58 @@ body {
 }
 /* Footer*/
 footer{
-    position: relative;
-    padding: 50px 100px;
-    font-size: medium;
-    font-family: Arial, Helvetica, sans-serif;
-    clear: both;
-    width: 100%;
-    height:auto;
-    background-size: 100%;
-    flex-wrap: wrap;
-    flex-direction: row;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     height: 100%;
+     background:linear-gradient(to right, #c2e59c, #64b3f4);
+     padding-bottom: 0;
+     margin-bottom: 0;
+    color: antiquewhite;
+ }
+
+ li,p {
+     margin-top: 8px;
+     margin-bottom: 8px;
+     cursor: pointer;
+     color:whitesmoke; 
+     font-size: large;
+ }
+#icon{
+    color:whitesmoke;
+    margin: 10px;
+    line-height: 10px;
     display: flex;
-    justify-content: space-between;
 }
 
-#footer-logo{
- margin-bottom: 5px;
- margin-left: auto;
- margin-right: auto;
- border-bottom: 10px;
- flex: auto;
- text-align: center;
 
-}
-footer .container{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-h3{
-    font-weight: bold;
-}
-footer .container .about{
-    margin-right: 30px;
-    position: relative;
-    margin-bottom: 15px;
-    float: left;
-    width: 40%;
+ .bottom-row {
+     color: grey;
+ }
+ i {
+     font-size: 25px;
+     margin: 10px; 
+     cursor: pointer;
+ }
 
-}
-footer .container .service{
-    margin:10px;
-    width: 30%;
-    position: relative;
-    float: center;
 
+ .description-img {
+     color: whitesmoke;
+     cursor: pointer;
+ }
+
+ .logo {
+    width: 120px;
+    height: auto;
+ }
+.row{ margin:5px;
+    padding: 5px;
 }
-footer .container .feedback{
-    margin-right: 15px;
-    width: 30%;
-    position: relative;
-    font-weight: bold;
-    float: right;
+a:link{
+    color: white;
 }
+ .row-1 {
+     margin-bottom: 10px; 
+ }
+/*end of footer*/
 /*about us*/
 
 #test{
