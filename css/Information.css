@@ -444,6 +444,7 @@ button.accordion:focus {
   left: 33%;
   margin-left: -25px;
 }
+
 /* test */
 *,
 :after,
@@ -451,17 +452,26 @@ button.accordion:focus {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-.mb-4 {
+/* .mb-4 {
   margin-bottom: 1.5rem !important;
-}
+} */
 section {
   display: block;
+  padding: auto;
 }
 
 .section-courses {
-  padding: 25rem 0 10rem 0;
-  margin-top: -20rem;
+  padding: 10rem 0 10rem 0;
+  /* margin-top: -20rem; */
   text-align: center;
+  background: #c2e59c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #c2e59c,
+    #64b3f4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #c2e59c, #64b3f4);
+  clip-path: ellipse(100% 48% at 50% 50%);
 }
 
 .card-link {
@@ -491,6 +501,7 @@ section {
 }
 .card-link__side--back {
   transform: rotateY(180deg);
+  background-color: #fff;
 }
 /* .card-link__side--back-1 {
           background-image: linear-gradient(to right, #ffb900, #ff7730); }
@@ -569,7 +580,7 @@ section {
   background-repeat: no-repeat;
   background-size: 200px 100px;
 }
-.card-link__heading {
+/* .card-link__heading {
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
@@ -583,7 +594,7 @@ section {
   border-radius: 5rem;
   padding: 1rem 1.5rem;
   -webkit-box-decoration-break: clone;
-}
+} */
 
 .card-link__cta {
   position: absolute;
@@ -606,3 +617,4 @@ section {
 #box_hover {
   max-width: 114rem;
 }
+/* -------- */
