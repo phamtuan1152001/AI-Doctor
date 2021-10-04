@@ -17,10 +17,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="Javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
       .btn {
@@ -46,11 +47,7 @@
       }
     </style>
 
-    <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
-      });
-    </script>
+    
   </head>
   <body>
   <!--Header of this web-->
@@ -160,13 +157,12 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">
                 OTORHINOLARYNGOLOGY
-              </a>
+              </a> 
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="Information.html" id="navbarDropdown" ">
-              INFORMATION
-            </a>
+            <a class="nav-link dropdown-toggle" href="Information.html" id="navbarDropdown" >
+              INFORMATION <a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="Information.html">
                 ABOUT US
@@ -219,7 +215,7 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,800,900%7cRaleway:300,400,500,600,700"
     rel="stylesheet">
-  </body>
+  <body>
  
     <div id="contact1">
       <h1 class="text-center">Contact us</h1>
@@ -231,11 +227,11 @@
       <div class="comment_fly" id="comment_fly2"></div>
       <div class="comment_fly" id="comment_fly3"></div>
 
-      <form id="waterform" method="post" active="#">
+      <form id="waterform" method="post" active="#" >
 
         <div class="formgroup" id="name-form">
           <label for="name">Your name*</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="name" name="name">
         </div>
 
         <div class="formgroup" id="message-form">
@@ -265,34 +261,67 @@
           </div>
       </div>
 
-
-        <input  type="submit" data-toggle="modal" data-target="#modalDelele" value="Feedback" />
+        <input  type="submit" id="content" value="Feedback" />
+ 
 
         <div class="formgroup" id="comment">
           <label>all comments</label>
-          <textarea disabled > </textarea>
+          <textarea disabled id="content1"></textarea>
         </div>
+      
 
-       
-      
-      
       </form>
       
-    </div>
-    <div class="modal fade" id="modalDelele">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Error</h4>
-            <button type="button" class="close" data-dismiss="modal"><span
-                aria-hidden="true">&times;</span></button>
-          </div>
-          <div class="modal-body">
-            <h4>Please enter information</h4>
-          </div>
-        </div>
-      </div>
-    </div> <!-- end modal -->
+    </div> 
+
+  
+  <script type="text/javascript">
+  $(document).ready(function()
+    { 
+       //khai báo biến submit form lấy đối tượng nút submit
+       var submit = $("input[type='submit']");
+ 
+       //khi nút submit được click
+       submit.click(function()
+       {
+         //khai báo các biến dữ liệu gửi lên server
+         var name = $("input[name='name']").val(); //lấy giá trị trong input user
+         var message = $("input[name='message']").val();// giá trị message
+         
+          //Kiểm tra xem trường đã được nhập hay chưa
+        
+        if(name == ''){
+           alert('Please enter Name');
+            return false;
+          
+         }
+         
+         //Lấy toàn bộ dữ liệu trong Form
+         var datas = $('form#waterform').serialize();
+       
+         //Sử dụng phương thức Ajax.
+         $.ajax({
+               type : 'POST', //Sử dụng kiểu gửi dữ liệu POST
+               url : 'data.php', //gửi dữ liệu sang trang #.php
+               data : datas, //dữ liệu sẽ được gửi
+               success : function(data)  // Hàm thực thi khi nhận dữ liệu được từ server
+                         { 
+                            if(data == 'false') 
+                            {
+                              alert('Error');
+                            }else{
+                              $('#content1').html(data); //dữ liệu HTML trả về sẽ được chèn vào trong thẻ có id content
+                             alert('Thanks for the feedback');
+                            }
+                         }
+               });
+               return false;
+         });
+     });
+
+    
+  </script>
+
     <!-- <div>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d149134.12912316382!2d106.70801062905318!3d10.815247071869582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBRdeG7kWMgVOG6vyAt!5e0!3m2!1svi!2s!4v1632753313229!5m2!1svi!2s"
