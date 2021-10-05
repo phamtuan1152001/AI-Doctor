@@ -191,8 +191,32 @@ body {
 }
 
 .modal-dialog {
-  max-width: 800px;
+  max-width: 800px !important;
   margin: 30px auto;
+}
+@media (max-width: 992px) {
+  .modal-dialog {
+    max-width: 600px !important;
+    margin: 30px auto;
+  }
+}
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 500px !important;
+    margin: 30px auto;
+  }
+}
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 400px !important;
+    margin: 30px auto;
+  }
+}
+@media (max-width: 375px) {
+  .modal-dialog {
+    max-width: 325px !important;
+    margin: 30px auto;
+  }
 }
 
 .modal-body {
