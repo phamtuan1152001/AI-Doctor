@@ -201,12 +201,12 @@ body {
 }
 .close {
   position: absolute;
-  right: -30px;
-  top: 0;
+  right: -2.5rem;
+  top: -1rem;
   z-index: 999;
-  font-size: 2rem;
+  font-size: 4rem !important;
   font-weight: normal;
-  color: #fff;
+  color: rgb(255, 2, 2) !important;
   opacity: 1;
 }
 .btn,
