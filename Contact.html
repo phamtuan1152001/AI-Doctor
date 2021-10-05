@@ -236,8 +236,7 @@
 
         <div class="formgroup" id="message-form">
           <label for="message">Your message</label>
-          <textarea id="message" name="message" ></textarea>
-        </div>
+          <textarea type="text" id="message" name="message" ></textarea>
 
      
         <div class="formgroup">
@@ -266,7 +265,7 @@
 
         <div class="formgroup" id="comment">
           <label>all comments</label>
-          <textarea disabled id="content1"></textarea>
+          <textarea readonly id="content1"></textarea>
         </div>
       
 
@@ -286,12 +285,17 @@
        {
          //khai báo các biến dữ liệu gửi lên server
          var name = $("input[name='name']").val(); //lấy giá trị trong input user
-         var message = $("input[name='message']").val();// giá trị message
-         
+         var message = $("textarea[name='message']").val();// giá trị message
+        
           //Kiểm tra xem trường đã được nhập hay chưa
         
         if(name == ''){
            alert('Please enter Name');
+            return false;
+          
+         }
+           if(message == ""){
+           alert('Please enter feedback');
             return false;
           
          }
