@@ -130,57 +130,60 @@ body {
 }
 /* Footer*/
 footer{
-    position: relative;
-    padding: 50px 100px;
-    font-size: medium;
-    font-family: Arial, Helvetica, sans-serif;
-    clear: both;
-    width: 100%;
-    height:auto;
-    background-size: 100%;
-    flex-wrap: wrap;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%; 
+    max-width: 100%;
+    background:linear-gradient(to right, #c2e59c, #64b3f4);
+    padding-bottom: 0;
+    margin-bottom: 0;
+   color: antiquewhite;
+   
+   box-sizing: border-box;
 }
 
-#footer-logo{
- margin-bottom: 5px;
- margin-left: auto;
- margin-right: auto;
- border-bottom: 10px;
- flex: auto;
- text-align: center;
+li,p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    color:white; 
+    font-size: large;
+}
+.social-icon{
+   color:whitesmoke;
+   margin: 10px;
+   line-height: 10px;
+   display: flex;
+}
+
+
+.bottom-row {
+    color: grey;
+}
+i{
+    font-size: 25px;
+    margin: 10px; 
+    cursor: pointer;
+
 
 }
-footer .container{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
+
+.description-img {
+    color: whitesmoke;
+    cursor: pointer;
 }
-h3{
-    font-weight: bold;
+
+.logo {
+   width: 120px;
+   height: auto;
 }
-footer .container .about{
-    margin-right: 30px;
-    position: relative;
-    margin-bottom: 15px;
-    float: left;
-    width: 40%;
+.row{ margin:5px;
+   padding: 5px;
+}
+a:link{
+   color: white;
 
 }
-footer .container .service{
-    margin:10px;
-    width: 30%;
-    position: relative;
-    float: center;
 
-}
-footer .container .feedback{
-    margin-right: 15px;
-    width: 30%;
-    position: relative;
-    font-weight: bold;
-    float: right;
+.row-1 {
+    margin-bottom: 10px; 
 }
