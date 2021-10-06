@@ -141,14 +141,14 @@ footer{
    box-sizing: border-box;
 }
 
-li,p {
+#footer li,p {
     margin-top: 8px;
     margin-bottom: 8px;
     cursor: pointer;
     color:white; 
     font-size: large;
 }
-.social-icon{
+#footer #fab-icon{
    color:whitesmoke;
    margin: 10px;
    line-height: 10px;
@@ -156,10 +156,10 @@ li,p {
 }
 
 
-.bottom-row {
+#footer .bottom-row {
     color: grey;
 }
-i{
+#footer i{
     font-size: 25px;
     margin: 10px; 
     cursor: pointer;
@@ -167,23 +167,23 @@ i{
 
 }
 
-.description-img {
+#footer .description-img {
     color: whitesmoke;
     cursor: pointer;
 }
 
-.logo {
+#footer .logo {
    width: 120px;
    height: auto;
 }
-.row{ margin:5px;
+#footer .row{ margin:5px;
    padding: 5px;
 }
-a:link{
+#footer a:link{
    color: white;
 
 }
 
-.row-1 {
+#footer .row-1 {
     margin-bottom: 10px; 
 }
