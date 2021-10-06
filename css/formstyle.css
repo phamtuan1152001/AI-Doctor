@@ -10,7 +10,10 @@ html,body{
   height: 100%;
   width: 100%;
   place-items: center;
-  background:linear-gradient(to right, #c2e59c, #64b3f4);
+  background:  url('/images/Loginimg.png'),url(/images/Browser.png),linear-gradient(to right, #c2e59c, #64b3f4);
+  background-repeat: no-repeat;
+  background-size:705px,700px,cover;
+  background-position: left,right;
 }
 ::selection{
   background: #c2e59c;
