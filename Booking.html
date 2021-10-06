@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="./css/header-footer.css" rel="stylesheet" />
     <link href="./css/Booking.css" rel="stylesheet" />
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -190,7 +190,15 @@
     </div>
   </nav>
   <!--End of header-->
-
+  <nav>
+    <div class="container-fluid padding" id="test">	
+        <div class="row text-center padding">
+          <div class="col-md-12">	
+            <img src="./images/x_Browser_04-1.png" class="img-fluid">
+          </div>
+        </div>
+      </div>
+  </nav>
   <!-- Content -->
   <div class="container">
     <h1 class="text-center booking-title">Making an opponent with a Doctor in AID</h1>
@@ -256,8 +264,13 @@
         </div>
         <!-- Submit button -->
         <div class="form-group">
-          <button type="button" class="btn btn-outline-success">Submit</button>
+          <button type="submit" class="btn btn-outline-success" onclick="message()">Submit</button>
         </div>
+        <script>
+          function message() {
+            alert("submit successfully!");
+          }
+        </script>
       </div>
       <script>
         var booking_left = document.querySelector('.booking-left');
