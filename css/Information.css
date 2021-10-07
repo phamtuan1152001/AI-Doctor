@@ -21,7 +21,7 @@ body {
 }
 #test p {
   text-align: left;
-  font-size: 12px;
+  font-size: 1rem;
   padding-bottom: 10rem;
   animation: moveInLeft 1s ease-out;
 }
@@ -45,6 +45,7 @@ body {
 #text_after_header h3,
 p {
   animation: moveInBottom 1s ease-out;
+  text-align: left;
 }
 
 .Integrity {
@@ -393,13 +394,18 @@ body {
   margin: auto;
   text-align: center;
 }
-p {
+.panel p {
   text-align: left;
   font-size: 12px;
 }
 .accordion {
   font-weight: 800 !important;
+  animation: moveInLeft 1s ease-out;
 }
+#imgFAQ {
+  animation: moveInRight 1s ease-out;
+}
+
 /* Định dạng các button mô tả cho nội dung*/
 button.accordion {
   background-color: transparent;
@@ -418,11 +424,11 @@ button.accordion {
 button.accordion.active {
   background-color: transparent;
   border-style: none !important;
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 button.accordion:hover {
   border: none;
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 
 /* Thiết lập cho phần nội dung, mặc định sẽ được ẩn đi */
@@ -446,6 +452,7 @@ button.accordion:focus {
   position: relative;
   padding-bottom: 20px;
   display: inline-block;
+  animation: moveInBottom 2s ease-out;
 }
 .container h2::before {
   position: absolute;
@@ -504,6 +511,7 @@ section {
   height: 350px;
   width: 100%;
   margin-top: 1rem;
+  animation: moveInBottom 1s ease-out;
 }
 .card-link__side {
   backface-visibility: hidden;
@@ -527,12 +535,6 @@ section {
   transform: rotateY(180deg);
   background-color: #fff;
 }
-/* .card-link__side--back-1 {
-          background-image: linear-gradient(to right, #ffb900, #ff7730); }
-        .card-link__side--back-2 {
-          background-image: linear-gradient(to right, #8e9efc, #1c3eff); }
-        .card-link__side--back-3 {
-          background-image: linear-gradient(to right, #55c57a, #28b485); } */
 .card-link:hover .card-link__side--front {
   transform: rotateY(-180deg);
 }
@@ -604,21 +606,6 @@ section {
   background-repeat: no-repeat;
   background-size: 200px 100px;
 }
-/* .card-link__heading {
-  font-size: 1rem;
-  font-weight: 300;
-  text-align: center;
-  text-transform: uppercase;
-  position: absolute;
-  top: 12rem;
-  right: 2rem;
-  width: 75%;
-}
-.card-link__heading-span {
-  border-radius: 5rem;
-  padding: 1rem 1.5rem;
-  -webkit-box-decoration-break: clone;
-} */
 
 .card-link__cta {
   position: absolute;

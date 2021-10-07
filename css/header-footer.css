@@ -7,6 +7,15 @@ body {
   font-family: "Koh Santepheap", cursive !important;
   font-size: 15px !important;
 }
+::-webkit-scrollbar {
+  width: 5px;
+  background: white !important;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 5px;
+}
 .container {
   margin: auto;
   text-align: center;

@@ -14,11 +14,13 @@
 }
 #test p {
   text-align: left;
-  font-size: 12px;
+  font-size: 1rem;
   padding-bottom: 10rem;
   animation: moveInLeft 1s ease-out;
 }
-
+#test img {
+  animation: moveInBottom 1s ease-out;
+}
 .profile {
   margin: 2rem 0;
 }
@@ -273,4 +275,56 @@
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.5);
   transition: all 0.4s 0.2s;
+}
+@keyframes ZoomIn-Out {
+  0% {
+    transform: scaleX(1.1) scaleY(1.1);
+  }
+  50% {
+    transform: scaleX(1.2) scaleY(1.2);
+  }
+
+  100% {
+    transform: scaleX(1.3) scaleY(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
