@@ -69,7 +69,7 @@
               <input type="text" placeholder="Your Full Name" required />
             </div>
             <div class="field">
-              <input type="text" placeholder="Birth- Ex:01/10/2001" required />
+              <input type="date" placeholder="Birth- Ex:01/10/2001" required />
             </div>
             <div class="sex-field">
               <span> Gender:</span>
@@ -92,7 +92,7 @@
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>
-              <input type="submit" value="Signup" />
+             <button onclick="Signup()"> <input type="submit" value="Signup"/></button>
             </div>
           </form>
         </div>
@@ -117,6 +117,11 @@
         signupBtn.click();
         return false;
       };
+    </script>
+    <script>
+      function Signup(){
+        alert("You have registered a new account!!!❤️");
+      }
     </script>
   </body>
 </html>
