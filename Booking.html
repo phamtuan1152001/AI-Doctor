@@ -18,6 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="Javascript.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!--CDN of Datatable-->
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
@@ -202,11 +203,13 @@
   <!-- Content -->
   <div class="container">
     <h1 class="text-center booking-title">Making an opponent with a Doctor in AID</h1>
+    <!-- Hoạt ảnh cho tiêu đề Booking-->
     <script>
       var booking_title = document.querySelector('.booking-title');
       booking_title.classList.add('animate__animated', 'animate__zoomIn');
       booking_title.style.setProperty('--animate-duration', '1.0s');
     </script>
+    <!-- Kết thúc hoạt ảnh -->
     <div class="row">
       <div class="col-sm-8 col-md-6 mt-3 booking-left">
         <!-- Selection list of hospital -->
@@ -225,6 +228,7 @@
             <option>Hospital H</option>
           </select>
         </div>
+        <!-- End of this part -->
         <!-- Radio list of Departments-->
         <div class="form-group">
           <label for="department" id="form-title">2. Choosing a department:</label>
@@ -245,6 +249,7 @@
             </label>
           </div>
         </div>
+        <!-- End of this part -->
         <!-- Calender to choose -->
         <div class="form-group">
           <label for="time" id="form-title-day">3. Choosing a day to have a oppointment with doctor:</label>
@@ -262,31 +267,66 @@
             });
           </script>
         </div>
+        <!-- End of this part -->
         <!-- Submit button -->
         <div class="form-group">
-          <button type="submit" class="btn btn-outline-success" onclick="message()">Submit</button>
+          <button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target="#validate-submit">Submit</button>
         </div>
-        <script>
-          function message() {
-            alert("submit successfully!");
-          }
-        </script>
+        <div class="modal fade" id="validate-submit">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">      
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Confirm to Validate Form</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>        
+              <!-- Modal body -->
+              <div class="modal-body">
+                <p>If you want to submit this form, please check that you have already update your medical history</p>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="optradio" class="form-check-input" id="opt1">Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" name="optradio" class="form-check-input" id="opt2">No
+                  </label>
+                </div>      
+              </div>        
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="check_yes_no()">Confirmation completed</button>
+              </div>
+              <script>
+                function check_yes_no() {
+                  var opt1 = document.getElementById('opt1');
+                  var opt2 = document.getElementById('opt2');
+                  if ( opt1.checked === true) {
+                    swal("Good job!", "Submit Sucessfully!", "success");
+                  }
+                  else {
+                    swal("Please updating your personal information!", "Submit fail!", "error");
+                  }
+                }
+              </script> 
+            </div>
+          </div>
+        </div>
+        <!-- End of this part -->
       </div>
-      <script>
-        var booking_left = document.querySelector('.booking-left');
-        booking_left.classList.add('animate__animated', 'animate__zoomInLeft');
-        booking_left.style.setProperty('--animate-duration', '1.5s');
-      </script>
       <div class="col-sm-4 col-md-6 mt-3 booking-Right">
         <div>
           <img class="img-fluid" src="./images/booking-1.jpg" alt="booking-right">
         </div>
       </div>
+      <!-- Hoạt ảnh cho booking-right -->
       <script>
         var booking_right = document.querySelector('.booking-Right');
         booking_right.classList.add('animate__animated', 'animate__zoomInRight');
         booking_right.style.setProperty('--animate-duration', '1.5s');
       </script>
+      <!-- Kết thúc hoạt ảnh -->
     </div>
   </div>
   <!-- End of Content -->
