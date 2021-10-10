@@ -34,3 +34,7 @@
     background: linear-gradient(to right, #c2e59c, #64b3f4);
     clip-path: ellipse(85% 78% at 50% 19%);
 }
+.booking-left {
+    animation: zoomInLeft;
+    animation-duration: 1.5s;
+}
