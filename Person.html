@@ -240,7 +240,7 @@
 				</div>				
 				
 				<div class="profile-userbuttons">
-					<a href="#" type="button" class="btn btn-danger btn-sm">Log out</a>
+					<a  onclick="logout()" type="button" class="btn btn-danger btn-sm">Log out</a>
 				</div>				
 			
 				<div class="profile-usermenu">
@@ -424,4 +424,24 @@
   </div>
 </div>
   </body>
+  <script>
+    function logout(){
+      swal({
+        title: "Are you sure?",
+        text: "If you log out you will not be able to use our service!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your account has been logged out!", {
+            icon: "success",
+          });
+        } else {
+          swal("Please continue to use our service!");
+        }
+      });
+    }
+  </script>
   </html>
