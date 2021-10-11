@@ -308,7 +308,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 478px;
-  height: 317px;
+  height: 300px;
   background-color: #fff;
   border-radius: 0.5rem;
   display: table;
@@ -317,6 +317,7 @@
   transform: translate(-50%, -50%) scale(0.5);
   transition: all 0.4s 0.2s;
 }
+
 .popup3:target {
   opacity: 1;
   visibility: visible;
@@ -330,23 +331,23 @@
 }
 .textwarning h4 {
   margin-top: 3rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 .textwarning p {
   margin-top: 1rem;
-  font-size: 1rem;
+  font-size: 1.1em;
 }
 .btn--logout_Cancel {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   background-color: green !important;
-  font-size: 1.5rem !important;
+  font-size: 1.3rem !important;
 }
 .btn--logout_OK {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   background-color: red !important;
   margin-left: 1rem;
-  font-size: 1.5rem !important;
+  font-size: 1.3rem !important;
 }
 @media (max-width: 1380px) {
   .popup__content {
