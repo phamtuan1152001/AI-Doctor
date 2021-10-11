@@ -9,13 +9,15 @@
   clip-path: ellipse(85% 78% at 50% 19%);
 }
 #test h1 {
-  padding-top: 100px;
+  padding-top: 10rem;
   animation: moveInLeft 1s ease-out;
+  font-size: 4rem;
 }
 #test p {
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding-bottom: 10rem;
+  margin-top: 1rem;
   animation: moveInLeft 1s ease-out;
 }
 #test img {
