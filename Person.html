@@ -22,6 +22,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="Javascript.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <style>
       body{
@@ -239,7 +240,7 @@
 				</div>				
 				
 				<div class="profile-userbuttons">
-					<a href="#" type="button" class="btn btn-danger btn-sm">Log out</a>
+					<a href="#popup3" onclick="logout()" type="button" class="btn btn-danger btn-sm">Log out</a>
 				</div>				
 			
 				<div class="profile-usermenu">
@@ -247,10 +248,15 @@
 						<li class="active">
 							<a href="#popup">
 							<i class="glyphicon glyphicon-info-sign"></i>
-							Update personal information </a>
+							Update Personal Information </a>
+						</li>
+            <li>
+							<a href="#popup1">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                Update Medical record </a>
 						</li>
 						<li>
-							<a href="#popup1">
+							<a href="#popup2">
                 <i class="glyphicon glyphicon-info-sign"></i>
                 Change Password </a>
 						</li>
@@ -297,6 +303,7 @@
 	</div>
 </div>
 
+<!-- popup update information -->
 <div class="popup" id="popup">
   <div class="popup__content">
     <div class="popup__left">
@@ -313,30 +320,31 @@
         <form action="#">
           <div class="mb-3">
             <label for="Name" class="form-label">Name</label>
-            <input class="form-control" type="text" placeholder="Name" aria-label="default input example">
+            <input class="form-control" type="text" placeholder="Name" aria-label="default input example" required="">
             </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required="">
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date of birth</label>
-            <input type="date" id="start" name="trip-start">
+            <input type="date" id="start" name="trip-start" required="">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Phone</label>
-            <input type='tel' class="form-control" pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' title='Phone Number (Format: +99(99)9999-9999)'>
+            <input type='tel' class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="">
           </div>
           
           <div class="mb-3">
-            <label for ="">gender</label>
+            <label for ="">Gender: &nbsp;&nbsp;</label>
             <input type="radio" value="male" name="gender" id="male" checked>
-            <label for ="">male</label>
+            <label for ="">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="radio" value="female" name="gender" id="female">
-            <label for ="">female</label>
+            <label for ="">Female</label>
         </div>
         <div class="mb-3">
-          <textarea class="form-control"  placeholder="Pathology correction"  aria-label="With textarea"></textarea>
+          <label for="address" class="form-label">Address</label>
+          <textarea class="form-control"  placeholder="Address"  aria-label="With textarea" required=""></textarea>
         </div> 
 
         <div class="mb-3">
@@ -347,9 +355,42 @@
       </div>
   </div>
 
-  
-<div class="popup1" id="popup1">
-  <div class="popup1__content">
+<!--Update pathological-->
+
+<div class="popup" id="popup1">
+  <div class="popup__content">
+    <div class="card card-outline-secondary">
+      <a href="#section-courses" class="popup__close">&times;</a>
+      <div class="card-header">
+        <h3 class="mb-0">Update Medical record</h3>
+      </div>
+      <div class="card-body">
+        <form autocomplete="off" class="form" role="form" action="#">
+          <div class="form-group">
+            <label for="inputBackgroundisease">Background disease</label> 
+            <textarea class="form-control" id="inputBackgroundisease" required=""></textarea> 
+            <span class="form-text small text-muted">You need to provide information about the diseases you have such as Diabetes mellitus, lung diseases, Acute kidney injury, obesity, allergies etc.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="inputHPC">History of presenting complaint (HPC)/ History of present illness (HPI): </label> 
+            <textarea class="form-control" id="inputHPC" required=""></textarea> 
+            <span class="form-text small text-muted">You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc.</span>
+          </div>
+          <div class="form-group">
+            <button onclick="FormHPC()" class="btn btn-success btn-lg float-right"  type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- popup reset password -->
+<div class="popup" id="popup2">
+  <div class="popup__content">
     
         <!-- form card change password -->
         <div class="card card-outline-secondary">
@@ -382,8 +423,56 @@
      
   </div>
 </div>
- 
- 
+
+<div class="popup3" id="popup3">
+  <div class="popup3__content">
+      <div class="card-body">
+       <div class="container padding">
+        <div id="warning-icon"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#f8bb86" class="bi bi-exclamation-square" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+          </svg>
+        </div>
+        <div class="textwarning">
+          <h4>Are you sure?</h4>
+          
+          <p>If you log out you will not be able to use our service!</p>
+        </div>
+        <div class="container">
+          <a  href="#section-courses" class="btn btn--logout_Cancel">Cancel</a>
+          <a href="Log&Signform.html" class="btn btn--logout_OK">OK</a>
+
+        </div>
+
+     
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
   </body>
+  <!-- <script>
+    function logout(){
+      swal({
+        title: "Are you sure?",
+        text: "If you log out you will not be able to use our service!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your account has been logged out!", {
+            icon: "success",
+          });
+        } else {
+          swal("Please continue to use our service!");
+        }
+      });
+    }
+  </script> -->
   </html>

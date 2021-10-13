@@ -24,6 +24,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="Javascript.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
 
     <style>
@@ -297,12 +298,22 @@
           //Kiểm tra xem trường đã được nhập hay chưa
         
         if(name == ''){
-           alert('Please enter Name');
+          swal({
+            title: "Oops...!",
+            text: "Name is blank!",
+            icon: "error",
+            button: "Aww yiss!",
+          });
             return false;
           
          }
-           if(message == ""){
-           alert('Please enter feedback');
+           if(message == ''){
+            swal({
+              title: "Oops...!",
+              text: "Message is blank!",
+              icon: "error",
+              button: "Aww yiss!",
+            });
             return false;
           
          }
@@ -319,10 +330,20 @@
                          { 
                             if(data == 'false') 
                             {
-                              alert('Error');
+                              swal( {
+                                title: "Error...!",
+                                text: "System error, please reload the web!",
+                                icon: "warning",
+                                button: "Aww yiss!",
+                              });
                             }else{
                               $('#content1').html(data); //dữ liệu HTML trả về sẽ được chèn vào trong thẻ có id content
-                             alert('Thanks for the feedback');
+                              swal({
+                                title: "Good job!",
+                                text: "Thank you for your feedback!",
+                                icon: "success",
+                                button: "Aww yiss!",
+                              });
                             }
                          }
                });
