@@ -1,0 +1,91 @@
+.container {
+  text-align: initial;
+}
+h1 {
+  padding-bottom: 13px;
+  border-bottom: 1px solid black;
+  animation: rubberBand;
+  animation-duration: 1s;
+}
+h2 {
+  color: #8cb18c;
+}
+h3 {
+  animation: wobble;
+  animation-duration: 1s;
+}
+.OHD-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  animation: backInLeft;
+  animation-duration: 2s;
+}
+.visit-us {
+  background: #c2e59c;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.visit-us a {
+  color: black;
+  padding-left: 10px;
+  text-decoration: none;
+}
+.visit-us a:hover {
+  text-decoration: none;
+  color: initial;
+}
+.visit-us:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+.OHD {
+  border-bottom: solid 1px black;
+}
+.tooltip1 {
+  position: relative;
+  display: inline-block;
+}
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  width: 200px;
+  background-color: #64b3f4;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 22%;
+  margin-left: -60px;
+}
+.img-tooltip:hover {
+  cursor: pointer;
+}
+.tooltip-title {
+  color: #8cb18c;
+  font-size: 20px;
+  font-weight: 400;
+}
+.tooltip1 .tooltiptext1::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #64b3f4 transparent;
+}
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+  top: 200px;
+}

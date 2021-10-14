@@ -7,22 +7,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="./css/header-footer.css" rel="stylesheet" />
-    <link href="./css/Person.css" rel="stylesheet" />
+    <link href="./css/Contact_us.css" rel="stylesheet" />
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href = "https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"  rel = "stylesheet" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="Javascript.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <style>
       body{
@@ -51,11 +52,7 @@
       }
     </style>
 
-    <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
-      });
-    </script>
+    
   </head>
   <body>
   <!--Header of this web-->
@@ -117,16 +114,16 @@
   </header>
 
 <!--Navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-light pt-1 pb-1 sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light  pt-1 pb-1 sticky-top">
     <div class="container">
       <a class="navbar-branch "href="index.html" id="logo">
         <img src="images/LogoAI.png" height="80">
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
       
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto  ">
@@ -136,7 +133,7 @@
               SERVICES
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="Diagnose.html">
+              <a class="dropdown-item" href="Diagnose.html" target="_blank">
                 DIAGNOSE
               </a>
               <!--chèn link in # -->
@@ -165,19 +162,18 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">
                 OTORHINOLARYNGOLOGY
-              </a>
+              </a> 
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="Information.html" id="navbarDropdown" >
-              INFORMATION
-            </a>
+              INFORMATION <a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="Information.html">
                 ABOUT US
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#FAQ1">
+              <a class="dropdown-item" href="Information.html#FAQ1">
                 FAQ
               </a>
             </div>
@@ -189,7 +185,7 @@
           </li>
           <li>
             <div class="container" id="navbarDropdown">
-              <a href="#" id="person">
+              <a href="Person.html" id="person">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="#c2e59c"
                   class="bi bi-file-earmark-person" viewBox="0 0 16 16">
                   <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -204,275 +200,144 @@
       </div>
     </div>
   </nav>
-<!--end header-->
-<nav>
-  <div class="container-fluid padding" id="test">	
+  <!--End of header-->
+   <nav>
+    <div class="container-fluid padding" id="test">
       <div class="row text-center padding">
-        <div class="col-md-6">	
-          <img src="./images/person.png" class="img-fluid">
+        <div class="col-md-6">
+          <img src="./images/contact.png" class="img-fluid">
         </div>
-     
-      <div class="col-md-6">
-          <h1>Personal Information</h1>
+
+        <div class="col-md-6">
+          <h1>Contact</h1>
           <br>
-          <p>A place that helps you easily manage your own personal information, your medical conditions will also be recorded here, your doctor will easily refer to your condition through this record.</p>
+          <p>&nbsp&nbsp&nbsp&nbspHow do you feel about using our service? Is it easy to use? Are there any bugs or issues? Does the consulting service satisfy you? If you are satisfied or have any suggestions you can send us below we will improve it to help AI Doctor become more and more perfect.</p>
         </div>
       </div>
     </div>
-</nav>
+  </nav>
 
-
-
-
-  <div class="container">
-    <div class="row profile">
-		<div class="col-md-3">
-			<div class="profile-sidebar">
-			
-				<div class="profile-userpic">
-					<img src="images/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">
-				</div>				
-			
-				<div class="profile-usertitle">
-					<div class="profile-usertitle-name">
-						Nguyễn Quốc Bảo
-					</div>
-				</div>				
-				
-				<div class="profile-userbuttons">
-					<a href="#popup3" onclick="logout()" type="button" class="btn btn-danger btn-sm">Log out</a>
-				</div>				
-			
-				<div class="profile-usermenu">
-					<ul class="nav">
-						<li class="active">
-							<a href="#popup">
-							<i class="glyphicon glyphicon-info-sign"></i>
-							Update Personal Information </a>
-						</li>
-            <li>
-							<a href="#popup1">
-                <i class="glyphicon glyphicon-info-sign"></i>
-                Update Medical record </a>
-						</li>
-						<li>
-							<a href="#popup2">
-                <i class="glyphicon glyphicon-info-sign"></i>
-                Change Password </a>
-						</li>
-					</ul>
-				</div>
-				
-			</div>
-		</div>
-		<div class="col-md-9">
-      <div>
-        <table class="table table-striped">
-            <tbody><tr>
-                <td class="first-colmn">Full name</td>
-                <td>Kiddo</td>
-            </tr>
-            <tr>
-                <td class="first-colmn">Email</td>
-                <td>
-                    bao2001v@gmail.com
-                </td>
-            </tr>
-            <tr>
-                <td class="first-colmn">General</td>
-                <td> female </td>
-            </tr>
-            <tr>
-                <td class="first-colmn">Date of birth</td>
-                <td>01/01/0001</td>
-            </tr>
-         
-            <tr>
-                <td class="first-colmn">PhoneNumber</td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td class="first-colmn">About</td>
-                <td>
-                </td>
-            </tr>
-        </tbody></table>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,800,900%7cRaleway:300,400,500,600,700"
+    rel="stylesheet">
+  <body>
+ 
+    <div id="contact1">
+      <h1 class="text-center">Contact us</h1>
     </div>
-		</div>
-	</div>
-</div>
 
-<!-- popup update information -->
-<div class="popup" id="popup">
-  <div class="popup__content">
-    <div class="popup__left">
-      <img src="images/profile_user.jpg" alt="Tour photo" class="popup__img">
-        <span class="btn btn--success fileinput-button">
-          <i class="glyphicon glyphicon-plus"></i>
-          <span>Upload avatar</span>
-          <input id="fileupload" type="file" name="fileupload">
-      </span>
+    <div id="form">
+
+      <div class="comment_fly" id="comment_fly1"></div>
+      <div class="comment_fly" id="comment_fly2"></div>
+      <div class="comment_fly" id="comment_fly3"></div>
+
+      <form id="waterform" method="post" active="#" >
+
+        <div class="formgroup" id="name-form">
+          <label for="name">Your name*</label>
+          <input type="text" id="name" name="name">
+        </div>
+
+        <div class="formgroup" id="message-form">
+          <label for="message">Your message</label>
+          <textarea type="text" id="message" name="message" ></textarea>
+
+     
+        <div class="formgroup">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Unsatisfied
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Satisfied
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
+            <label class="form-check-label" for="flexRadioDefault3">
+              Extremely satisfied
+            </label>
+          </div>
+      </div>
+
+        <input  type="submit" id="content" value="Feedback" />
+ 
+
+        <div class="formgroup" id="comment">
+          <label>all comments</label>
+          <textarea readonly id="content1"></textarea>
+        </div>
       
-  </div>
-      <div class="popup__right">
-        <a href="#section-courses" class="popup__close">&times;</a>
-        <form action="#">
-          <div class="mb-3">
-            <label for="Name" class="form-label">Name</label>
-            <input class="form-control" type="text" placeholder="Name" aria-label="default input example" required="">
-            </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required="">
-          </div>
-          <div class="mb-3">
-            <label for="date" class="form-label">Date of birth</label>
-            <input type="date" id="start" name="trip-start" required="">
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Phone</label>
-            <input type='tel' class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="">
-          </div>
-          
-          <div class="mb-3">
-            <label for ="">Gender: &nbsp;&nbsp;</label>
-            <input type="radio" value="male" name="gender" id="male" checked>
-            <label for ="">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="radio" value="female" name="gender" id="female">
-            <label for ="">Female</label>
-        </div>
-        <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
-          <textarea class="form-control"  placeholder="Address"  aria-label="With textarea" required=""></textarea>
-        </div> 
 
-        <div class="mb-3">
-          <button  type="submit" class="btn btn-primary">Submit</button>
-        </div>
-        </form>
-         </div>
-      </div>
-  </div>
+      </form>
+      
+    </div> 
 
-<!--Update pathological-->
-
-<div class="popup" id="popup1">
-  <div class="popup__content">
-    <div class="card card-outline-secondary">
-      <a href="#section-courses" class="popup__close">&times;</a>
-      <div class="card-header">
-        <h3 class="mb-0">Update Medical record</h3>
-      </div>
-      <div class="card-body">
-        <form autocomplete="off" class="form" role="form" action="#">
-          <div class="form-group">
-            <label for="inputBackgroundisease">Background disease</label> 
-            <textarea class="form-control" id="inputBackgroundisease" required=""></textarea> 
-            <span class="form-text small text-muted">You need to provide information about the diseases you have such as Diabetes mellitus, lung diseases, Acute kidney injury, obesity, allergies etc.</span>
-          </div>
-
-          <div class="form-group">
-            <label for="inputHPC">History of presenting complaint (HPC)/ History of present illness (HPI): </label> 
-            <textarea class="form-control" id="inputHPC" required=""></textarea> 
-            <span class="form-text small text-muted">You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc.</span>
-          </div>
-          <div class="form-group">
-            <button onclick="FormHPC()" class="btn btn-success btn-lg float-right"  type="submit">Save</button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-<!-- popup reset password -->
-<div class="popup" id="popup2">
-  <div class="popup__content">
-    
-        <!-- form card change password -->
-        <div class="card card-outline-secondary">
-          <a href="#section-courses" class="popup__close">&times;</a>
-          <div class="card-header">
-            <h3 class="mb-0">Change Password</h3>
-          </div>
-          <div class="card-body">
-            <form autocomplete="off" class="form" role="form" action="#">
-              <div class="form-group">
-                <label for="inputPasswordOld">Current Password</label> 
-                <input class="form-control" id="inputPasswordOld" required="" type="password">
-              </div>
-              <div class="form-group">
-                <label for="inputPasswordNew">New Password</label> 
-                <input class="form-control" id="inputPasswordNew" required="" type="password"> 
-                <small class="form-text text-muted" id="passwordHelpBlock">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</small>
-              </div>
-              <div class="form-group">
-                <label for="inputPasswordNewVerify">Verify</label> 
-                <input class="form-control" id="inputPasswordNewVerify" required="" type="password"> 
-                <span class="form-text small text-muted">To confirm, type the new password again.</span>
-              </div>
-              <div class="form-group">
-                <button class="btn btn-success btn-lg float-right" type="submit">Save</button>
-              </div>
-            </form>
-          </div>
-        </div><!-- /form card change password -->
-     
-  </div>
-</div>
-
-<div class="popup3" id="popup3">
-  <div class="popup3__content">
-      <div class="card-body">
-       <div class="container padding">
-        <div id="warning-icon"> 
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#f8bb86" class="bi bi-exclamation-square" viewBox="0 0 16 16">
-            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-          </svg>
-        </div>
-        <div class="textwarning">
-          <h4>Are you sure?</h4>
-          
-          <p>If you log out you will not be able to use our service!</p>
-        </div>
-        <div class="container">
-          <a  href="#section-courses" class="btn btn--logout_Cancel">Cancel</a>
-          <a href="Log&Signform.html" class="btn btn--logout_OK">OK</a>
-
-        </div>
-
-     
+  
+  <script type="text/javascript">
+  $(document).ready(function()
+    { 
+       //khai báo biến submit form lấy đối tượng nút submit
+       var submit = $("input[type='submit']");
+ 
+       //khi nút submit được click
+       submit.click(function()
+       {
+         //khai báo các biến dữ liệu gửi lên server
+         var name = $("input[name='name']").val(); //lấy giá trị trong input user
+         var message = $("textarea[name='message']").val();// giá trị message
         
-      </div>
+          //Kiểm tra xem trường đã được nhập hay chưa
+        
+        if(name == ''){
+           alert('Please enter Name');
+            return false;
+          
+         }
+           if(message == ""){
+           alert('Please enter feedback');
+            return false;
+          
+         }
+         
+         //Lấy toàn bộ dữ liệu trong Form
+         var datas = $('form#waterform').serialize();
+       
+         //Sử dụng phương thức Ajax.
+         $.ajax({
+               type : 'POST', //Sử dụng kiểu gửi dữ liệu POST
+               url : 'data.php', //gửi dữ liệu sang trang #.php
+               data : datas, //dữ liệu sẽ được gửi
+               success : function(data)  // Hàm thực thi khi nhận dữ liệu được từ server
+                         { 
+                            if(data == 'false') 
+                            {
+                              alert('Error');
+                            }else{
+                              $('#content1').html(data); //dữ liệu HTML trả về sẽ được chèn vào trong thẻ có id content
+                             alert('Thanks for the feedback');
+                            }
+                         }
+               });
+               return false;
+         });
+     });
 
-    </div>
-  </div>
-</div>
+    
+  </script>
 
+    <!-- <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d149134.12912316382!2d106.70801062905318!3d10.815247071869582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBRdeG7kWMgVOG6vyAt!5e0!3m2!1svi!2s!4v1632753313229!5m2!1svi!2s"
+        width="1340px" height="450" style="border:0;" allow="fullscreen" loading="lazy" id="map"></iframe>
 
-  </body>
-  <!-- <script>
-    function logout(){
-      swal({
-        title: "Are you sure?",
-        text: "If you log out you will not be able to use our service!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          swal("Poof! Your account has been logged out!", {
-            icon: "success",
-          });
-        } else {
-          swal("Please continue to use our service!");
-        }
-      });
-    }
-  </script> -->
-  </html>
+    </div> -->
+    <!-- Footer of the web-->
+</body>
+</html>

@@ -16,13 +16,15 @@ body {
   clip-path: ellipse(85% 78% at 50% 19%);
 }
 #test h1 {
-  padding-top: 100px;
+  padding-top: 10rem;
   animation: moveInLeft 1s ease-out;
+  font-size: 4rem;
 }
 #test p {
   text-align: left;
-  font-size: 12px;
+  font-size: 1.4rem;
   padding-bottom: 10rem;
+  margin-top: 1rem;
   animation: moveInLeft 1s ease-out;
 }
 #test img {
@@ -45,6 +47,7 @@ body {
 #text_after_header h3,
 p {
   animation: moveInBottom 1s ease-out;
+  text-align: left;
 }
 
 .Integrity {
@@ -80,7 +83,7 @@ p {
 }
 
 .card {
-  width: 220px;
+  width: 420px;
   height: 351px;
   background: #fff;
   border-top-right-radius: 10px;
@@ -131,7 +134,7 @@ p {
 }
 
 .card p {
-  font-size: 16px;
+  font-size: 1.4rem;
   color: white;
   margin-top: 30px;
   z-index: 1;
@@ -177,7 +180,7 @@ p {
   border-radius: 50%;
   background: var(--bg-color);
   top: 20px;
-  left: 50px;
+  left: 150px;
   z-index: 0;
   transition: transform 0.3s ease-out;
 }
@@ -267,9 +270,9 @@ body {
   color: #5a73fc;
   border-bottom: 1px solid #5a73fc;
   padding-top: 0.3rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   transition: all 0.2s;
-  width: 6rem;
+  width: 7rem;
   height: 2rem;
   text-align: center;
 }
@@ -393,13 +396,19 @@ body {
   margin: auto;
   text-align: center;
 }
-p {
+.panel p {
   text-align: left;
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 .accordion {
   font-weight: 800 !important;
+  animation: moveInLeft 1s ease-out;
+  font-size: 1.5rem;
 }
+#imgFAQ {
+  animation: moveInRight 1s ease-out;
+}
+
 /* Định dạng các button mô tả cho nội dung*/
 button.accordion {
   background-color: transparent;
@@ -418,11 +427,11 @@ button.accordion {
 button.accordion.active {
   background-color: transparent;
   border-style: none !important;
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 button.accordion:hover {
   border: none;
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 
 /* Thiết lập cho phần nội dung, mặc định sẽ được ẩn đi */
@@ -446,6 +455,7 @@ button.accordion:focus {
   position: relative;
   padding-bottom: 20px;
   display: inline-block;
+  animation: moveInBottom 2s ease-out;
 }
 .container h2::before {
   position: absolute;
@@ -487,7 +497,7 @@ section {
 .section-courses {
   padding: 10rem 0 10rem 0;
   /* margin-top: -20rem; */
-  text-align: center;
+  /* text-align: center; */
   background: #c2e59c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -501,9 +511,12 @@ section {
 .card-link {
   perspective: 150rem;
   position: relative;
-  height: 350px;
-  width: 100%;
-  margin-top: 1rem;
+  height: 27rem;
+  width: 75%;
+  margin-top: 3rem;
+  margin-left: 3rem;
+  /* padding: 5rem 10rem 5rem 10rem; */
+  animation: moveInBottom 1s ease-out;
 }
 .card-link__side {
   backface-visibility: hidden;
@@ -514,11 +527,11 @@ section {
   left: 0;
   cursor: pointer;
   color: white;
-  font-size: 1rem;
   transition: all 0.8s ease;
   border-radius: 5rem;
   overflow: hidden;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
 }
 .card-link__side--front {
   background-color: #fff;
@@ -527,12 +540,6 @@ section {
   transform: rotateY(180deg);
   background-color: #fff;
 }
-/* .card-link__side--back-1 {
-          background-image: linear-gradient(to right, #ffb900, #ff7730); }
-        .card-link__side--back-2 {
-          background-image: linear-gradient(to right, #8e9efc, #1c3eff); }
-        .card-link__side--back-3 {
-          background-image: linear-gradient(to right, #55c57a, #28b485); } */
 .card-link:hover .card-link__side--front {
   transform: rotateY(-180deg);
 }
@@ -604,21 +611,6 @@ section {
   background-repeat: no-repeat;
   background-size: 200px 100px;
 }
-/* .card-link__heading {
-  font-size: 1rem;
-  font-weight: 300;
-  text-align: center;
-  text-transform: uppercase;
-  position: absolute;
-  top: 12rem;
-  right: 2rem;
-  width: 75%;
-}
-.card-link__heading-span {
-  border-radius: 5rem;
-  padding: 1rem 1.5rem;
-  -webkit-box-decoration-break: clone;
-} */
 
 .card-link__cta {
   position: absolute;
@@ -629,8 +621,9 @@ section {
   text-align: center;
 }
 .card-link__define {
-  font-size: 0.76rem !important;
+  font-size: 1rem !important;
   color: black !important;
+  margin-top: 1rem !important;
 }
 .card-link__info {
   text-align: center;

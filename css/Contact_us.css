@@ -9,6 +9,7 @@ html {
   font-family: "Koh Santepheap", cursive;
   font-size: 15px;
 }
+
 #test {
   background: #c2e59c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -20,12 +21,15 @@ html {
   clip-path: ellipse(85% 78% at 50% 19%);
 }
 #test h1 {
-  padding-top: 100px;
+  padding-top: 10rem;
+  animation: moveInLeft 1s ease-out;
+  font-size: 4rem;
 }
 #test p {
   text-align: left;
-  font-size: 12px;
+  font-size: 1.3rem;
   padding-bottom: 10rem;
+  animation: moveInLeft 1s ease-out;
 }
 #contact1 h1 {
   font-weight: normal;
@@ -34,6 +38,10 @@ html {
   margin-top: 30px;
   color: #f90;
   text-align: center;
+  animation: moveInBottom 2s ease-out;
+}
+#test img {
+  animation: moveInBottom 1s ease-out;
 }
 
 /* Animation webkit */
@@ -92,11 +100,12 @@ html {
 }
 
 #form {
-  height: 140%;
+  height: 100%;
   background-color: #98d4f3;
   overflow: hidden;
   position: relative;
   clip-path: ellipse(100% 78% at 51% 80%);
+  animation: moveInBottom 1s ease-out;
 }
 form {
   margin: 0 auto;
@@ -124,13 +133,7 @@ textarea {
   font-size: 1em;
   color: #676767;
   transition: border 0.5s;
-  -webkit-transition: border 0.5s;
-  -moz-transition: border 0.5s;
-  -o-transition: border 0.5s;
   border: solid 3px #98d4f3;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .message {
   margin-bottom: 2rem;
@@ -225,7 +228,7 @@ textarea {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  */ #map {
+  #map {
     width: 500px;
   }
 }
@@ -234,24 +237,12 @@ textarea:focus {
   border: solid 3px #77bde0;
 }
 
-textarea {
-  height: 100px;
-  resize: none;
-  overflow: auto;
-}
-::-webkit-scrollbar {
-  width: 10px;
-  background: white !important;
-  border-radius: 50px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: gray;
-  border-radius: 5px;
-}
 #comment textarea {
   overflow-y: scroll;
   height: 300px;
   resize: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 input[type="submit"] {
   background-color: #f90;
@@ -315,4 +306,56 @@ label {
 .form-check-input {
   display: inline-block;
   width: 10%;
+}
+@keyframes ZoomIn-Out {
+  0% {
+    transform: scaleX(1.1) scaleY(1.1);
+  }
+  50% {
+    transform: scaleX(1.2) scaleY(1.2);
+  }
+
+  100% {
+    transform: scaleX(1.3) scaleY(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

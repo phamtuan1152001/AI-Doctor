@@ -8,8 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="./css/header-footer.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+    <link rel="stylesheet" href="./css/index.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -237,26 +236,32 @@
     <!--Hoạt ảnh cho h2-->
     <script>
       var service = document.querySelector(".service-title");
-      //console.log(service);
       service.classList.add('animate__animated', 'animate__backInLeft');
       service.style.setProperty('--animate-duration', '1.5s');
     </script>
-    <div class="container text-center mt-5">
+    <!-- Kết thúc hoạt ảnh -->
+    <div class="under-title"></div>
+    <script>
+      var service_1 = document.querySelector(".under-title");
+      service_1.classList.add('animate__animated', 'animate__backInLeft');
+      service_1.style.setProperty('--animate-duration', '1.5s');
+    </script>
+    <div class="container text-center mt-5 box-1">
       <div class="row service-detail-1">
         <!--Hoạt ảnh cho các dịch vụ chi tiết dòng 1-->
         <script>
           var service_detail_1 = document.querySelector(".service-detail-1");
-          //console.log(service);
           service_detail_1.classList.add('animate__animated', 'animate__fadeInLeft');
           service_detail_1.style.setProperty('--animate-duration', '1.5s');
         </script>
+        <!-- Kết thúc hoạt ảnh -->
         <div class="col-md-4">
           <div>
             <img src="https://theme.hstatic.net/1000382884/1000489473/14/hservice_icon1.png?v=2427" alt="health-diagnose">
           </div>
           <div><h5>Online health diagnosis</h5></div>
           <div><p>Experience online health consulting services via video with a team of dedicated and experienced doctors in Vietnam after just a few simple steps on the phone.</p></div>
-          <div><a href="#" class="btn btn-outline-success mt-3" role="button">Looking for more information</a></div>
+          <div><a target="_blank" href="online_health_diagnosis.html" class="btn btn-outline-primary mt-4" role="button">Looking for more information</a></div>
         </div>
         <div class="col-md-4">
           <div>
@@ -264,7 +269,7 @@
           </div>
           <div><h5>Immediately pills sent</h5></div>
           <div><p>All medical records and prescriptions will be emailed to you right after the health diagnosing is over. Moreover, the medicine will also be delivered to you.</p></div>
-          <div><a href="#" class="btn btn-outline-success mt-4" role="button">Looking for more information</a></div>
+          <div><a href="#" class="btn btn-outline-primary mt-4" role="button">Looking for more information</a></div>
         </div>
         <div class="col-md-4">
           <div>
@@ -272,7 +277,7 @@
           </div>
           <div><h5>Appointment with a doctor</h5></div>
           <div><p>The administrator will assign and help you schedule specialist visits, radiology, laboratory services. All medical facilities associated with AID are guaranteed for their reputation and service quality.</p></div>
-          <div><a href="#" class="btn btn-outline-success" role="button">Looking for more information</a></div>
+          <div><a href="#" class="btn btn-outline-primary" role="button">Looking for more information</a></div>
         </div>
       </div>
       <div class="row mt-5 service-detail-2">
@@ -281,20 +286,20 @@
           var service_detail_2 = document.querySelector(".service-detail-2");
           window.addEventListener("scroll", function(){
           var x = pageYOffset;
-          //console.log(x);
             if (x > 10) {
               service_detail_2.classList.add('animate__animated', 'animate__fadeInRight');
               service_detail_2.style.setProperty('--animate-duration', '1.5s');
             }
           })
         </script>
+        <!-- Kết thúc hoạt ảnh -->
         <div class="col-md-4">
           <div>
             <img src="https://theme.hstatic.net/1000382884/1000489473/14/hservice_icon4.png?v=2427" alt="patient">
           </div>
           <div><h5>Online medical records</h5></div>
           <div><p>The information management system on the application saves the entire history of visits, prescriptions, indications through affiliated medical facilities as well as previous medical history, helping you to visit anywhere at any time. more convenient and precise way.</p></div>
-          <div><a href="#" class="btn btn-outline-success" role="button">Looking for more information</a></div>
+          <div><a href="#" class="btn btn-outline-primary" role="button">Looking for more information</a></div>
         </div>
         <div class="col-md-4">
           <div>
@@ -302,7 +307,7 @@
           </div>
           <div><h5>Multi-function pharmacy</h5></div>
           <div><p>Buy medicines in person and listen to online consultations with doctors through the Doctor Anywhere app at the virtual clinic located at each pharmacy in the AID chain.</p></div>
-          <div><a href="#" class="btn btn-outline-success mt-5" role="button">Looking for more information</a></div>
+          <div><a href="#" class="btn btn-outline-primary mt-5" role="button">Looking for more information</a></div>
         </div>
         <div class="col-md-4">
           <div>
@@ -310,72 +315,107 @@
           </div>
           <div><h5>Multi-purpose clinic</h5></div>
           <div><p>The clinic model is upgraded, providing both face-to-face and video examination services, minimizing waiting time but still receiving quality care from the team of doctors and nurses at the clinic.</p></div>
-          <div><a href="#" class="btn btn-outline-success mt-4" role="button">Looking for more information</a></div>
+          <div><a href="#" class="btn btn-outline-primary mt-4" role="button">Looking for more information</a></div>
         </div>
       </div>
     </div>
   </div>
   <!--Tiện ích của việc sử dụng AID-->
-  <div class="container-fluid wrapper mt-5 text-center">
-    <div class="row text-center utility-of-AID mt-5 mb-5">
+  <h2 class="service-title mt-3 convenience-ser">Convenience when using our services</h2>
+  <!-- Hoạt ảnh cho tiêu đề tiện ích -->
+  <script>
+    var con_ser = document.querySelector(".convenience-ser");
+    window.addEventListener("scroll", function(){
+      var x = pageYOffset;
+      if ( x > 300) {
+        con_ser.classList.add('animate__animated', 'animate__fadeInDown');
+        con_ser.style.setProperty('--animate-duration', '1.5s');
+      }
+    })
+  </script>
+  <!-- Kết thúc hoạt ảnh -->
+  <div class="h2-title under-title-2"></div>
+  <script>
+    var h2_title = document.querySelector(".h2-title");
+    window.addEventListener("scroll", function(){
+      var x = pageYOffset;
+      if ( x > 350) {
+        h2_title.classList.add('animate__animated', 'animate__fadeInDown');
+        h2_title.style.setProperty('--animate-duration', '2s');
+      }
+    })
+  </script>
+  <div class="container-fluid wrapper mt-4 text-center">
+    <div class="row text-center utility-of-AID">
     <!--Hoạt ảnh cho tiện ích khi sử dụng AID-->
     <script>
       var utility_detail = document.querySelector(".utility-of-AID");
       window.addEventListener("scroll", function(){
       var x = pageYOffset;
-      //console.log(x);
         if(x > 400) {
           utility_detail.classList.add('animate__animated', 'animate__fadeInDown');
-          service_detail_2.style.setProperty('--animate-duration', '1.5s');
+          utility_detail.style.setProperty('--animate-duration', '1.5s');
         }
       })
     </script>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+    <!-- Kết thúc hoạt ảnh -->
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 card-convenience">
     <div class="box">
       <img src="./images/image-1.jpg" alt="images1" width="200" height="200">
-      <a href="#">No need to wait for a consultation</a>
-      <p>Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
+      <a class="link-convenience" href="#">No need to wait for a consultation</a>
+      <p class="intro_convenience">Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
         is just a few minutes away from you by phone call.</p>
     </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
     <div class="box">
       <img src="./images/image-2.jpg" alt="images2" width="200" height="200">
-      <a href="#">Transparent costs</a>
-      <p>Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
+      <a class="link-convenience" href="#">Transparent costs</a>
+      <p class="intro_convenience">Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
         is just a few minutes away from you by phone call.</p>
     </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
     <div class="box">
       <img src="./images/image-3.jpg" alt="image3" width="200" height="200">
-      <a href="#">Direct drug delivery</a>
-      <p>Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
+      <a class="link-convenience" href="#">Direct drug delivery</a>
+      <p class="intro_convenience">Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
         is just a few minutes away from you by phone call.</p>
     </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
     <div class="box">
       <img src="./images/image-4.jpg" alt="images4" width="200" height="200">
-      <a href="#">Series of supporting papers</a>
-      <p>Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
+      <a class="link-convenience" href="#">Series of supporting papers</a>
+      <p class="intro_convenience">Did you know that while the average waiting time in line to receive a consultation at the clinic can be up to 90 minutes while the doctor of AI Doctor Vietnam 
         is just a few minutes away from you by phone call.</p>
     </div>
     </div>
+    </div>
   </div>
-</div>
   <!--Phần tin tức của AID-->
   <div class="container">
-    <h2 class="mb-4 news-title">Featured news</h2>
+    <h2 class="mb-2 news-title">Featured news</h2>
     <!--Hoạt ảnh cho new title-->
     <script>
       var news = document.querySelector(".news-title");
       window.addEventListener("scroll", function(){
       var x = pageYOffset;
-      //console.log(x);
-        if(x > 800) {
+        if(x > 700) {
           news.classList.add('animate__animated', 'animate__flipInX');
           news.style.setProperty('--animate-duration', '1s');
+        }
+      })
+    </script>
+    <!-- Kết thúc hoạt ảnh -->
+    <div class="under-title-3"></div>
+    <script>
+      var under_title_3 = document.querySelector(".under-title-3");
+      window.addEventListener("scroll", function(){
+      var x = pageYOffset;
+        if(x > 700) {
+          under_title_3.classList.add('animate__animated', 'animate__flipInX');
+          under_title_3.style.setProperty('--animate-duration', '1s');
         }
       })
     </script>
@@ -387,13 +427,13 @@
                 var anim_carousel = document.querySelector(".animation-carousel");
                 window.addEventListener("scroll", function(){
                 var x = pageYOffset;
-                //console.log(x);
-                  if(x > 900) {
+                  if(x > 800) {
                     anim_carousel.classList.add('animate__animated', 'animate__zoomIn');
                     anim_carousel.style.setProperty('--animate-duration', '1.5s');
                   }
                 })
               </script>
+              <!-- Kết thúc hoạt ảnh -->
                 <div class="carousel-inner text-center">
                     <div class="carousel-item active mt-2 mb-2">
                         <div id="new-slide" class="col-md-4 sapxep">
