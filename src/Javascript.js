@@ -7,6 +7,7 @@ const route = require('./routes/index')
 const app = express()
 const port = 3000
 
+app.use(express.static(path.join(__dirname, 'public')))
 
 //Connect to DB
 db.connect();
@@ -32,4 +33,8 @@ route(app)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
+})
+
+app.get('/Information', (req, res) => {
+  res.render('Information');
 })
