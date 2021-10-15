@@ -1,0 +1,259 @@
+<html lang="en">
+  <head>
+    <title>Booking</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link href="/css/Booking.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="Javascript.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!--CDN of Datatable-->
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
+    ></script>
+
+    <!--Library of Datapicker -->
+    <link
+      rel="stylesheet prefetch"
+      href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"
+    />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .container { text-align: initial; }
+    </style>
+
+  </head>
+  <body>
+    <nav>
+      <div class="container-fluid padding" id="test">
+        <div class="row text-center padding">
+          <div class="col-md-12">
+            <img src="/image/x_Browser_04-1.png" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Content -->
+    <div class="container">
+      <h1 class="text-center booking-title">Making an opponent with a Doctor in
+        AID</h1>
+      <!-- Hoạt ảnh cho tiêu đề Booking-->
+      <script>
+        var booking_title = document.querySelector('.booking-title');
+        booking_title.classList.add('animate__animated', 'animate__zoomIn');
+        booking_title.style.setProperty('--animate-duration', '1.0s');
+      </script>
+      <!-- Kết thúc hoạt ảnh -->
+      <div class="row">
+        <div class="col-sm-8 col-md-6 mt-3 booking-left">
+          <!-- Selection list of hospital -->
+          <div class="form-group">
+            <label id="form-title" for="hospital_name">1. Choosing a hospital:</label>
+            <p id="list">The list of hospital for you to select.</p>
+            <select id="list_hospital" class="form-control">
+              <option disabled selected value>List of Hospital</option>
+              <option>Hospital A</option>
+              <option>Hospital B</option>
+              <option>Hospital C</option>
+              <option>Hospital D</option>
+              <option>Hospital E</option>
+              <option>Hospital F</option>
+              <option>Hospital G</option>
+              <option>Hospital H</option>
+            </select>
+          </div>
+          <!-- End of this part -->
+          <!-- Radio list of Departments-->
+          <div class="form-group">
+            <label for="department" id="form-title">2. Choosing a department:</label>
+            <p id="list">List of department for you to select.</p>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="optradio"
+                />INTERNAL MEDICINE
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="optradio"
+                />PEDIATRICS
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="optradio"
+                />OTORHINOLARYNGOLOGY
+              </label>
+            </div>
+          </div>
+          <!-- End of this part -->
+          <!-- Calender to choose -->
+          <div class="form-group">
+            <label for="time" id="form-title-day">3. Choosing a day to have a
+              oppointment with doctor:</label>
+            <p id="list">Anytime, Doctors in AID can spend time for you.</p>
+            <div
+              id="datepicker"
+              class="input-group date"
+              data-date-format="dd-mm-yyyy"
+            >
+              <input class="form-control" readonly="" type="text" />
+              <span class="input-group-addon"><i class="far fa-calendar-plus"></i></span>
+            </div>
+            <script type="text/javascript">
+                $(function () {  
+                    $("#datepicker").datepicker({         
+                        autoclose: true,         
+                        todayHighlight: true 
+                    }).datepicker('update', new Date());
+                });
+            </script>
+          </div>
+          <!-- End of this part -->
+          <!-- Submit button -->
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-outline-success"
+              data-toggle="modal"
+              data-target="#validate-submit"
+            >Submit</button>
+          </div>
+          <div class="modal fade" id="validate-submit">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Confirm to Validate Form</h4>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                  >&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <p>If you want to submit this form, please check that you have
+                    already update your medical history</p>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        name="optradio"
+                        class="form-check-input"
+                        id="opt1"
+                      />Yes
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        name="optradio"
+                        class="form-check-input"
+                        id="opt2"
+                      />No
+                    </label>
+                  </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    onclick="check_yes_no()"
+                  >Confirmation completed</button>
+                </div>
+                <script>
+                  function check_yes_no() { var opt1 =
+                  document.getElementById('opt1'); var opt2 =
+                  document.getElementById('opt2'); if ( opt1.checked === true) {
+                  swal("Good job!", "Submit Sucessfully!", "success"); } else {
+                  swal("Please updating your personal information!", "Submit fail!", "error"); } }
+                </script>
+              </div>
+            </div>
+          </div>
+          <!-- End of this part -->
+        </div>
+        <div class="col-sm-4 col-md-6 mt-3 booking-Right">
+          <div>
+            <img
+              class="img-fluid"
+              src="/image/booking-1.jpg"
+              alt="booking-right"
+            />
+          </div>
+        </div>
+        <!-- Hoạt ảnh cho booking-right -->
+        <script>
+          var booking_right = document.querySelector('.booking-Right');
+          booking_right.classList.add('animate__animated',
+          'animate__zoomInRight');
+          booking_right.style.setProperty('--animate-duration', '1.5s');
+        </script>
+        <!-- Kết thúc hoạt ảnh -->
+      </div>
+    </div>
+    <!-- End of Content -->
+
+  </body>
+</html>
