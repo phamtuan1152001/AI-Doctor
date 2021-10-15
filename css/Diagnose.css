@@ -1,0 +1,24 @@
+/* Diagnose */
+#symptom-title {
+    font-size: 30px;
+    text-align: center;
+}
+#list_hospital {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.diagnose-title {
+  color: initial;
+  width: 100%;
+}
+#test {
+  background: #c2e59c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #c2e59c,
+    #64b3f4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #c2e59c, #64b3f4);
+  clip-path: ellipse(85% 78% at 50% 19%);
+}

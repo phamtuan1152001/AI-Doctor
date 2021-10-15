@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="images/LogoAI.png" />
+    <title>AI Doctor</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="./css/header-footer.css" rel="stylesheet" />
+    <link href="./css/Information.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href = "https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"  rel = "stylesheet" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="Javascript.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+   
+    <style>
+      .btn {
+        border-radius: 1rem;
+      }
+      .carousel-item .sapxep {
+            float: left;
+      }
+      #new-slide {
+        padding: 0 30px 0 30px;
+      } 
+      .carousel-control-prev {
+        top: 30%;
+        bottom: 30%;
+        width: 3%;
+        background: gray;
+      }
+      .carousel-control-next {
+        top: 30%;
+        bottom: 30%;
+        width: 3%;
+        background: gray;
+      }
+    </style>
+
+    <script>
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+      });
+    </script>
+  </head>
+  <body>
+  <!--Header of this web-->
+  <!--Contact bar-->
+  <header>
+    <div class="container-fluid padding">	
+      <div class="row text-center">
+        <div class="col-md-6">
+          <a href="tel:19001111">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-phone"
+              viewBox="0 0 16 16">
+              <path
+              d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+              <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            19001111</a>
+            </a>
+            <a href="mailto:hotro@AIDoctor.com">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-envelope-fill"
+              viewBox="0 0 16 16">
+              <path
+              d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+            </svg>
+            hotro@AIDoctor.com
+            </a>			
+        </div>
+        <div class="col-md-6">	
+          <a href="https://www.facebook.com/Kiddo.HiuHiu/" target="_blank" class="social-network">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-facebook"
+              viewBox="0 0 16 16">
+              <path
+              d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+            </svg>
+            </a>
+            <a href="https://www.youtube.com/c/MixiGamingofficial" target="_blank" class="social-network">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-youtube"
+              viewBox="0 0 16 16">
+              <path
+              d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+            </svg>
+            </a>
+            <a href="https://www.instagram.com/cocochubbupie/" target="_blank" class="social-network">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-instagram"
+              viewBox="0 0 16 16">
+              <path
+              d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+            </svg>
+            </a>
+            <a href="https://twitter.com/Hizuki_Miya" target="_blank" class="social-network">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-twitter"
+              viewBox="0 0 16 16">
+              <path
+              d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+            </svg>
+            </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!--Navigation bar-->
+  <nav class="navbar navbar-expand-lg navbar-light pt-1 pb-1 sticky-top">
+    <div class="container">
+      <a class="navbar-branch "href="index.html" id="logo">
+        <img src="images/LogoAI.png" height="80">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto  ">
+          <!-- căn kinh thước lề thanh menu-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown">
+              SERVICES
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="Diagnose.html">
+                DIAGNOSE
+              </a>
+              <!--chèn link in # -->
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="Booking.html">
+                BOOKING
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                NUTRITION
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" >
+              SEE A DOCTOR
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">
+                ITERNAL MEDICINE
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                PEDIATRICS
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                OTORHINOLARYNGOLOGY
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="Information.html" id="navbarDropdown" >
+              INFORMATION
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">
+                ABOUT US
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#FAQ1">
+                FAQ
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#Partner">
+                OUR PARTNER
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="Contact.html" id="navbarDropdown" >
+              CONTACT US
+            </a>
+          </li>
+          <li>
+            <div class="container" id="navbarDropdown">
+              <a href="Person.html" id="person">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="#c2e59c"
+                  class="bi bi-file-earmark-person" viewBox="0 0 16 16">
+                  <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                  <path
+                    d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z" />
+                </svg>
+                PERSON
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--End header-->
+  <nav>
+    <div class="container-fluid padding" id="test">	
+        <div class="row text-center padding">
+          <div class="col-md-6">	
+            <img src="./images/x_Browser_04-1.png" class="img-fluid">
+          </div>
+       
+        <div class="col-md-6">
+            <h1>About Us</h1>
+            <p>Where we introduce ourselves and give you basic information about AI Doctors</p>
+          </div>
+        </div>
+      </div>
+  </nav>
+  <!--Body content-->
+  <div class="container padding pt-5" id="test2">	
+    <div class="row text-center padding">
+      <div class="col-md-6">	
+        <img src="./images/Smartphone_01_UI-UX_x-1-1-1536x811.png" height="200" >
+      </div>
+   
+    <div class="col-md-6 pt-5" #id="text_after_header">
+        <h3 class="title">Welcome To AI Doctor</h3>
+        <br>
+        <p>You are tired, uncomfortable or worried about your health but do not have time to see a doctor. That's why AI Doctor was also born with us. AI Doctor will solve those problems because users can find out their own medical conditions, as well as easily book a medical appointment with a doctor.</p>
+      </div>
+    </div>
+  </div>
+<hr class="my-4" id="hr">
+  <div class="container-fluid padding " >	
+    <div class="row padding">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 " align="center" id="c1">	
+        <a href="#" class="card Integrity">
+            <div class="overlay"></div>
+         <div class="circle">
+       
+            <svg xmlns="http://www.w3.org/2000/svg" width="78" height="60" viewBox="0 0 24 24"><path d="M0 15.562l1.932-7.562 3.526.891-1.974 7.562-3.484-.891zm18.415.902c.125.287.187.598.155.91-.079.829-.698 1.448-1.457 1.602-.254.533-.733.887-1.285 1.002-.244.512-.722.89-1.296 1.01-.325.668-.97 1.012-1.674 1.012-.516 0-1.004-.183-1.356-.538-.928.404-1.902-.048-2.232-.863-.596-.068-1.107-.452-1.332-.997-.599-.071-1.114-.458-1.34-1.003-1.188-.138-1.848-1.44-1.198-2.495-.233-.058-.494-.104-.751-.152l.383-1.464c.524.1 1.01.219 1.453.358.913-.655 2.151-.295 2.549.679.608.069 1.116.464 1.334 1 .598.068 1.111.451 1.335.998.738.082 1.36.653 1.449 1.434l.002.225.45.402c.252.291.68.324.96.106.286-.223.324-.624.075-.909l-1.457-1.279c-.157-.139.052-.38.213-.241l1.491 1.308c.257.294.692.332.969.114.285-.22.316-.631.068-.916l-1.896-1.628c-.162-.135.048-.38.208-.242l1.944 1.669c.248.282.678.335.967.114.283-.22.349-.606-.002-.995-1.24-1.112-2.671-2.405-4.143-3.796-.355.488-2.176 1.502-3.279 1.502s-1.779-.675-1.96-1.343c-.157-.582.051-1.139.531-1.419.535-.313 1.055-.762 1.562-1.269-.789-.586-1.203-.398-2.067.013-.503.238-1.1.521-1.854.647l.438-1.67c1.327-.488 2.549-1.608 4.505-.083l.491-.552c.395-.447.911-.715 1.503-.715.436 0 .91.161 1.408.417 1.518.793 2.293 1.256 3.443 1.294l.394 1.508h-.008c-1.797.033-2.676-.508-4.516-1.47-.513-.263-.859-.318-1.1-.044-.984 1.12-2.031 2.309-3.192 3.063.573.458 2.019-.458 2.592-.92.25-.201.638-.468 1.128-.468.553 0 .955.331 1.244.619.68.68 2.57 2.389 3.407 3.142.434-.242.868-.435 1.311-.605l.383 1.467c-.319.134-.633.286-.95.461zm-11.037.875l.609-.747c.25-.3.215-.722-.08-.944-.296-.223-.737-.158-.986.14l-.61.749c-.251.298-.214.721.08.942s.737.159.987-.14zm1.328 1.006l.617-.755c.248-.297.213-.722-.082-.943-.294-.221-.734-.159-.984.142l-.616.754c-.251.3-.21.712.086.936.297.222.729.167.979-.134zm1.343.992l.608-.747c.251-.299.215-.721-.08-.944-.296-.222-.735-.157-.986.142l-.609.745c-.251.3-.213.724.082.945.293.221.734.16.985-.141zm1.865-.691c-.294-.224-.735-.159-.987.139l-.612.751c-.249.299-.213.722.082.943.295.221.735.16.986-.142l.61-.75c.253-.297.217-.72-.079-.941zm1.427 1.134l-.24-.212c-.063.239-.173.464-.332.65l-.358.441c.133.106.288.176.448.176.149 0 .295-.046.415-.138.284-.223.317-.632.067-.917zm5.201-10.889l1.974 7.562 3.484-.891-1.932-7.562-3.526.891zm-7.959-6.891l-.986.174.521 2.954.984-.174-.519-2.954zm3.82.174l-.985-.174-.521 2.954.985.174.521-2.954zm3.597 1.228l-.867-.5-1.5 2.598.867.5 1.5-2.598zm-11.133-.5l-.867.5 1.5 2.598.867-.5-1.5-2.598z"/></svg>
+         </div>
+         
+         <h3 id="hide">Integrity</h3>
+         <p class="text-center">We gather the best quality reputable hospitals and clinics, to ensure the best services for users.</p>
+       </a>
+      </div>
+   
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3"align="center"id="c1">
+        <a href="#" class="card Prompt">
+            <div class="overlay"></div>
+         <div class="circle">
+           
+            <svg xmlns="http://www.w3.org/2000/svg" width="78" height="60" fill="black" class="bi bi-alarm" viewBox="0 0 16 16">
+                <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/>
+                <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/>
+              </svg>
+       
+         </div>
+         <h3 id="hide">Prompt</h3>
+         <p class="text-center">Data optimization will help our diagnoses give quick results, and consultants are always ready to advise you.</p>
+       </a>
+        
+      </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3"align="center"id="c1">
+        
+       <a href="#" class="card Diversity">
+        <div class="overlay"></div>
+     <div class="circle">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" width="78" height="60" fill="Black" class="bi bi-tools" viewBox="0 0 16 16">
+            <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+          </svg>
+     </div>
+     <h3 id="hide">Diversity</h3>
+     <p class="text-center">We also provide diagnostic services suitable for various diseases ensuring the versatility of the application</p>
+   </a>   
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3"align="center"id="c1">
+        <a href="#" class="card Develop">
+            <div class="overlay"></div>
+         <div class="circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="78" height="60" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
+                <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+              </svg>
+       
+         </div>
+         <h3 id="hide">Develop</h3>
+         <p class="text-center">We always try to improve our products through the enthusiastic comments of our users</p>
+       </a>
+    </div>
+    </div>
+    <hr class="my-4" id="hr">
+  </div>
+
+  <div class="container-fluid padding" id="test1">
+    <div class="row text-center">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <img src="./images/doctor.png" height="230" width="250">
+      </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+    <h1 class="pb-4">Why are we here?</h1>
+ <!-- Button trigger modal -->
+ <button type="button" class="btn btn--fake"><i class="fas fa-play-circle" ></i></button>
+<button type="button" class="btn btn--white video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#myModal" >
+  <i class="fas fa-play-circle" ></i>
+</button>
+    <h4 class="pt-4" >Watch Our Video</h4>
+  
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" >
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>        
+        <!-- 16:9 aspect ratio -->
+<div class="embed-responsive embed-responsive-16by9" >
+  <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+</div>
+</div>
+    </div>
+    </div>
+  </div>
+
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" >
+  <img src="./images/heart.png" height="200" width="200">
+</div>
+</div>
+</div>
+<a id="FAQ1"></a>
+<hr class="my-4"  id="hr">
+
+
+<div class="container">
+ 
+  <h2 >POPULAR QUESTION</h2>
+</div>
+<div class="container padding">	
+  <div class="row text-center">
+    <div class="col-md-6">
+  <button class="accordion">What is AI Doctor?</button>
+  <div class="panel">
+      <p>
+        AI Doctor is your healthcare system. We harness the power of technology to bring together a wide range of healthcare services in a single integrated platform.
+      </p>
+      <p>
+        From diagnosis, consultation, claims management to appointment booking, AI Doctor is the ideal system for all your healthcare needs.
+        </p>
+        <p>
+          With our system, healthcare is now simpler and more convenient. We make it easier for you to access and manage your personal health to optimize health care in your busy life.
+      </p>
+  </div>
+
+  <button class="accordion">What services does AI Doctor provide ?</button>
+  <div class="panel">
+      <p>
+        Currently, we help you quickly diagnose your health condition and quickly connect to a network of consultants, book an appointment for a medical examination at a convenient time for you. You can use AI Doctor anywhere, whenever you need.
+      </p>
+  </div>
+
+  <button class="accordion">When can I use AI Doctor ?</button>
+  <div class="panel">
+      <p>
+        Diagnostic and health consulting services are provided 24/7, depending on the needs of customers. This means you can call using AI Doctor at any time. However, if no doctor can see you after five minutes, don't worry we will contact you as soon as possible.
+      </p>
+  </div>
+  <button class="accordion">Who can use the AI Doctor ?</button>
+  <div class="panel">
+      <p>
+        Anyone who cares about their health can use AI Doctor .
+        </p>
+        <p>
+        For our diagnostic service, anyone with a non-emergency medical condition is eligible. However, those under the age of 16 must have a parent present during the online counseling session.
+      </p>
+  </div>
+  <button class="accordion">How to create an account on AI Doctor?</button>
+  <div class="panel">
+      <p>
+        You must first visit the AI Doctor web link. Next, the website will display a login window and choose to log in through your Facebook account, Google account or fill in the details yourself. Creating an account is free - you'll only be charged when you book a hospital or clinic appointment.
+      </p>
+  </div>
+  <button class="accordion">How do I update my information on the AI Doctor ?</button>
+  <div class="panel">
+      <p>
+        To update your details, log in on the website and click the "Person" box at the top right of the screen and select the item you want to update. Once you've finished updating, click the "Save" button and your details will be updated.
+      </p>
+  </div>
+  
+  <button class="accordion">Is my personal data safe on the platform ?</button>
+  <div class="panel">
+      <p>
+        Of course, we take security very seriously. Our platform uses end-to-end encryption to keep your information secure.
+        </p>
+        <p>
+        Our patient data and medical records are compliant with the Personal Data Protection Act (PDPA). These records can only be accessed by healthcare providers directly involved in patient care and to support internal processes.
+      </p>
+  </div>
+  <a id="Partner"></a>
+  </div>
+
+<div class="col-md-6">
+  <img src="./images/FAQ.png" height="450" width="350" id="imgFAQ">
+ 
+</div>
+</div>
+</div>
+
+<div class="container">
+ 
+  <h2 >&nbsp;&nbsp;&nbsp;OUR PARTNER &nbsp; &nbsp;&nbsp;</h2>
+</div>
+<section class="section-courses" id="section-courses">
+  
+<div class="container-fluid padding">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3" id="box_hover">
+          <div class="card-link">
+              <div class="card-link__side card-link__side--front">
+                  <div class="card-link__picture card-link__picture--1">
+                      &nbsp;
+                      <!--- KÍ TỰ RỖNG TRONG HTML -->
+                  </div> 
+              </div>
+
+              <div class="card-link__side card-link__side--back card-link__side--back-1">
+                  <div class="card-link__cta">
+                      <div class="card-link__info">
+                          <p class="card-link__define">
+                            Medelab is proud to be the largest General Clinic in the North today with a total area of up to 10,800 m² including more than 12 specialties, 60 clinics, along with a modern electronic clinic system, 01 testing center, 01 GPP-certified imaging center and pharmacy can meet the diverse needs of customers.
+                          </p>
+                          <a href="https://medelab.vn/" target="_blank" class="btn--link">Learn more --></a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 ">
+          <div class="card-link">
+              <div class="card-link__side card-link__side--front">
+                  <div class="card-link__picture card-link__picture--2">
+                      &nbsp;
+                  </div>
+                 
+              </div>
+              <div class="card-link__side card-link__side--back card-link__side--back-2">
+                  <div class="card-link__cta">
+                      <div class="card-link__info">
+                          <p class="card-link__define">
+                            Nearly 10 years of operation in the medical field, Vietlife provides comprehensive examination, diagnosis and treatment services for all specialties and a full range of paraclinical services. With the commitment to "Give the best solution to your family's health problems", Vietlife clinic system always strives to continuously improve the quality of expertise and service quality.
+                          </p>
+                          <a href="https://vietlifeclinic.com/" target="_blank" class="btn--link">Learn more --></a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+        <div class="card-link">
+            <div class="card-link__side card-link__side--front">
+                <div class="card-link__picture card-link__picture--3">
+                    &nbsp;
+                </div>
+    
+            </div>
+            <div class="card-link__side card-link__side--back card-link__side--back-3">
+                <div class="card-link__cta">
+                    <div class="card-link__info">
+                        <p class="card-link__define">
+                          During more than 20 years of development, MEDLATEC has built up a full range of specialties such as Laboratory, Imaging, Pediatrics, Gastroenterology, etc. At the same time, it is the place to gather a team of leading experts, experienced and dedicated, who have worked in leading hospitals in the country to bring customers peace of mind, comfort and quality of medical examination and treatment. tallest.
+                        </p>
+                      
+                        <a href="https://medlatec.vn/" target="_blank" class="btn--link">Learn more --></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+          <div class="card-link">
+              <div class="card-link__side card-link__side--front">
+                  <div class="card-link__picture card-link__picture--4">
+                      &nbsp;
+                  </div>
+              </div>
+              <div class="card-link__side card-link__side--back card-link__side--back-4">
+                  <div class="card-link__cta">
+                      <div class="card-link__info">
+                          <p class="card-link__define">
+                            Benh Vien mat Saigon is invested with modern equipment, applying the most advanced technology of the US and Europe and a team of highly skilled specialists. Benh Vien mat Saigon system has been bringing the results of technology in the field of eye examination and treatment in a safe, effective and reliable way to patients.
+                          </p>
+                          
+                          <a href="https://www.matsaigon.com/" target="_blank"class="btn--link">Learn more --></a>
+                      </div>
+                  </div>
+              </div>
+
+              
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="container-fluid padding ">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3" id="box_hover">
+          <div class="card-link">
+              <div class="card-link__side card-link__side--front">
+                  <div class="card-link__picture card-link__picture--5">
+                      &nbsp;
+                      <!--- KÍ TỰ RỖNG TRONG HTML -->
+                  </div> 
+              </div>
+
+              <div class="card-link__side card-link__side--back card-link__side--back-5">
+                  <div class="card-link__cta">
+                      <div class="card-link__info">
+                          <p class="card-link__define">
+                            DoLife owns a system of modern and advanced material and technical facilities and a team of leading domestic and international experts. DoLife always upholds the motto of "Increasing the value of life" for patients and their relatives, and always strives and strives to become a reliable medical examination and treatment address worthy of trust. of cutomer.
+                          </p>
+                          
+                          <a href="http://www.dolifehospital.vn/" target="_blank" class="btn--link">Learn more --></a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+          <div class="card-link">
+              <div class="card-link__side card-link__side--front">
+                  <div class="card-link__picture card-link__picture--6">
+                      &nbsp;
+                  </div>
+                 
+              </div>
+              <div class="card-link__side card-link__side--back card-link__side--back-6">
+                  <div class="card-link__cta">
+                      <div class="card-link__info">
+                          <p class="card-link__define">
+                            The quality of medical examination and treatment is a criterion that is always affirmed at Thu Cuc Hospital with high appreciation from the Department of Health and from customers. According to the survey data of the Hanoi Department of Health in 2018, the satisfaction rate when customers receive medical examination and treatment is up to 99.9%. In addition, Thu Cuc is also a pioneer in international cooperation with famous hospitals in developed countries such as Singapore, Cuba, etc.
+                          </p>
+                          <a href="https://benhvienthucuc.vn/" target="_blank"class="btn--link">Learn more --></a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+        <div class="card-link">
+            <div class="card-link__side card-link__side--front">
+                <div class="card-link__picture card-link__picture--7">
+                    &nbsp;
+                </div>
+    
+            </div>
+            <div class="card-link__side card-link__side--back card-link__side--back-7">
+                <div class="card-link__cta">
+                    <div class="card-link__info">
+                        <p class="card-link__define">
+                          VietSing is the first private medical facility in Hanoi - Vietnam to be certified for the quality management system ISO 9001-2000 and certified for excellent Labo by Biorad - USA. The staff are all experts, medical doctors, technicians with high expertise, experience, well-trained in advanced countries in the world, always dedicated to the profession and especially has a good reputation in the Vietnamese healthcare industry.
+                        </p>
+                      
+                        <a href="http://vietsingclinic.com.vn/" target="_blank"class="btn--link">Learn more --></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+          <div class="card-link">
+              <div class="card-link__side card-link__side--front">
+                  <div class="card-link__picture card-link__picture--8">
+                      &nbsp;
+                  </div>
+              </div>
+              <div class="card-link__side card-link__side--back card-link__side--back-8">
+                  <div class="card-link__cta">
+                      <div class="card-link__info">
+                          <p class="card-link__define">
+                            Genetica® is an Artificial Intelligence applied genetic testing company, headquartered in San Francisco (USA) and mentored by a team of scientists from leading universities such as UCSF, Harvard, Stanford, Cornell . Through analysis of hundreds of genes, Genetica® gene sequencing reports provide accurate and scientific information on physical, behavioral, intellectual, and health risks. Genetica®'s mission is to optimize your personal development plan, as well as protect the health of yourself and your family.
+                            </p>
+                          
+                          <a href="https://genetica.asia/" target="_blank"class="btn--link">Learn more --></a>
+                      </div>
+                  </div>
+              </div>
+
+              
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</section>
+
+
+<script>
+  //Lấy các button mô tả nội dung
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  //lặp qua các button để gán sự kiện
+  for (i = 0; i < acc.length; i++) {
+      acc[i].onclick = function(){
+          /* Thêm/xóa class active để đánh dấu các button đã được click */
+          this.classList.toggle("active");
+
+          /* Hiển thị hoặc ẩn nội dung khi button được click */
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+              panel.style.display = "none";
+          } else {
+              panel.style.display = "block";
+          }
+      }
+  }
+</script>
+<script>
+$(document).ready(function() {
+
+    // Gets the video src from the data-src on each button
+    
+    var $videoSrc;  
+    $('.video-btn').click(function() {
+        $videoSrc = $(this).data( "src" );
+    });
+    console.log($videoSrc);
+    
+      
+      
+    // when the modal is opened autoplay it  
+    $('#myModal').on('shown.bs.modal', function (e) {
+        
+    // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+    $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+    })
+      
+    
+    
+    // stop playing the youtube video when I close the modal
+    $('#myModal').on('hide.bs.modal', function (e) {
+        // a poor man's stop video
+        $("#video").attr('src',$videoSrc); 
+    }) 
+        
+    // document ready  
+    });
+   
+</script>
+</body>
+</html>
+
+  <!--end content-->
+  
