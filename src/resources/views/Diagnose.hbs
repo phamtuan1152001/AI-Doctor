@@ -1,0 +1,162 @@
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--CDN of Datatable-->
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
+    ></script>
+
+    <style>
+      .container { text-align: initial; } .close { position: initial; }
+    </style>
+
+    <script>
+      $(document).ready(function() { // Cấu hình các nhãn phân trang
+      $('#symptom-detail').dataTable( { "language": { "sInfoPostFix": "",
+      "sSearch": "Enter your detail symptom:", "sUrl": "", "oPaginate": {
+      "sFirst": "The First", "sPrevious": "Previous", "sNext": "Next", "sLast":
+      "The Last" } }, "processing": true, // tiền xử lý trước "aLengthMenu":
+      [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển
+      thị bảng "order": [[ 1, 'desc' ]] //sắp xếp giảm dần theo cột thứ 1 } ); }
+      );
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="container-fluid padding" id="test">
+        <div class="row text-center padding">
+          <div class="col-md-12">
+            <img src="/image/x_Browser_04-1.png" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Content of Diagnose -->
+    <div class="container-fluid">
+      <h1 class="text-center diagnose-title">Diagnosing by AID Technical</h1>
+      <!-- Tiêu đề cho hoạt ảnh -->
+      <script>
+        var diagnose_title = document.querySelector('.diagnose-title');
+        diagnose_title.classList.add('animate__animated', 'animate__fadeIn');
+        diagnose_title.style.setProperty('--animate-duration', '1s');
+      </script>
+      <!-- Kết thúc hoạt ảnh -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-4 col-lg-6 text-center diagnose-box-left">
+            <!-- Input a symptom -->
+            <label class="mt-2" id="symptom-title" for="symptom">What are you
+              feeling ?</label>
+            <div class="form-group">
+              <label id="form-title" for="hospital_name">Choosing a symptom you
+                are having</label>
+              <p id="list">The list of symptom for you to select.</p>
+              <select id="list_hospital" class="form-control">
+                <option disabled selected value>List of Hospital</option>
+                <option>Hospital A</option>
+                <option>Hospital B</option>
+                <option>Hospital C</option>
+                <option>Hospital D</option>
+              </select>
+            </div>
+            <!-- Button to search a symptom -->
+            <button
+              style="width: 100%;"
+              type="button"
+              class="btn btn-outline-info mt-2"
+            >Searching</button>
+          </div>
+          <!-- Hoạt ảnh cho diagnose-box-left -->
+          <script>
+            var diagnose_box_left =
+            document.querySelector('.diagnose-box-left');
+            diagnose_box_left.classList.add('animate__animated',
+            'animate__fadeInLeft');
+            diagnose_box_left.style.setProperty('--animate-duration', '1.5s');
+          </script>
+          <!-- Kết thúc hoạt ảnh -->
+          <div class="col-sm-9 col-md-8 col-lg-6 diagnose-box-right">
+            <h4 class="text-center">Information about your symptom.</h4>
+            <div class="container">
+              <table
+                id="symptom-detail"
+                class="table table-striped table-bordered table-dark table-hover"
+              >
+                <thead>
+                  <tr>
+                    <th>Name of illness</th>
+                    <th>Symptom of this illness</th>
+                    <th>Detail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>abc</th>
+                    <th>xyz</th>
+                    <th>hihi do ngok</th>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Name of illness</th>
+                    <th>Symptom of this illness</th>
+                    <th>Detail</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <!-- Hoạt ảnh cho diagnose-box-right -->
+          <script>
+            var diagnose_box_right =
+            document.querySelector('.diagnose-box-right');
+            diagnose_box_right.classList.add('animate__animated',
+            'animate__fadeInRight');
+            diagnose_box_right.style.setProperty('--animate-duration', '1.5s');
+          </script>
+          <!-- Kết thúc hoạt ảnh -->
+        </div>
+      </div>
+    </div>
+    <!-- End of Content of Diagnose -->
+  </body>
+</html>
