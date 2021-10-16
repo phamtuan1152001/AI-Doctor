@@ -25,7 +25,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
-    "mongoose": "^6.0.10"
+    "mongoose": "^6.0.10",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
