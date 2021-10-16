@@ -1,0 +1,248 @@
+ <link rel="stylesheet"  href="/css/Person.css">
+<nav>
+  <div class="container-fluid padding" id="test">	
+      <div class="row text-center padding">
+        <div class="col-md-6">	
+          <img src="/image/person.png" class="img-fluid">
+        </div>
+     
+      <div class="col-md-6">
+          <h1>Personal Information</h1>
+          <br>
+          <p>A place that helps you easily manage your own personal information, your medical conditions will also be recorded here, your doctor will easily refer to your condition through this record.</p>
+        </div>
+      </div>
+    </div>
+</nav>
+
+
+
+
+  <div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+			
+				<div class="profile-userpic">
+					<img src="image/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">
+				</div>				
+			
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						Nguyễn Quốc Bảo
+					</div>
+				</div>				
+				
+				<div class="profile-userbuttons">
+					<a href="#popup3" onclick="logout()" type="button" class="btn btn-danger btn-sm">Log out</a>
+				</div>				
+			
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="#popup">
+							<i class="glyphicon glyphicon-info-sign"></i>
+							Update Personal Information </a>
+						</li>
+            <li>
+							<a href="#popup1">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                Update Medical record </a>
+						</li>
+						<li>
+							<a href="#popup2">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                Change Password </a>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+		<div class="col-md-9">
+      <div>
+        <table class="table table-striped">
+            <tbody><tr>
+                <td class="first-colmn">Full name</td>
+                <td>Kiddo</td>
+            </tr>
+            <tr>
+                <td class="first-colmn">Email</td>
+                <td>
+                    bao2001v@gmail.com
+                </td>
+            </tr>
+            <tr>
+                <td class="first-colmn">General</td>
+                <td> female </td>
+            </tr>
+            <tr>
+                <td class="first-colmn">Date of birth</td>
+                <td>01/01/0001</td>
+            </tr>
+         
+            <tr>
+                <td class="first-colmn">PhoneNumber</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td class="first-colmn">About</td>
+                <td>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+		</div>
+	</div>
+</div>
+
+<!-- popup update information -->
+<div class="popup" id="popup">
+  <div class="popup__content">
+    <div class="popup__left">
+      <img src="image/profile_user.jpg" alt="Tour photo" class="popup__img">
+        <span class="btn btn--success fileinput-button">
+          <i class="glyphicon glyphicon-plus"></i>
+          <span>Upload avatar</span>
+          <input id="fileupload" type="file" name="fileupload">
+      </span>
+      
+  </div>
+      <div class="popup__right">
+        <a href="#section-courses" class="popup__close">&times;</a>
+        <form action="#">
+          <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input class="form-control" type="text" placeholder="Name" aria-label="default input example" required="">
+            </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required="">
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date of birth</label>
+            <input type="date" id="start" name="trip-start" required="">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Phone</label>
+            <input type='tel' class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="">
+          </div>
+          
+          <div class="mb-3">
+            <label for ="">Gender: &nbsp;&nbsp;</label>
+            <input type="radio" value="male" name="gender" id="male" checked>
+            <label for ="">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" value="female" name="gender" id="female">
+            <label for ="">Female</label>
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <textarea class="form-control"  placeholder="Address"  aria-label="With textarea" required=""></textarea>
+        </div> 
+
+        <div class="mb-3">
+          <button  type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+         </div>
+      </div>
+  </div>
+
+<!--Update pathological-->
+
+<div class="popup" id="popup1">
+  <div class="popup__content">
+    <div class="card card-outline-secondary">
+      <a href="#section-courses" class="popup__close">&times;</a>
+      <div class="card-header">
+        <h3 class="mb-0">Update Medical record</h3>
+      </div>
+      <div class="card-body">
+        <form autocomplete="off" class="form" role="form" action="#">
+          <div class="form-group">
+            <label for="inputBackgroundisease">Background disease</label> 
+            <textarea class="form-control" id="inputBackgroundisease" required=""></textarea> 
+            <span class="form-text small text-muted">You need to provide information about the diseases you have such as Diabetes mellitus, lung diseases, Acute kidney injury, obesity, allergies etc.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="inputHPC">History of presenting complaint (HPC)/ History of present illness (HPI): </label> 
+            <textarea class="form-control" id="inputHPC" required=""></textarea> 
+            <span class="form-text small text-muted">You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc.</span>
+          </div>
+          <div class="form-group">
+            <button onclick="FormHPC()" class="btn btn-success btn-lg float-right"  type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- popup reset password -->
+<div class="popup" id="popup2">
+  <div class="popup__content">
+    
+        <!-- form card change password -->
+        <div class="card card-outline-secondary">
+          <a href="#section-courses" class="popup__close">&times;</a>
+          <div class="card-header">
+            <h3 class="mb-0">Change Password</h3>
+          </div>
+          <div class="card-body">
+            <form autocomplete="off" class="form" role="form" action="#">
+              <div class="form-group">
+                <label for="inputPasswordOld">Current Password</label> 
+                <input class="form-control" id="inputPasswordOld" required="" type="password">
+              </div>
+              <div class="form-group">
+                <label for="inputPasswordNew">New Password</label> 
+                <input class="form-control" id="inputPasswordNew" required="" type="password"> 
+                <small class="form-text text-muted" id="passwordHelpBlock">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</small>
+              </div>
+              <div class="form-group">
+                <label for="inputPasswordNewVerify">Verify</label> 
+                <input class="form-control" id="inputPasswordNewVerify" required="" type="password"> 
+                <span class="form-text small text-muted">To confirm, type the new password again.</span>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success btn-lg float-right" type="submit">Save</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- /form card change password -->
+     
+  </div>
+</div>
+
+<div class="popup3" id="popup3">
+  <div class="popup3__content">
+      <div class="card-body">
+       <div class="container padding">
+        <div id="warning-icon"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#f8bb86" class="bi bi-exclamation-square" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+          </svg>
+        </div>
+        <div class="textwarning">
+          <h4>Are you sure?</h4>
+          
+          <p>If you log out you will not be able to use our service!</p>
+        </div>
+        <div class="container">
+          <a  href="#section-courses" class="btn btn--logout_Cancel">Cancel</a>
+          <a href="Log&Signform.html" class="btn btn--logout_OK">OK</a>
+
+        </div>
+
+     
+        
+      </div>
+
+    </div>
+  </div>
+</div>
