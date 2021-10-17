@@ -27,7 +27,7 @@ body {
 
 .container {
   margin: auto;
-  text-align: center;
+  /*text-align: center;*/
 }
 .navbar {
   background: #c2e59c; /* fallback for old browsers */
