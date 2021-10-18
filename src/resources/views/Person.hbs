@@ -122,7 +122,7 @@
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date of birth</label>
-            <input type="date" id="start" name="trip-start" >
+            <input type="text" id="datepicker" required="" >
           </div>
           <div class="mb-3">
             <label for="PhoneNumber" class="form-label">Phone</label>
@@ -245,7 +245,9 @@
 </div>
 <div id="toast"></div>
      
-
+    <script>
+      $( "#datepicker" ).datepicker();
+    </script>
     <script>
       function toast({ title = "", message = "", type = "", duration = "" }) {
         const main = document.getElementById("toast");
@@ -304,9 +306,6 @@
         function validateFormMedical() {
     var inputBackgroundisease = document.getElementById("inputBackgroundisease").value;
     var inputHPC = document.getElementById("inputHPC").value;
-    var inputPasswordOld = document.getElementById("inputPasswordOld").value;
-    var inputPasswordNew = document.getElementById("inputPasswordNew").value;
-    var inputPasswordNewVerify= document.getElementById("inputPasswordNewVerify").value;
  
     if (inputBackgroundisease == null || inputBackgroundisease == "") {
         return false;
@@ -346,7 +345,7 @@ function validateFormInformation() {
     var exampleInputEmail = document.getElementById("exampleInputEmail").value;
     var PhoneNumber= document.getElementById("PhoneNumber").value;
     var address = document.getElementById("address").value;
-    var date = document.getElementById("start").value;
+    var date = document.getElementById("datepicker").value;
    var gender = document.querySelector('input[name = "gender"]:checked').value;
  
    if (Name == null || Name == "") {
@@ -364,7 +363,7 @@ function validateFormInformation() {
     else if (date == null ||date == "") {
         return false;
     }
-    else if ( gender== "" || gender= null) {
+    else if ( gender== "" || gender== null) {
        return false;
     }
     toast({
