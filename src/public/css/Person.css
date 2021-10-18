@@ -1,4 +1,4 @@
-#test {
+#container__fluid {
   background: #c2e59c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -8,12 +8,12 @@
   background: linear-gradient(to right, #c2e59c, #64b3f4);
   clip-path: ellipse(85% 78% at 50% 19%);
 }
-#test h1 {
+.container__title {
   padding-top: 10rem;
   animation: moveInLeft 1s ease-out;
   font-size: 4rem;
 }
-#test p {
+.container__text {
   text-align: left;
   font-size: 1.3rem;
   padding-bottom: 10rem;
@@ -32,7 +32,7 @@
   background: rgb(255, 252, 252);
 }
 
-.profile-userpic img {
+.profile-sidebar__profile-userpic img {
   float: none;
   margin: 0 auto;
   width: 50%;
@@ -44,14 +44,14 @@
   border-radius: 50% !important;
 }
 
-.profile-usertitle {
+.profile-sidebar__profile-usertitle {
   text-align: center;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-.profile-usertitle-name {
+.profile-sidebar__profile-usertitle--name {
   color: #4d7bb4;
   font-size: 1rem;
   font-weight: 600;
@@ -60,12 +60,12 @@
     flex-direction: column; */
 }
 
-.profile-userbuttons {
+.profile-sidebar__profile-userbuttons {
   text-align: center;
   margin-top: 1rem;
 }
 
-.profile-userbuttons .btn {
+.profile-sidebar__profile-userbuttons .btn {
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 600;
@@ -73,54 +73,48 @@
   margin-right: 0.3rem;
 }
 
-.profile-userbuttons .btn:last-child {
+.profile-sidebar__profile-userbuttons .btn:last-child {
   margin-right: 0;
 }
-.profile-usermenu {
+.profile-sidebar__profile-usermenu {
   margin-top: 1.5rem;
   border-bottom: none;
 }
-.profile-usermenu ul {
+.profile-sidebar__profile-usermenu ul {
   display: flex;
   flex-direction: column;
   margin: left;
 }
-.profile-usermenu ul li {
+.profile-sidebar__profile-usermenu ul li {
   border-bottom: 3px solid #f0f4f7;
   display: block;
 }
 
-.profile-usermenu ul li a {
+.profile-sidebar__profile-usermenu ul li a {
   color: #93a3b5;
   font-size: 14px;
   font-weight: 400;
   border-bottom: none;
 }
 
-.profile-usermenu ul li a i {
+.profile-sidebar__profile-usermenu ul li a i {
   margin-right: 0.5rem;
   font-size: 0.9rem;
 }
 
-.profile-usermenu ul li a:hover {
+.profile-sidebar__profile-usermenu ul li a:hover {
   background-color: #fafcfd;
   color: #5b9bd1;
 }
 
-.profile-usermenu ul li.active {
+.profile-sidebar__profile-usermenu ul li.active {
   border-bottom: none;
 }
 
-.profile-usermenu ul li.active a {
+.profile-sidebar__profile-usermenu ul li.active a {
   color: #5b9bd1;
   background-color: #f6f9fb;
   border-left: 5px solid #5b9bd1;
-}
-
-.profile-content {
-  padding: 20px;
-  background: rgb(197, 197, 197);
-  min-height: 460px;
 }
 
 /* pop-up */
@@ -158,7 +152,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
+  width: 50%;
   background-color: #fff;
   border-radius: 3rem;
   display: table;
@@ -287,7 +281,7 @@
   }
 }
 
-.popup3 {
+.popup-logout {
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -302,9 +296,10 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s;
+  text-align: center;
 }
 
-.popup3__content {
+.popup-logout__content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -320,16 +315,17 @@
   transition: all 0.4s 0.2s;
 }
 
-.popup3:target {
+.popup-logout:target {
   opacity: 1;
   visibility: visible;
 }
-.popup3:target .popup3__content {
+.popup-logout:target .popup-logout__content {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 #warning-icon {
   margin-top: 1rem;
+  right: 50%;
 }
 .textwarning h4 {
   margin-top: 3rem;
@@ -386,7 +382,7 @@
     transform: translate(-50%, -50%);
     width: 90%;
   }
-  .popup3__content {
+  .popup-logout__content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -394,4 +390,89 @@
     width: 355px;
     height: 317px;
   }
+}
+/* ======= Toast message ======== */
+
+#toast {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 999999;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 20px 0;
+  min-width: 400px;
+  max-width: 450px;
+  border-left: 4px solid;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  transition: all linear 0.3s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 32px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.toast--success {
+  border-color: #71be34;
+}
+
+.toast--success .toast__icon {
+  color: #71be34;
+}
+
+.toast + .toast {
+  margin-top: 24px;
+}
+
+.toast__icon {
+  font-size: 24px;
+}
+
+.toast__icon,
+.toast__close {
+  padding: 0 16px;
+}
+
+.toast__body {
+  flex-grow: 1;
+}
+
+.toast__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.toast__msg {
+  font: size 14px;
+  color: #888;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+.toast__close {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
