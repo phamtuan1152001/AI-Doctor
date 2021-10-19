@@ -5,7 +5,7 @@ body {
   font-family: "Koh Santepheap", cursive !important;
   font-size: 15px;
 }
-#test {
+#container__fluid {
   background: #c2e59c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -15,37 +15,37 @@ body {
   background: linear-gradient(to right, #c2e59c, #64b3f4);
   clip-path: ellipse(85% 78% at 50% 19%);
 }
-#test h1 {
+.container__title {
   padding-top: 10rem;
   animation: moveInLeft 1s ease-out;
   font-size: 4rem;
 }
-#test p {
+.container__text {
   text-align: left;
   font-size: 1.4rem;
   padding-bottom: 10rem;
   margin-top: 1rem;
   animation: moveInLeft 1s ease-out;
 }
-#test img {
+.img-fluid {
   animation: moveInBottom 1s ease-out;
 }
 
-#test2 img {
+#container__description img {
   animation: moveInLeft 1s ease-out;
 }
 
-#test2 {
+#container__description {
   display: flex;
   justify-content: center;
 }
 
-.title {
+.text__after-header--title {
   font-size: 3rem !important;
 }
 
-#text_after_header h3,
-p {
+.text__after-header--title,
+.text__after-header--text {
   animation: moveInBottom 1s ease-out;
   text-align: left;
 }
@@ -110,16 +110,16 @@ p {
     0 24px 46px var(--box-shadow-color);
 }
 
-.card:hover .overlay {
+.card:hover .card--overlay {
   transform: scale(5) translateZ(0);
 }
 
-.card:hover .circle {
+.card:hover .card--circle {
   border-color: var(--bg-color-light);
   background: var(--bg-color);
 }
 
-.card:hover .circle:after {
+.card:hover .card--circle:after {
   background: var(--bg-color-light);
 }
 
@@ -133,7 +133,7 @@ p {
     0 15px 24px var(--box-shadow-color);
 }
 
-.card p {
+.card__text-center {
   font-size: 1.4rem;
   color: white;
   margin-top: 30px;
@@ -141,7 +141,7 @@ p {
   transition: color 0.3s ease-out;
 }
 
-.circle {
+.card--circle {
   width: 131px;
   height: 131px;
   border-radius: 50%;
@@ -155,7 +155,7 @@ p {
   transition: all 0.3s ease-out;
 }
 
-.circle:after {
+.card--circle:after {
   content: "";
   width: 118px;
   height: 118px;
@@ -168,12 +168,12 @@ p {
   transition: opacity 0.3s ease-out;
 }
 
-.circle svg {
+.card--circle svg {
   z-index: 1000;
   transform: translateZ(0);
 }
 
-.overlay {
+.card--overlay {
   width: 118px;
   position: absolute;
   height: 118px;
@@ -370,7 +370,7 @@ p {
   }
 }
 
-#test1 {
+#container__play {
   color: white;
   background: #c2e59c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -383,7 +383,7 @@ p {
 }
 
 /*FAQ*/
-.panel p {
+.accordion__panel--text {
   text-align: left;
   font-size: 1.2rem;
 }
@@ -422,7 +422,7 @@ button.accordion:hover {
 }
 
 /* Thiết lập cho phần nội dung, mặc định sẽ được ẩn đi */
-div.panel {
+div.accordion__panel {
   padding: 0 18px;
   background-color: white;
   display: none;
@@ -436,15 +436,18 @@ button.accordion:focus {
   outline: none;
 }
 /* -------- */
-.container h2 {
+
+.container__fluid--header-title {
   font-size: 30px;
   font-weight: 600;
   position: relative;
   padding-bottom: 20px;
   display: inline-block;
-  animation: moveInBottom 2s ease-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.container h2::before {
+.container__fluid--header-title::before {
   position: absolute;
   content: "";
   width: 320px;
@@ -454,7 +457,7 @@ button.accordion:focus {
   display: flex;
   justify-content: center;
 }
-.container h2::after {
+.container__fluid--header-title::after {
   position: absolute;
   content: "";
   width: 150px;
