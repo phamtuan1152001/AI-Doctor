@@ -1,7 +1,7 @@
 class SiteController {
   // [GET] site
   index(req, res) {
-    res.render("Appointment_with_a_doctor");
+    res.render("Online_medical_records");
   }
 }
 
