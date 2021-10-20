@@ -11,8 +11,7 @@ function route(app) {
    
     // app.use('/booking', bookingRouter)
 
-  
-    
+   
     app.use('/login', loginRouter)
     app.use('/regis', loginRouter)
     app.use('/forgotpwd', loginRouter)
