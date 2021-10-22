@@ -5,7 +5,7 @@ body {
   font-family: "Koh Santepheap", cursive !important;
   font-size: 15px;
 }
-#test {
+#container__fluid {
   background: #c2e59c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -15,19 +15,19 @@ body {
   background: linear-gradient(to right, #c2e59c, #64b3f4);
   clip-path: ellipse(85% 78% at 50% 19%);
 }
-#test h1 {
+#container__fluid h1 {
   padding-top: 10rem;
   animation: moveInLeft 1s ease-out;
   font-size: 4rem;
 }
-#test p {
+#container__fluid p {
   text-align: left;
   font-size: 1.4rem;
   padding-bottom: 10rem;
   margin-top: 1rem;
   animation: moveInLeft 1s ease-out;
 }
-#test img {
+#container__fluid img {
   animation: moveInBottom 1s ease-out;
 }
 
