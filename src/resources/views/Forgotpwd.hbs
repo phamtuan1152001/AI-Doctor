@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" /> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="../../public/css/formstyle.css" />
+     <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+  </head>
+  <body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title forgot">
+                Change Password !!!
+            </div>
+        </div>
+      <div class="form-container">
+        <div class="form-inner">
+          <form action="../../resources/views/Log&Sign.hbs" class="forgot" target="_self">
+            <!--Forgot Password-->
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Confirm Code From Your Email"
+                required
+              >
+            </div>
+            <div class="field">
+              <input type="password" placeholder="New Password" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Confirm Password" required>
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+             <button onclick="Change-pwd()"><input type="submit" value="Change Password" ></button> 
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

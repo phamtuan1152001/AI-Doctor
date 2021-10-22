@@ -1,15 +1,15 @@
  <link rel="stylesheet"  href="/css/Person.css">
 <nav>
-  <div class="container-fluid padding" id="test">	
+  <div class="container__fluid padding" id="container__fluid">	
       <div class="row text-center padding">
         <div class="col-md-6">	
           <img src="/image/person.png" class="img-fluid">
         </div>
      
       <div class="col-md-6">
-          <h1>Personal Information</h1>
+          <h1 class="container__title">Personal Information</h1>
           <br>
-          <p>A place that helps you easily manage your own personal information, your medical conditions will also be recorded here, your doctor will easily refer to your condition through this record.</p>
+          <p class="container__text">A place that helps you easily manage your own personal information, your medical conditions will also be recorded here, your doctor will easily refer to your condition through this record.</p>
         </div>
       </div>
     </div>
@@ -23,34 +23,34 @@
 		<div class="col-md-3">
 			<div class="profile-sidebar">
 			
-				<div class="profile-userpic">
+				<div class="profile-sidebar__profile-userpic">
 					<img src="image/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">
 				</div>				
 			
-				<div class="profile-usertitle">
-					<div class="profile-usertitle-name">
+				<div class="profile-sidebar__profile-usertitle">
+					<div class="profile-sidebar__profile-usertitle--name">
 						Nguyễn Quốc Bảo
 					</div>
 				</div>				
 				
-				<div class="profile-userbuttons">
-					<a href="#popup3" onclick="logout()" type="button" class="btn btn-danger btn-sm">Log out</a>
+				<div class="profile-sidebar__profile-userbuttons">
+					<a href="#popup__logout" onclick="logout()" type="button" class="btn btn-danger btn-sm">Log out</a>
 				</div>				
 			
-				<div class="profile-usermenu">
+				<div class="profile-sidebar__profile-usermenu">
 					<ul class="nav">
 						<li class="active">
-							<a href="#popup">
+							<a href="#popup__information">
 							<i class="glyphicon glyphicon-info-sign"></i>
 							Update Personal Information </a>
 						</li>
             <li>
-							<a href="#popup1">
+							<a href="#popup__medical">
                 <i class="glyphicon glyphicon-info-sign"></i>
                 Update Medical record </a>
 						</li>
 						<li>
-							<a href="#popup2">
+							<a href="#popup__password">
                 <i class="glyphicon glyphicon-info-sign"></i>
                 Change Password </a>
 						</li>
@@ -98,7 +98,7 @@
 </div>
 
 <!-- popup update information -->
-<div class="popup" id="popup">
+<div class="popup" id="popup__information">
   <div class="popup__content">
     <div class="popup__left">
       <img src="image/profile_user.jpg" alt="Tour photo" class="popup__img">
@@ -111,38 +111,38 @@
   </div>
       <div class="popup__right">
         <a href="#section-courses" class="popup__close">&times;</a>
-        <form action="#">
+        <form action="#" onsubmit="validateFormInformation()">
           <div class="mb-3">
             <label for="Name" class="form-label">Name</label>
-            <input class="form-control" type="text" placeholder="Name" aria-label="default input example" required="">
+            <input class="form-control" type="text" placeholder="Name" aria-label="default input example" required="" id="Name">
             </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp" required="">
+            <label for="exampleInputEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" aria-describedby="emailHelp" required="">
           </div>
           <div class="mb-3">
             <label for="date" class="form-label">Date of birth</label>
-            <input type="date" id="start" name="trip-start" required="">
+            <input type="text" id="datepicker" required="" >
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Phone</label>
-            <input type='tel' class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="">
+            <label for="PhoneNumber" class="form-label">Phone</label>
+            <input type='tel' class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="" id="PhoneNumber">
           </div>
           
           <div class="mb-3">
             <label for ="">Gender: &nbsp;&nbsp;</label>
             <input type="radio" value="male" name="gender" id="male" checked>
-            <label for ="">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <label for ="male">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="radio" value="female" name="gender" id="female">
-            <label for ="">Female</label>
+            <label for ="female">Female</label>
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">Address</label>
-          <textarea class="form-control"  placeholder="Address"  aria-label="With textarea" required=""></textarea>
+          <textarea class="form-control"  placeholder="Address"  aria-label="With textarea" required="" id="address"></textarea>
         </div> 
 
         <div class="mb-3">
-          <button  type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         </form>
          </div>
@@ -151,7 +151,7 @@
 
 <!--Update pathological-->
 
-<div class="popup" id="popup1">
+<div class="popup" id="popup__medical">
   <div class="popup__content">
     <div class="card card-outline-secondary">
       <a href="#section-courses" class="popup__close">&times;</a>
@@ -159,7 +159,7 @@
         <h3 class="mb-0">Update Medical record</h3>
       </div>
       <div class="card-body">
-        <form autocomplete="off" class="form" role="form" action="#">
+        <form autocomplete="off" name="Medicalform" class="form" role="form" action="#" onsubmit="validateFormMedical()">
           <div class="form-group">
             <label for="inputBackgroundisease">Background disease</label> 
             <textarea class="form-control" id="inputBackgroundisease" required=""></textarea> 
@@ -172,7 +172,7 @@
             <span class="form-text small text-muted">You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc.</span>
           </div>
           <div class="form-group">
-            <button onclick="FormHPC()" class="btn btn-success btn-lg float-right"  type="submit">Save</button>
+            <button class="btn btn-success btn-lg float-right"  type="submit">Save</button>
           </div>
         </form>
       </div>
@@ -183,7 +183,7 @@
 
 
 <!-- popup reset password -->
-<div class="popup" id="popup2">
+<div class="popup" id="popup__password">
   <div class="popup__content">
     
         <!-- form card change password -->
@@ -193,7 +193,7 @@
             <h3 class="mb-0">Change Password</h3>
           </div>
           <div class="card-body">
-            <form autocomplete="off" class="form" role="form" action="#">
+            <form autocomplete="off" class="form" role="form" action="#" onsubmit="validateFormPassword()">
               <div class="form-group">
                 <label for="inputPasswordOld">Current Password</label> 
                 <input class="form-control" id="inputPasswordOld" required="" type="password">
@@ -218,8 +218,8 @@
   </div>
 </div>
 
-<div class="popup3" id="popup3">
-  <div class="popup3__content">
+<div class="popup-logout" id="popup__logout">
+  <div class="popup-logout__content">
       <div class="card-body">
        <div class="container padding">
         <div id="warning-icon"> 
@@ -234,15 +234,144 @@
           <p>If you log out you will not be able to use our service!</p>
         </div>
         <div class="container">
-          <a  href="#section-courses" class="btn btn--logout_Cancel">Cancel</a>
+          <a  onclick="setTimeout(showSuccess,2000)" href="#section-courses" class="btn btn--logout_Cancel">Cancel</a>
           <a href="Log&Signform.html" class="btn btn--logout_OK">OK</a>
 
         </div>
-
-     
-        
       </div>
 
     </div>
   </div>
 </div>
+<div id="toast"></div>
+     
+    <script>
+      $( "#datepicker" ).datepicker();
+    </script>
+    <script>
+      function toast({ title = "", message = "", type = "", duration = "" }) {
+        const main = document.getElementById("toast");
+        if (main) {
+          const toast = document.createElement("div");
+          // toast.onclick = function (e) {
+          //   console.log(e.target);
+          //  };
+          //auto remove
+          const autoRemove = setTimeout(function () {
+            main.removeChild(toast);
+          }, duration + 1000);
+          //click close
+          toast.onclick = function (e) {
+            if (e.target.closest(".toast__close")) {
+              main.removeChild(toast);
+              clearTimeout(autoRemove);
+            }
+          };
+          const icons = {
+            success: "fas fa-check-circle",
+          };
+          const icon = icons[type];
+          const delay = (duration / 1000).toFixed(2);
+
+          toast.classList.add("toast", `toast--${type}`);
+          toast.style.animation = `slideInLeft ease .5s, fadeOut linear 5s forwards`;
+
+          toast.innerHTML = `
+             <div class="toast__icon">
+                 <i class="${icon}"></i>
+             </div>
+             <div class="toast__body">
+                 <h3 class="toast__title">${title}</h3>
+                 <p class="toast__msg">${message}</p>
+             </div>
+             <div class="toast__close">
+                 <i class="fas fa-times"></i>
+             </div>
+           `;
+          main.appendChild(toast);
+        }
+      }
+      function showSuccess() {
+        toast({
+          title: "Success",
+          message: "Ready to pour… the Font Awesome 6 Beta!",
+          type: "success",
+          duration: 5000,
+        });
+      }
+
+       
+    </script>
+    <script>
+        function validateFormMedical() {
+    var inputBackgroundisease = document.getElementById("inputBackgroundisease").value;
+    var inputHPC = document.getElementById("inputHPC").value;
+ 
+    if (inputBackgroundisease == null || inputBackgroundisease == "") {
+        return false;
+    } else if (inputHPC == null || inputHPC == "") {
+        return false;
+    }
+    toast({
+          title: "Success",
+          message: "Your information has been successfully updated!",
+          type: "success",
+          duration: 5000,
+        });
+}
+ function validateFormPassword() {
+    var inputPasswordOld = document.getElementById("inputPasswordOld").value;
+    var inputPasswordNew = document.getElementById("inputPasswordNew").value;
+    var inputPasswordNewVerify= document.getElementById("inputPasswordNewVerify").value;
+ 
+   if (inputPasswordOld == null || inputPasswordOld == "") {
+        return false;
+    }
+    else if (inputPasswordNew == null || inputPasswordNew == "") {
+        return false;
+    }
+    else if (inputPasswordNewVerify == null || inputPasswordNewVerify == "") {
+        return false;
+    }
+    toast({
+          title: "Success",
+          message: "Your information has been successfully updated!",
+          type: "success",
+          duration: 5000,
+        });
+}
+function validateFormInformation() {
+    var Name = document.getElementById("Name").value;
+    var exampleInputEmail = document.getElementById("exampleInputEmail").value;
+    var PhoneNumber= document.getElementById("PhoneNumber").value;
+    var address = document.getElementById("address").value;
+    var date = document.getElementById("datepicker").value;
+   var gender = document.querySelector('input[name = "gender"]:checked').value;
+ 
+   if (Name == null || Name == "") {
+        return false;
+    }
+    else if (exampleInputEmail == null || exampleInputEmail == "") {
+        return false;
+    }
+    else if (PhoneNumber == null ||PhoneNumber == "") {
+        return false;
+    }
+     else if (address == null ||address == "") {
+        return false;
+    }
+    else if (date == null ||date == "") {
+        return false;
+    }
+    else if ( gender== "" || gender== null) {
+       return false;
+    }
+    toast({
+          title: "Success",
+          message: "Your information has been successfully updated!",
+          type: "success",
+          duration: 5000,
+        });
+}
+ 
+       </script>

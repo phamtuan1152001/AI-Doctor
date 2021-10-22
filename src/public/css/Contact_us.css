@@ -10,7 +10,7 @@ html {
   font-size: 15px;
 }
 
-#test {
+#container__fluid {
   background: #c2e59c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -20,18 +20,18 @@ html {
   background: linear-gradient(to right, #c2e59c, #64b3f4);
   clip-path: ellipse(85% 78% at 50% 19%);
 }
-#test h1 {
+.container__title {
   padding-top: 10rem;
   animation: moveInLeft 1s ease-out;
   font-size: 4rem;
 }
-#test p {
+.container__text {
   text-align: left;
   font-size: 1.3rem;
   padding-bottom: 10rem;
   animation: moveInLeft 1s ease-out;
 }
-#contact1 h1 {
+.container__text-center {
   font-weight: normal;
   font-size: 4em;
   margin: 0 auto;
@@ -40,7 +40,7 @@ html {
   text-align: center;
   animation: moveInBottom 2s ease-out;
 }
-#test img {
+.img-fluid {
   animation: moveInBottom 1s ease-out;
 }
 
@@ -70,7 +70,7 @@ html {
   }
 }
 
-.comment_fly {
+.form__comment_fly {
   background-image: url("https://i.imgur.com/Gy3WzkH.png");
   width: 235px;
   height: 104px;
@@ -84,22 +84,22 @@ html {
   -webkit-animation-timing-function: linear;
 }
 
-#comment_fly {
+#form__comment-fly {
   top: 80px;
 }
 
-#comment_fly2 {
+#form__comment-fly2 {
   top: 310px;
   animation-delay: 3s;
   -webkit-animation-delay: 5s;
 }
-#comment_fly3 {
+#form__comment-fly3 {
   top: 510px;
   animation-delay: 8s;
   -webkit-animation-delay: 10s;
 }
 
-#form {
+.form {
   height: 100%;
   background-color: #98d4f3;
   overflow: hidden;
@@ -289,22 +289,24 @@ label {
   color: red;
 }
 
-#waterform h4 {
+#form__waterform h4 {
   color: black;
 }
 
-.form-check {
+.formgroup__form-check {
   width: 100%;
 }
 
-.form-check-label {
+.formgroup__form-check--label {
   font-size: 18px;
   cursor: pointer;
   position: relative;
   margin: 0;
   padding: auto;
+  margin-left: 1rem;
+  margin-top: -1.5rem;
 }
-.form-check-input {
+.formgroup__form-check--input {
   display: inline-block;
   width: 10%;
 }
