@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="../../public/css/formstyle.css" />
+     <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+</head>
+<body>
+ <div class="wrapper">
+          <!-- title for register form-->
+      <div class="title-text">
+            <div class="title register">Register</div>
+      </div>
+    <div class="form-container">
+        <div class="form-inner">
+            <form action="../../resources/views/Login.hbs" class="register" target="_self">
+             <div class="field">
+              <input type="text" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Confirm password" required>
+            </div>
+            <div class="field">
+              <input type="text" placeholder="Your Full Name" required>
+            </div>
+            <div class="field">
+              <input type="date" placeholder="Birth- Ex:01/10/2001" required >
+            </div>
+            <div class="sex-field">
+              <span> Gender:</span>
+              <label for="female">Female</label>
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                required
+              >
+              <label for="male">Male</label>
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                required
+              >
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+             <button onclick="Register()"> <input type="submit" value="Register"></button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+  <script>
+      function Register(){
+        alert("You have registered a new account!!!❤️");
+      }
+    </script>
+</body>
+</html>

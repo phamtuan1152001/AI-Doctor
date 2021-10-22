@@ -1,0 +1,36 @@
+h1 {
+    padding: 10px;
+    border-bottom: solid 1px black ;
+    animation: zoomIn;
+    animation-duration: 1.5s;
+}
+.visit-us {
+  background: #c2e59c;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.visit-us a {
+  color: black;
+  padding-left: 10px;
+  text-decoration: none;
+}
+.visit-us a:hover {
+  text-decoration: none;
+  color: initial;
+}
+.visit-us:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+.container .row {
+    border-bottom: solid 1px black;
+    padding: 10px;
+}
+h2 {
+    color: #8cb18c;
+}
