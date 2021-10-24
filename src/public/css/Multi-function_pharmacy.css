@@ -1,0 +1,49 @@
+h1{
+    animation: zoomIn;
+    animation-duration: 1.5s;
+}
+.MFP {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+h2 {
+    color: #8cb18c;
+}
+.visit-us {
+  background: #c2e59c;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.visit-us a {
+  color: black;
+  padding-left: 10px;
+  text-decoration: none;
+}
+.visit-us a:hover {
+  text-decoration: none;
+  color: initial;
+}
+.visit-us:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+.system-of-pharmacy{
+  padding: 10px;
+}
+.SOP {
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  padding: 20px;
+  animation: bounceInUp;
+  animation-duration: 2s;
+}
