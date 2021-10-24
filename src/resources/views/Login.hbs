@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../../public/css/formstyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">
+          <!-- title of the login form-->
+          Login
+        </div>
+      </div>
+      <div class="form-container">
+      
+        <div class="form-inner">
+          <form
+            action="../../resources/views/layouts/main.hbs"
+            class="login"
+            autocomplete="on"
+            target="_self"
+          >
+            <!-- Login Form-->
+            <div class="field">
+              <input type="text" placeholder="Email Address" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required >
+            </div>
+            <div class="remember">
+              <label for="rem"> Remember Password</label>
+              <input type="checkbox" id="rem" value="Remember Password">
+            </div>
+            <div class="pass-link">
+              <a href="../../resources/views/Forgotpwd.hbs">Forgot password?</a>
+            </div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <button onclick="Login()"> <input type="submit" value="Login"></button>
+            </div>
+          </form>  
+        </div>
+      </div>
+    </div>
+  
+  </body>
+</html>
