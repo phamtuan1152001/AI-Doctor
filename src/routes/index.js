@@ -2,8 +2,11 @@ const userRouter = require('./user')
 const siteRouter = require('./site')
 const loginRouter= require('./login')
 //const diagnoseRouter = require('./diagnose')
+const feedbackRouter = require('./feedback')
 
 function route(app) {
+
+    app.use('/feedback', feedbackRouter)
 
     app.use('/user', userRouter)
 

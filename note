@@ -1,0 +1,5 @@
+- index.js: cấu hình đường dẫn URL dẫn đến js chi tiết (feedback.js)
+- Từ feeback.js import và dẫn đến controller để thực hiện các tính năng
+
+- Controller thực hiện các tính năng của page
+- Model: Định nghĩa các thuộc tính cần sử dụng với database
