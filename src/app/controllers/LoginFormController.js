@@ -5,11 +5,11 @@ class LoginFormController{
     }
     //[GET] /Register
     index(req,res){
-        res.render("Register")
+        res.render("Register");
     }
     //[GET] /Forgotpwd
     index(req,res){
-        res.render("Forgotpwd")
+        res.render("Forgotpwd");
     }
     
 
