@@ -5,7 +5,7 @@ const path = require("path");
 const db = require("./config/db");
 const route = require("./routes/index");
 const app = express();
-const port = 3000;
+const port = 2000;
 const swal = require("sweetalert");
 
 app.use(express.static(path.join(__dirname, "public")));
