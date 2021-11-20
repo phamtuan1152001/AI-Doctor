@@ -5,18 +5,16 @@
   font-family: "Poppins", sans-serif;
 }
 
-html,
 body {
   overflow: hidden;
   display: grid;
   height: 100%;
   width: 100%;
   place-items: center;
-  background: url("../../public/image/Loginimg.png"),
-    linear-gradient(to right, #c2e59c, #64b3f4);
+  background: linear-gradient(to right, #c2e59c, #64b3f4);
   background-repeat: no-repeat;
-  background-size: 670px, cover;
-  background-position: left;
+  background-size: cover;
+  background-position: center;
 }
 ::selection {
   background: #c2e59c;
@@ -32,6 +30,7 @@ body {
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 .wrapper .title-text {
   display: flex;
