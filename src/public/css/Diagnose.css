@@ -3,9 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.introduce_left {
+  animation: slideInLeft;
+  animation-duration: 1.5s;
+}
+
+.introduce_right {
+  animation: slideInRight;
+  animation-duration: 1.5s;
+}
+
 /* Diagnose */
 #symptom-title {
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
 }
 #list_hospital {
@@ -26,4 +37,34 @@
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #c2e59c, #64b3f4);
   clip-path: ellipse(85% 78% at 50% 19%);
+}
+.container .row {
+  border-bottom: solid black 1px;
+  border-top: solid black 1px;
+  padding: 20px;
+}
+
+.diagnose-box-right a {
+  margin-left: 230px;
+}
+
+.inputted-text {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around
+}
+
+.container__title {
+  padding-top: 10rem;
+  font-size: 4rem;
+}
+.container__text {
+  text-align: left;
+  font-size: 1.3rem;
+  padding-bottom: 10rem;
+  margin-top: 1rem;
 }
