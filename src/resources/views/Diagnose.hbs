@@ -1,51 +1,27 @@
-    <link rel="stylesheet" href="/css/Diagnose.css">
-
-    <!--CDN of Datatable-->
-    <script
-      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
-    ></script>
-    <script
-      src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
-    ></script>
-    <script
-      src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
-    ></script>
-
-    <script>
-        $(document).ready(function() {
-        // Cấu hình các nhãn phân trang
-            $('#symptom-detail').dataTable( {
-                "language": {
-                "sInfoPostFix":  "",
-                "sSearch":       "Enter your detail symptom:",
-                "sUrl":          "",
-                "oPaginate": {
-                "sFirst":    "The First",
-                "sPrevious": "Previous",
-                "sNext":     "Next",
-                "sLast":     "The Last"
-            }
-        },
-                "processing": true, // tiền xử lý trước
-                "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển thị bảng
-                "order": [[ 1, 'desc' ]] //sắp xếp giảm dần theo cột thứ 1
-            } );    
-        } );
-    </script>
+  <link rel="stylesheet" href="/css/Diagnose.css">
 
   <body>
+    <!-- Giới thiệu trang Diagnose -->
     <nav>
       <div class="container-fluid padding" id="test">
         <div class="row text-center padding">
-          <div class="col-md-12">
+          <div class="col-md-6 introduce_left">
             <img src="/image/x_Browser_04-1.png" class="img-fluid" />
+          </div>
+          <div class="col-md-6 introduce_right">
+            <h1 class="container__title">Technical Diagnosing</h1>
+            <br>
+            <p class="container__text">A place that helps patients easily diagnose their health by AI Doctor. This Technical will help them to know their illness. From that, they can imediately decide to make an appointment with doctor by face to face. At that time, they can have a chance to talk with doctor in order to improve their health.</p>
           </div>
         </div>
       </div>
     </nav>
+    <!-- Kết thúc phần giới thiệu -->
+
     <!-- Content of Diagnose -->
-    <div class="container-fluid">
-      <h1 class="text-center diagnose-title">Diagnosing by AID Technical</h1>
+    <div class="container">
+
+      <h1 class="diagnose-title">Diagnosing by AID Technical</h1>
       <!-- Tiêu đề cho hoạt ảnh -->
       <script>
         var diagnose_title = document.querySelector('.diagnose-title');
@@ -53,31 +29,69 @@
         diagnose_title.style.setProperty('--animate-duration', '1s');
       </script>
       <!-- Kết thúc hoạt ảnh -->
-      <div class="container-fluid">
+
+      <div class="container">
         <div class="row">
-          <div class="col-sm-3 col-md-4 col-lg-6 text-center diagnose-box-left">
+          <!-- Nội dung bên trái -->
+          <div class="col-md-5 diagnose-box-left">
+            <h4>What are you feeling ?</h4>
+
             <!-- Input a symptom -->
-            <label class="mt-2" id="symptom-title" for="symptom">What are you
-              feeling ?</label>
-            <div class="form-group">
-              <label id="form-title" for="hospital_name">Choosing a symptom you
-                are having</label>
-              <p id="list">The list of symptom for you to select.</p>
-              <select id="list_hospital" class="form-control">
-                <option disabled selected value>List of Hospital</option>
-                <option>Hospital A</option>
-                <option>Hospital B</option>
-                <option>Hospital C</option>
-                <option>Hospital D</option>
-              </select>
+            <div class="form-group container-fluid">
+              <label id="form-title" for="hospital_name">Enter a symptom you are having</label>
+              <input id="symptom-input" type="text" class="form-control" placeholder="Enter your symptom" name="symptom-text">
+              <p class="mt-2">The symptom you have already entered:</p>
+
+              <!-- Bắt sự kiện khi nhấn phím enter sau khi nhập triệu chứng -->
+              <div id="inputted-text"></div>
+              <script>
+                $('#symptom-input').keypress(function(event){
+                  var keycode = (event.keyCode ? event.keyCode : event.which);
+                  if (keycode == '13') {
+                    var btn_search = document.getElementsByClassName("btn-search");
+                    var sym_input = document.getElementById("symptom-input").value;
+                    if (sym_input == "") {
+                      swal("Fail to identify your illness", "Please input your symptom or more symptom which you have entered!", "error");
+                    }
+                    else {
+                      swal("Well done", "Diagnosing Successfully", "success");
+                      document.getElementById("inputted-text").innerHTML = sym_input;
+                    }
+                  }
+                });
+              </script>
+              <!-- Kết thúc sự kiện -->
+
             </div>
-            <!-- Button to search a symptom -->
-            <button
-              style="width: 100%;"
-              type="button"
-              class="btn btn-outline-info mt-2"
-            >Searching</button>
+            <!-- Kết thúc input -->
+
+            <!-- Button and function to search a symptom -->
+            <div class="button-group">
+              <button type="button" class="btn btn-outline-info mt-2 btn-search" onclick="message_input()">Searching</button>
+              <button id="reset-input" type="button" class="btn btn-outline-info mt-2 btn-search" onclick="reset_input()">Reset</button>
+            </div>
+            <script>
+              function message_input() {
+                var btn_search = document.getElementsByClassName("btn-search");
+                var sym_input = document.getElementById("symptom-input").value;
+                if (sym_input == "") {
+                  swal("Fail to identify your illness", "Please input your symptom!", "error");
+                }
+                else {
+                  swal("Well done", "Diagnosing Successfully", "success");
+                  document.getElementById("inputted-text").innerHTML = sym_input;
+                }
+              }
+              function reset_input() {
+                var reset_input = document.getElementById("reset-input");
+                document.getElementById('symptom-input').value='';
+              }
+            </script>
+            <!-- End of button -->
+
           </div>
+          <!-- Kết thúc nội dung -->
+
           <!-- Hoạt ảnh cho diagnose-box-left -->
           <script>
             var diagnose_box_left =
@@ -87,37 +101,20 @@
             diagnose_box_left.style.setProperty('--animate-duration', '1.5s');
           </script>
           <!-- Kết thúc hoạt ảnh -->
-          <div class="col-sm-9 col-md-8 col-lg-6 diagnose-box-right">
-            <h4 class="text-center">Information about your symptom.</h4>
-            <div class="container">
-              <table
-                id="symptom-detail"
-                class="table table-striped table-bordered table-dark table-hover"
-              >
-                <thead>
-                  <tr>
-                    <th>Name of illness</th>
-                    <th>Symptom of this illness</th>
-                    <th>Detail</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>abc</th>
-                    <th>xyz</th>
-                    <th>hihi do ngok</th>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Name of illness</th>
-                    <th>Symptom of this illness</th>
-                    <th>Detail</th>
-                  </tr>
-                </tfoot>
-              </table>
+
+          <!-- Nội dung bên phải -->
+          <div class=" col-md-7 diagnose-box-right">
+            <h4>Information about your illness.</h4>
+            <div class="container-fluid">
+              <p>You have got <strong>Headache</strong></p>
+              <!--  -->
+              <!-- Dưới đây là nơi thể hiện thông tin người bệnh một cách nghiêm túc để giúp người bệnh đặt lịch thông qua AI Doctor -->
+              <!--  -->
             </div>
+            <a type="button" class="btn btn-outline-primary mt-2" href="Booking.hbs">Make an oppointment</a>
           </div>
+          <!-- Kết thúc nội dung -->
+
           <!-- Hoạt ảnh cho diagnose-box-right -->
           <script>
             var diagnose_box_right =
@@ -127,6 +124,7 @@
             diagnose_box_right.style.setProperty('--animate-duration', '1.5s');
           </script>
           <!-- Kết thúc hoạt ảnh -->
+
         </div>
       </div>
     </div>

@@ -1,8 +1,9 @@
 class SiteController {
   // [GET] site
   index(req, res) {
-    res.render("login");
+    res.render("Booking");
   }
 }
 
 module.exports = new SiteController();
+                                 
