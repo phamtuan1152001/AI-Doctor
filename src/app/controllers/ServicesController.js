@@ -1,7 +1,7 @@
-class UserController {
+class ServicesController {
     // [GET] site
     home(req, res) {
-      res.render('Person');
+      res.render('home');
     }
     diagnose(req, res) {
       res.render('Diagnose');
@@ -11,5 +11,5 @@ class UserController {
     }
   }
   
-  module.exports = new UserController();
+  module.exports = new ServicesController();
                                    
