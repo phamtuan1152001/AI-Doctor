@@ -25,13 +25,13 @@ class SiteController {
     res.render('Personal_business_healthcare');
   }
   log(req, res){
-    res.render('Login')
+    res.render('Login', {layout: 'Login_Reg.hbs'})
   }
   reg(req, res){
-    res.render('Register')
+    res.render('Register', {layout: 'Login_Reg.hbs'})
   }
   fwd(req, res){
-    res.render('Forgotpwd')
+    res.render('Forgotpwd', {layout: 'Login_Reg.hbs'})
   }
 
 
