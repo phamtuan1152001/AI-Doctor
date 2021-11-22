@@ -33,9 +33,7 @@ class SiteController {
   fwd(req, res){
     res.render('Forgotpwd', {layout: 'Login_Reg.hbs'})
   }
-
-
- 
+  
 }
 
 module.exports = new SiteController();
