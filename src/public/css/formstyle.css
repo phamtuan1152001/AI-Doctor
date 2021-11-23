@@ -22,6 +22,10 @@ body {
   background: #c2e59c;
   color: #fff;
 }
+a {
+  color: #c2e59c;
+  text-decoration: none;
+}
 .wrapper {
   /*the box of the login and register */
   overflow: hidden;
