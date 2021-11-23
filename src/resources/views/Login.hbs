@@ -1,4 +1,7 @@
-  <meta charset="utf-8" />
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
     <title>Login Form</title>
     <link rel="stylesheet" href="/css/formstyle.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -6,9 +9,8 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-
+  </head>
   <body>
-    <div id="login">
     <div class="wrapper">
       <div class="title-text">
         <div class="title login">
@@ -20,32 +22,70 @@
       
         <div class="form-inner">
           <form
-            action="../../resources/views/layouts/main.hbs"
-            class="login"
+           action="http://localhost:2000/user#popup__medical"
+            id="login"
             autocomplete="on"
             target="_self"
+            method="post"
           >
             <!-- Login Form-->
             <div class="field">
-              <input type="text" placeholder="Email Address" required>
+              <input type="text" placeholder="Email Address"  id="email" class="form-control" name="email" required >
             </div>
             <div class="field">
-              <input type="password" placeholder="Password" required >
+              <input type="password" placeholder="Password" id="password" class="form-control" name="password" required >
             </div>
             <div class="remember">
               <label for="rem"> Remember Password</label>
               <input type="checkbox" id="rem" value="Remember Password">
             </div>
             <div class="pass-link">
-              <a href="../../resources/views/Forgotpwd.hbs">Forgot password?</a>
+              <a href="http://localhost:2000/ForgotPassword">Forgot password?</a>
             </div>
-            <div class="field btn">
-              <div class="btn-layer"></div>
-              <button onclick="Login()"> <input type="submit" value="Login"></button>
+            <div class="pass-link">
+              <a href="http://localhost:2000/Register">Register!</a>
             </div>
-          </form>  
+              <div class="field btn">
+              <div class="btn-layer btn"></div>
+					<a href="#popup__login" onclick="login()" type="button" class="btn">Login</a>
+				    </div>
+          </form>      
         </div>
       </div>
     </div>
+ <!-- <script>
+           function next(){
+             const email= document.getElementById("email").value;
+             const password = document.getElementById("password").value;
+              if(email == "" || password== ""){
+                swal ( "Oops" ,  "Something went wrong!" ,  "error");
+              }
+              else{
+                swal("Good job!", "Login Success!!!", "success");
+              }
+              } 
+-->
+
+  </script>
+  <div class="popup-login" id="popup__login">
+  <div class="popup-login__content">
+      <div class="card-body">
+       <div class="container padding">
+        <div id="warning-icon"> 
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="textwarning">
+          Login Succesful !!!
+        </div>
+        <div class="container">
+          <a href="http://localhost:2000/user#popup__medical" class="btn btn--login_OK">OK</a>
+
+        </div>
+      </div>
+
+    </div>
   </div>
+</div>
+
   </body>
+</html>
