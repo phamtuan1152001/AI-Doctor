@@ -41,12 +41,30 @@
            
             <div class="field btn">
               <div class="btn-layer btn btn-primary"></div>
-            <input onclick="Register()" type="submit" value="Register">
+            <a href="#popup__login" onclick="register()" type="button" class="btn">Register</a>
             </div>
             </form>
         </div>
     </div>
 </div>
+<div class="popup-login" id="popup__login">
+  <div class="popup-login__content">
+      <div class="card-body">
+       <div class="container padding">
+        <div id="warning-icon"> 
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="textwarning">
+          Register Succesful !!!
+        </div>
+        <div class="container">
+          <a href="http://localhost:2000/Login" class="btn btn--login_OK">OK</a>
 
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
