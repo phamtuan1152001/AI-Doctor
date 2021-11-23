@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-//var HardAddress = mongoose.model('HardAddress')
-
 const User = new Schema({
     name: {type: String, maxLength: 50},
     ssn: {type: String, maxLength: 50},
@@ -14,7 +12,7 @@ const User = new Schema({
     healthInsuranceID: { type: String, maxLength: 50},
     credit: { type: String, maxLength: 16},
     address: { type: String, maxLength: 50},
-    //hardAddress: {type: HardAddress},
+    hardAddress: {type: Schema.Types.ObjectId, ref: 'HardAddress'},
     createdAt: { type: Date, default: Date.now},
     modifieddAt: { type: Date, default: Date.now}   
 })

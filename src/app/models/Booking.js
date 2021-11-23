@@ -6,11 +6,11 @@ var User = mongoose.model('User')
 var Doctor = mongoose.model('Doctor')
 
 const Booking = new Schema({
-    user: {ref: User},
-    hospital: {type: Hospital},
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    hospital: {type: Schema.Types.ObjectId, ref: 'Hospital'},
     bookingDate: {type: Date},
     creationDate: {type: Date},
-    doctor: {ref: Doctor},
+    doctor: {type: Schema.Types.ObjectId, ref: 'Doctor'},
 })
 
 module.exports = mongoose.model('Booking', Booking)

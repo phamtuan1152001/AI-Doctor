@@ -7,7 +7,7 @@ const Doctor = new Schema({
     hospital: {type: String},
     ssn: {type: String},
     name: {type: String},
-    department: {type: Category},
+    department: {type: Schema.Types.ObjectId, ref: 'Category'},
     phoneNumber: {type: String},
     dob: {type: Date},
     email: {type: String},

@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 const Feedback = new Schema({
     description: {type: String},
-    //userID: User,
+    userID: {type: Schema.Types.ObjectId, ref: 'User'},
     creationDate: {type: Date, default: Date.now},
 })
 

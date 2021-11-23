@@ -7,7 +7,7 @@ const Hospital = new Schema({
     name: {type: String},
     description: {type: String},
     address: {type: String},
-    hardAddress: {type: HardAddress},
+    hardAddress: {type: Schema.Types.ObjectId, ref: 'HardAddress'},
 })
 
 module.exports = mongoose.model('Hospital', Hospital)
