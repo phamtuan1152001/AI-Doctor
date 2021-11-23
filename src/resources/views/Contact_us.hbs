@@ -31,11 +31,11 @@
       <div class="form__comment_fly" id="form__comment-fly2"></div>
       <div class="form__comment_fly" id="form__comment-fly3"></div>
 
-      <form id="form__waterform" method="post" active="#" >
+      <form id="form__waterform" method="POST" action="/feedback" >
 
         <div class="formgroup" id="name-form">
           <label for="name">Your name*</label>
-          <input type="text" id="name" name="name">
+          <input type="text" id="fullname" name="fullname">
         </div>
 
         <div class="formgroup" id="message-form">
@@ -45,20 +45,20 @@
      
         <div class="formgroup">
           <div class="formgroup__form-check">
-            <input class="formgroup__form-check--input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="formgroup__form-check--label" for="flexRadioDefault1">
+            <input class="formgroup__form-check--input" type="radio" name="evaluate" id="evaluate1" value="Unsatisfied">
+            <label class="formgroup__form-check--label" for="evaluate1">
               Unsatisfied
             </label>
           </div>
           <div class="formgroup__form-check">
-            <input class="formgroup__form-check--input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-            <label class="formgroup__form-check--label" for="flexRadioDefault2">
+            <input class="formgroup__form-check--input" type="radio" name="evaluate" id="evaluate2" value="Satisfied" checked>
+            <label class="formgroup__form-check--label" for="evaluate2">
               Satisfied
             </label>
           </div>
           <div class="formgroup__form-check">
-            <input class="formgroup__form-check--input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
-            <label class="formgroup__form-check--label" for="flexRadioDefault3">
+            <input class="formgroup__form-check--input" type="radio" name="evaluate" id="evaluate3" value="Extremely satisfied">
+            <label class="formgroup__form-check--label" for="evaluate3">
               Extremely satisfied
             </label>
           </div>
@@ -67,17 +67,16 @@
         <input  type="submit" id="content" value="Feedback" />
  
 
-        <div class="formgroup" id="comment">
+        {{!-- <div class="formgroup" id="comment">
           <label>all comments</label>
           <textarea readonly id="content1"></textarea>
-        </div>
+        </div> --}}
       
 
       </form>
       
     </div> 
 
-  
   <script type="text/javascript">
   $(document).ready(function()
     { 
@@ -88,7 +87,58 @@
        submit.click(function()
        {
          //khai báo các biến dữ liệu gửi lên server
-         var name = $("input[name='name']").val(); //lấy giá trị trong input user
+         var name = $("input[name='fullname']").val(); //lấy giá trị trong input user
+         var message = $("textarea[name='message']").val();// giá trị message
+        
+          //Kiểm tra xem trường đã được nhập hay chưa
+        
+        if(name == ''){
+          swal({
+            title: "Oops...!",
+            text: "Name is blank!",
+            icon: "error",
+            button: "Aww yiss!",
+          });
+            return false;
+          
+         }
+           else if(message == ''){
+            swal({
+              title: "Oops...!",
+              text: "Message is blank!",
+              icon: "error",
+              button: "Aww yiss!",
+            });
+            return false;
+          
+         }else{
+           swal({
+              title: "Good job!",
+              text: "Thank you for your feedback!",
+              icon: "success",
+              button: "Aww yiss!",
+            }).then(function(){
+              location.reload();
+            });
+         }
+     });
+    });
+
+    
+  </script>
+
+<!--
+  <script type="text/javascript">
+  $(document).ready(function()
+    { 
+       //khai báo biến submit form lấy đối tượng nút submit
+       var submit = $("input[type='submit']");
+ 
+       //khi nút submit được click
+       submit.click(function()
+       {
+         //khai báo các biến dữ liệu gửi lên server
+         var name = $("input[name='fullname']").val(); //lấy giá trị trong input user
          var message = $("textarea[name='message']").val();// giá trị message
         
           //Kiểm tra xem trường đã được nhập hay chưa
@@ -119,8 +169,8 @@
        
          //Sử dụng phương thức Ajax.
          $.ajax({
-               type : 'POST', //Sử dụng kiểu gửi dữ liệu POST
-               url : 'data.php', //gửi dữ liệu sang trang #.php
+               type : 'POST', //Sử dụng kiểu gửi dữ liệu GET
+               url : '/feedback', //gửi dữ liệu sang trang #.php
                data : datas, //dữ liệu sẽ được gửi
                success : function(data)  // Hàm thực thi khi nhận dữ liệu được từ server
                          { 
@@ -149,7 +199,7 @@
 
     
   </script>
-
+ -->
     <!-- <div>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d149134.12912316382!2d106.70801062905318!3d10.815247071869582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBRdeG7kWMgVOG6vyAt!5e0!3m2!1svi!2s!4v1632753313229!5m2!1svi!2s"
