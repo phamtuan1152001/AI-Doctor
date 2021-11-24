@@ -2,22 +2,26 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+    name: {
+        type: String,
+        required: true
+        },
+    email: {
+        type: String,
+        required: true,
     },
-    hospital: {
+    phone: {
         type: String,
         required: true
     },
-    department: {
+    address: {
         type: String,
         required: true
     },
-    appoint_date: {
-        type: Date,
-        required: true
-    }
+    bookingid: {
+        type: String,
+        required: true,
+    }  
 }, { timestamps: true });
 
 const Booking = mongoose.model('Booking', bookingSchema);
