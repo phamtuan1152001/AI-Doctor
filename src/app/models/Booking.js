@@ -38,7 +38,10 @@ const bookingSchema = new Schema({
         required: true
     },
     bookingid: {
-        type: String,
+        type: Array,
+        items: {
+            type: String
+        },
         required: true
     }  
 }, { timestamps: true });
