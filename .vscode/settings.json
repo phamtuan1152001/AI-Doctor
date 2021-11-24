@@ -1,4 +1,5 @@
 {
-    "liveServer.settings.port": 5501,
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+  "liveServer.settings.port": 5501,
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "maven.view": "hierarchical"
 }
