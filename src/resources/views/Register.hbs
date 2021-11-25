@@ -15,56 +15,56 @@
           <!-- title for register form-->
       <div class="title-text">
             <div class="title register">Register</div>
+      </div> 
+      <div class="pass-link">
+        <span> Already have an account?</span>
+              <a href="http://localhost:2000/Login" >Login!</a>
       </div>
     <div class="form-container">
         <div class="form-inner">
-            <form action="../../resources/views/Login.hbs" class="register" target="_self">
+            <form action="http://localhost:2000/Login" id="register" target="_self" method="post">
              <div class="field">
-              <input type="text" placeholder="Email Address" required>
+              <input type="text" placeholder="Email Address" id="email" class="form-control" name="email" required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Password" required>
+              <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
             </div>
             <div class="field">
-              <input type="password" placeholder="Confirm password" required>
+              <input type="password" placeholder="Confirm password" id="confirmPassword" class="form-control" name="confirmPassword" required>
             </div>
             <div class="field">
-              <input type="text" placeholder="Your Full Name" required>
+              <input type="text" placeholder="Your Full Name" id="name"class="form-control" name="name" required>
             </div>
             <div class="field">
-              <input type="date" placeholder="Birth- Ex:01/10/2001" required >
+              <input type="date" placeholder="Birth- Ex:01/10/2001" id="dob" class="form-control" required >
             </div>
-            <div class="sex-field">
-              <span> Gender:</span>
-              <label for="female">Female</label>
-              <input
-                type="radio"
-                id="female"
-                name="gender"
-                value="female"
-                required
-              >
-              <label for="male">Male</label>
-              <input
-                type="radio"
-                id="male"
-                name="gender"
-                value="male"
-                required
-              >
-            </div>
+           
             <div class="field btn">
-              <div class="btn-layer"></div>
-             <button onclick="Register()"> <input type="submit" value="Register"></button>
+              <div class="btn-layer btn btn-primary"></div>
+            <a href="#popup__login" onclick="register()" type="button" class="btn">Register</a>
             </div>
             </form>
         </div>
     </div>
 </div>
-  <script>
-      function Register(){
-        alert("You have registered a new account!!!❤️");
-      }
-    </script>
+<div class="popup-login" id="popup__login">
+  <div class="popup-login__content">
+      <div class="card-body">
+       <div class="container padding">
+        <div id="warning-icon"> 
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="textwarning">
+          Register Succesful !!!
+        </div>
+        <div class="container">
+          <a href="http://localhost:2000/Login" class="btn btn--login_OK">OK</a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
