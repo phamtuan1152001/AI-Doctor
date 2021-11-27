@@ -8,6 +8,11 @@ const app = express();
 const port = 2000;
 const swal = require("sweetalert");
 
+// New
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require("passport");
+
 app.use(express.static(path.join(__dirname, "public")));
 
 //Connect to DB
@@ -32,6 +37,31 @@ app.engine(
 );
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources\\views"));
+
+// New Bodyparser
+app.use(express.urlencoded({extended: false}));
+
+// New Express session
+app.use(session ({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+}));
+
+// New Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// New connect flash
+app.use(flash());
+
+// New Global variable 
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+})
 
 // Route init
 route(app);
