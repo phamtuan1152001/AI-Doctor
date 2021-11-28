@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/db/auth');
 
 
 const siteController = require('../app/controllers/SiteController')
@@ -15,6 +16,13 @@ router.use('/Login', siteController.log)
 router.use('/Register', siteController.reg)
 router.use('/ForgotPassword', siteController.fwd)
 
-router.use('/', siteController.home)
+// router.use('/', siteController.home)
+router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
 
+// Dashboard
+router.get('/dashboard', ensureAuthenticated, (req, res) =>
+  res.render('dashboard', {
+    user: req.user
+  })
+);
 module.exports = router

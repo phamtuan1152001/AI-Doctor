@@ -27,6 +27,7 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
+
 // HTTP logger
 app.use(morgan("combined"));
 
@@ -47,8 +48,12 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources\\views"));
 
+// // EJS
+// app.use(expressLayouts);
+// app.set('view engine', 'ejs');
+
 // New Bodyparser
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 
 // New Express session
 app.use(session ({
@@ -77,14 +82,4 @@ route(app);
 
 app.listen(port , () => {
   console.log(`Example app listening at http://localhost:${port}`);
-});
-
-app.use(flash());
-
-// Global variables
-app.use(function(req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
 });
