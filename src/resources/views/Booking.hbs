@@ -30,7 +30,7 @@
         },
                 "processing": true, // tiền xử lý trước
                 "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển thị bảng
-                "order": [[ 1, 'desc' ]] //sắp xếp giảm dần theo cột thứ 1
+                //"order": [[ 1, 'desc' ]] //sắp xếp giảm dần theo cột thứ 1
             } );    
         } );
     </script>
@@ -74,19 +74,7 @@
           <label for="name">1. Name:</label>
           <input type="text" class="form-control" placeholder="Enter your name" id="name">
         </div>
-        <div class="form-group">
-          <label for="email">2. Email address:</label>
-          <input type="email" class="form-control" placeholder="Enter your email" id="email">
-        </div>
-        <div class="form-group">
-          <label for="email">3. Phone number:</label>
-          <input type="text" class="form-control" placeholder="Enter your phone" id="phone">
-        </div>
-        <div class="form-group">
-          <label for="address">4. Address:</label>
-          <input type="text" class="form-control" placeholder="Enter your address" id="address">
-        </div>
-        <p>5. List of doctors to select:</p>
+        <p>2. List of doctors to select:</p>
         <table id="symptom-detail" class="table table-striped table-bordered table-dark table-hover">
           <thead>
             <tr>
@@ -96,6 +84,8 @@
               <th>Department</th>
               <th>Hospital</th>
               <th>Date</th>
+              <th>Email</th>
+              <th>Phone number</th>
             </tr>
           </thead>
           <tbody>
@@ -107,11 +97,13 @@
                   </label>
                 </div>
               </th>
-              <th>abc</th>
-              <th>xyz</th>
-              <th>ijk</th>
-              <th>123</th>
-              <th>456</th>
+              <th>DT01</th>
+              <th>Moreyra Francisco Carlos</th>
+              <th>Interal</th>
+              <th>Vinmec Hospital</th>
+              <th>Monday 13h-14h</th>
+              <th>mfc@gmail.com</th>
+              <th>0913457684</th>
             </tr>
             <tr>
               <th>
@@ -121,11 +113,13 @@
                   </label>
                 </div>
               </th>
-              <th>abc</th>
-              <th>xyz</th>
-              <th>ijk</th>
-              <th>123</th>
-              <th>456</th>
+              <th>DT02</th>
+              <th>Le Huu Dong</th>
+              <th>Interal</th>
+              <th>Vinmec Hospital</th>
+              <th>Tuesday 8h-9h</th>
+              <th>lhdong@gmail.com</th>
+              <th>0934175837</th>
             </tr>
             <tr>
               <th>
@@ -135,11 +129,13 @@
                   </label>
                 </div>
               </th>
-              <th>abc</th>
-              <th>xyz</th>
-              <th>ijk</th>
-              <th>123</th>
-              <th>456</th>
+              <th>DT03</th>
+              <th>Nguyen Thi Minh Tam</th>
+              <th>Interal</th>
+              <th>Vinmec Hospital</th>
+              <th>Friday 8h-9h</th>
+              <th>ntmtam@gmail.com</th>
+              <th>0987393741</th>
             </tr>
             <tr>
               <th>
@@ -149,11 +145,13 @@
                   </label>
                 </div>
               </th>
-              <th>abc</th>
-              <th>xyz</th>
-              <th>ijk</th>
-              <th>123</th>
-              <th>456</th>
+              <th>DT04</th>
+              <th>Nguyen Thi Thu Hoa</th>
+              <th>Interal</th>
+              <th>Vinmec Hospital</th>
+              <th>Saturday 8h-9h</th>
+              <th>ntthoa@gmail.com</th>
+              <th>0984617368</th>
             </tr>
             <tr>
               <th>
@@ -163,11 +161,13 @@
                   </label>
                 </div>
               </th>
-              <th>abc</th>
-              <th>xyz</th>
-              <th>ijk</th>
-              <th>123</th>
-              <th>456</th>
+              <th>DT05</th>
+              <th>Huynh An Thien</th>
+              <th>Interal</th>
+              <th>Vinmec Hospital</th>
+              <th>Thursday 10h-11h</th>
+              <th>hathien@gmail.com</th>
+              <th>0984716371</th>
             </tr>
             <tr>
               <th>
@@ -177,11 +177,13 @@
                   </label>
                 </div>
               </th>
-              <th>abc</th>
-              <th>xyz</th>
-              <th>ijk</th>
-              <th>123</th>
-              <th>456</th>
+              <th>DT06</th>
+              <th>Pham Van Hung</th>
+              <th>Interal</th>
+              <th>Vinmec Hospital</th>
+              <th>Wednesday 13h-14h</th>
+              <th>phamvanhung@gmail.com</th>
+              <th>0984716278</th>
             </tr>
           </tbody>
           <tfoot>
@@ -192,13 +194,18 @@
               <th>Department</th>
               <th>Hospital</th>
               <th>Date</th>
+              <th>Email</th>
+              <th>Phone number</th>
             </tr>
           </tfoot>
         </table>
+        <div class="form-group">
+          <label for="name">3. Any requirements:</label>
+          <input type="text" class="form-control" placeholder="If you have any requirements, just write these down.">
+        </div>
         <div class="form-group text-center">
           <button type="submit" class="btn btn-primary">Submit form</button>
         </div>
-        
       </form>
     </div>
     <!-- End of Content -->
