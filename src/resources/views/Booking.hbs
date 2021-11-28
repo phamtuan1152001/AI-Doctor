@@ -69,10 +69,10 @@
         booking_title.style.setProperty('--animate-duration', '1.0s');
       </script>
       <!-- Kết thúc hoạt ảnh -->
-      <form action="#">
+      <form action="/booking" method="post">
         <div class="form-group">
           <label for="name">1. Name:</label>
-          <input type="text" class="form-control" placeholder="Enter your name" id="name">
+          <input type="text" class="form-control" placeholder="Enter your name" id="name" name="name" required>
         </div>
         <p>2. List of doctors to select:</p>
         <table id="symptom-detail" class="table table-striped table-bordered table-dark table-hover">
@@ -93,7 +93,7 @@
               <th>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="bookingid1" name="bookingid" value="abc">
                   </label>
                 </div>
               </th>
@@ -109,7 +109,7 @@
               <th>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="bookingid2" name="bookingid" value="abc">
                   </label>
                 </div>
               </th>
@@ -125,7 +125,7 @@
               <th>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="bookingid3" name="bookingid" value="abc">
                   </label>
                 </div>
               </th>
@@ -141,7 +141,7 @@
               <th>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="bookingid4" name="bookingid" value="abc">
                   </label>
                 </div>
               </th>
@@ -157,7 +157,7 @@
               <th>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="bookingid5" name="bookingid" value="abc">
                   </label>
                 </div>
               </th>
@@ -173,7 +173,7 @@
               <th>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="bookingid6" name="bookingid" value="abc">
                   </label>
                 </div>
               </th>

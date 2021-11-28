@@ -1,6 +1,7 @@
 const userRouter = require('./user')
 const siteRouter = require('./site')
 const loginRouter= require('./login')
+const bookingRouter = require('./booking')
 //const diagnoseRouter = require('./diagnose')
 
 function route(app) {
@@ -9,7 +10,7 @@ function route(app) {
 
     // app.use('/diagnose', diagnoseRouter)
    
-    // app.use('/booking', bookingRouter)
+    app.use('/booking', bookingRouter)
 
    
     app.use('/login', loginRouter)
