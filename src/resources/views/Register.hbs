@@ -16,23 +16,14 @@
       <div class="title-text">
             <div class="title register">Register</div>
       </div> 
-      {{!--Error message--}}
-      {{#if error_msg}}
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        {{!-- <strong>Holy guacamole!</strong> You should check in on some of those fields below. --}}
-        {{error_msg}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      {{/if}}
+     
       <div class="pass-link">
         <span> Already have an account?</span>
-              <a href="http://localhost:2000/Login" >Login!</a>
+              <a href="/Login" >Login!</a>
       </div>
     <div class="form-container">
         <div class="form-inner">
-            <form action="/Login" id="register" target="_self" method="post">
+            <form action="/Register" id="register"  method="post">
              <div class="field">
               <input type="text" placeholder="Email Address" id="email" class="form-control" name="email" required>
             </div>
