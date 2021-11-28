@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // New
-const passport = require('passport')
+const passport = require('../config/db/passport')
 
 const userController  = require('../app/controllers/UserController')
 

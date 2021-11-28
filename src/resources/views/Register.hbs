@@ -16,6 +16,16 @@
       <div class="title-text">
             <div class="title register">Register</div>
       </div> 
+      {{!--Error message--}}
+      {{#if error_msg}}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{!-- <strong>Holy guacamole!</strong> You should check in on some of those fields below. --}}
+        {{error_msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {{/if}}
       <div class="pass-link">
         <span> Already have an account?</span>
               <a href="http://localhost:2000/Login" >Login!</a>
@@ -41,13 +51,13 @@
            
             <div class="field btn">
               <div class="btn-layer btn btn-primary"></div>
-            <a href="#popup__login" onclick="register()" type="button" class="btn">Register</a>
+            <a  onclick="register()" type="button" class="btn">Register</a>
             </div>
             </form>
         </div>
     </div>
 </div>
-<div class="popup-login" id="popup__login">
+{{!-- <div class="popup-login" id="popup__login">
   <div class="popup-login__content">
       <div class="card-body">
        <div class="container padding">
@@ -61,7 +71,7 @@
           <a href="http://localhost:2000/Login" class="btn btn--login_OK">OK</a>
 
         </div>
-      </div>
+      </div> --}}
 
     </div>
   </div>
