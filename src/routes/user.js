@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+
 // New
 const passport = require('passport')
 
@@ -50,16 +51,16 @@ router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout:
 
 // New Register handle
 router.post('/Register', (req, res) => {
-    const{email, password, password2, name} = req.body;
+    const{email, password, confirmPassword, name} = req.body;
     let errors = [];
 
     // Check required fields
-    if (!email || !password || !password2 || !name ){
+    if (!email || !password || !confirmPassword || !name ){
         errors.push({ msg: 'Please fill in all fields' });
     }
 
     // Check passwords match
-    if(password != password2){
+    if(password != confirmPassword){
         errors.push({ msg: 'Passwords do not match '});
     }
 
@@ -74,7 +75,7 @@ router.post('/Register', (req, res) => {
             errors,
             email,
             password,
-            password2,
+            confirmPassword,
             name,
             
         });
@@ -90,7 +91,7 @@ router.post('/Register', (req, res) => {
                     errors,
                     email,
                     password,
-                    password2,
+                    confirmPassword,
                     name
                     
                 });

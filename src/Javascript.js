@@ -50,9 +50,6 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources\\views"));
 
-// // EJS
-// app.use(expressLayouts);
-// app.set('view engine', 'ejs');
 
 // New Bodyparser
 app.use(express.urlencoded({extended: true}));
