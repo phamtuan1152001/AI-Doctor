@@ -36,6 +36,7 @@
           <div class="col-md-5 diagnose-box-left">
             <h4>What are you feeling ?</h4>
 
+            <form>
             <!-- Input a symptom -->
             <div class="form-group container-fluid">
               <label id="form-title" for="hospital_name">Enter a symptom you are having</label>
@@ -67,7 +68,7 @@
 
             <!-- Button and function to search a symptom -->
             <div class="button-group">
-              <button type="button" class="btn btn-outline-info mt-2 btn-search" onclick="message_input()">Searching</button>
+              <button type="submit" class="btn btn-outline-info mt-2 btn-search" onclick="message_input()">Searching</button>
               <button id="reset-input" type="button" class="btn btn-outline-info mt-2 btn-search" onclick="reset_input()">Reset</button>
             </div>
             <script>
@@ -88,7 +89,8 @@
               }
             </script>
             <!-- End of button -->
-
+            </form>
+            
           </div>
           <!-- Kết thúc nội dung -->
 
