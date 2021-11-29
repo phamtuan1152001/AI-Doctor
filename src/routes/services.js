@@ -6,8 +6,8 @@ const servicesController  = require('../app/controllers/ServicesController')
 
 
 
-router.use('/Booking', servicesController.booking)
-router.use('/Diagnose', servicesController.diagnose)
-router.use('/', servicesController.home)
+router.use('/Services/Booking', servicesController.booking)
+router.use('/Services/Diagnose', servicesController.diagnose)
+
 
 module.exports = router

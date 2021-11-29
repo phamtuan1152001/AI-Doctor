@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const handlebars = require("express-handlebars");
 const path = require("path");
 const mongoose = require('mongoose');
-
+const expressLayouts = require('express-ejs-layouts');
 const route = require("./routes");
 const app = express();
 const port = 2000;
@@ -18,6 +18,8 @@ const db = require('./config/db/keys').mongoURI;
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// Passport Config
+require('./config/db/passport')(passport);
 //Connect to DB
 mongoose
   .connect(
@@ -79,6 +81,8 @@ app.use((req, res, next) => {
 
 // Route init
 route(app);
+// app.use('/', require('./routes/index.js'));
+// app.use('/users', require('./routes/user.js'));
 
 app.listen(port , () => {
   console.log(`Example app listening at http://localhost:${port}`);

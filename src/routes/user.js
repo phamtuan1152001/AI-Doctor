@@ -1,32 +1,66 @@
 const express = require('express')
 const router = express.Router()
-
 // New
-const passport = require('../config/db/passport')
-
-const userController  = require('../app/controllers/UserController')
+const passport = require('passport')
 
 // New
 const User = require('../app/models/User')
+const { forwardAuthenticated } = require('../config/db/auth');
+const { ensureAuthenticated } = require('../config/db/auth');
 
 // New 
 const bcrypt = require('bcryptjs');
-const SiteController = require('../app/controllers/SiteController');
+const siteController = require('../app/controllers/SiteController')
+const servicesController  = require('../app/controllers/ServicesController')
+const informationController  = require('../app/controllers/InformationController')
+// Login Page
+router.get('/login', forwardAuthenticated, (req, res) => res.render('Login',{layout: 'Login_Reg.hbs'}));
 
-router.use('/', userController.home)
+// Register Page
+router.get('/Register', forwardAuthenticated, (req, res) => res.render('Register',{layout: 'Login_Reg.hbs'}));
+
+router.get('/homepage', ensureAuthenticated, (req, res) =>
+  res.render('home', {
+    user: req.user
+  })
+);
+
+router.use('/Contact', siteController.contact)
+router.use('/Appointment_with_a_doctor', siteController.Utilities1)
+router.use('/Immediately_pills_sent', siteController.Utilities2)
+router.use('/Multi-function pharmacy', siteController.Utilities3)
+router.use('/Online_Health_Diagnosis', siteController.Utilities4)
+router.use('/Online_medical_records', siteController.Utilities5)
+router.use('/Personal_business_healthcare', siteController.Utilities6)
+router.use('/ForgotPassword', siteController.fwd)
+router.use('/Person', siteController.person)
+
+router.use('/Services/Booking', servicesController.booking)
+router.use('/Services/Diagnose', servicesController.diagnose)
+router.use('/Services',servicesController.home)
+
+router.use('/Information/About_us', informationController.about)
+router.use('/Information/FAQ', informationController.faq)
+router.use('/Information',informationController.info)
+
+
+// router.use('/', siteController.home)
+router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
+
+
 
 // New Register handle
 router.post('/Register', (req, res) => {
-    const{email, password, confirmPassword, name, dob} = req.body;
+    const{email, password, password2, name} = req.body;
     let errors = [];
 
     // Check required fields
-    if (!email || !password || !confirmPassword || !name || !dob){
+    if (!email || !password || !password2 || !name ){
         errors.push({ msg: 'Please fill in all fields' });
     }
 
     // Check passwords match
-    if(password !== confirmPassword){
+    if(password != password2){
         errors.push({ msg: 'Passwords do not match '});
     }
 
@@ -37,12 +71,13 @@ router.post('/Register', (req, res) => {
 
     if(errors.length > 0){
         res.render('Register', {
+            layout: 'Login_Reg.hbs',
             errors,
             email,
             password,
-            confirmPassword,
+            password2,
             name,
-            dob
+            
         });
     } else {
         // Validation passed
@@ -52,24 +87,25 @@ router.post('/Register', (req, res) => {
                 // User exists 
                 errors.push({ msg: 'Email is already registered'});
                 res.render('Register', {
+                    layout: 'Login_Reg.hbs',
                     errors,
                     email,
                     password,
-                    confirmPassword,
-                    name,
-                    dob
+                    password2,
+                    name
+                    
                 });
             } else{
                 const newUser = new User({
                     email,
                     password,
-                    name,
-                    dob
+                    name
+                    
                 });
 
                 // Hash password
                 bcrypt.genSalt(10, (err, salt) => 
-                    bcrypt.hash(newUSer.password, salt, (err, hash) =>{
+                    bcrypt.hash(newUser.password, salt, (err, hash) =>{
                         if(err) throw err;
                         // Set password to hashed
                         newUser.password = hash;
@@ -77,7 +113,7 @@ router.post('/Register', (req, res) => {
                         newUser.save()
                         .then(user => {
                             req.flash('success_msg', 'You are now registered and can login');
-                            res.redirect('/login');
+                            res.redirect('/users/login');
                         })
                         .catch(err => console.log(err));
                 }))
@@ -89,17 +125,17 @@ router.post('/Register', (req, res) => {
 // Login Handle
 router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: 'user#popup__medical',
-        failureRedirect: '/user/login',
+        successRedirect: '/Users/Person#popup__medical',
+        failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
 });
 
 // Logout handle
-router.get('/login', (req, res) => {
+router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success_msg', 'You are logged out');
-    res.redirect('/user/login')
+    res.redirect('/users/login')
 })
 
 module.exports = router
