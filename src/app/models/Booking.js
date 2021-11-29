@@ -16,6 +16,7 @@ const Booking = new Schema({
     bookingDate: {type: Date},
     creationDate: {type: Date},
     doctor: {type: Schema.Types.ObjectId, ref: 'Doctor'},
+    requirement: {type: String, required: true},
 })
 
 module.exports = mongoose.model('Booking', Booking)
