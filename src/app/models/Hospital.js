@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+require('./HardAddress')
 var HardAddress = mongoose.model('HardAddress')
 
 const Hospital = new Schema({
