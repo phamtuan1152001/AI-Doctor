@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+require('./Category')
 var Category = mongoose.model('Category')
 
 const Doctor = new Schema({
