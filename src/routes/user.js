@@ -125,7 +125,7 @@ router.post('/Register', (req, res) => {
 // Login Handle
 router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/Users/Person#popup__medical',
+        successRedirect: '/Users/Person?#popup__medical',
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
