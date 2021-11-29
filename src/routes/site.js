@@ -15,13 +15,9 @@ router.use('/Personal_business_healthcare', siteController.Utilities6)
 router.use('/ForgotPassword', siteController.fwd)
 router.use('/Person', siteController.person)
 
-// router.use('/', siteController.home)
+
 router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
 
-// Dashboard
-// router.get('/homepage', ensureAuthenticated, (req, res) =>
-//   res.render('home', {
-//     user: req.user
-//   })
-// );
+
+
 module.exports = router

@@ -3,16 +3,17 @@ const router = express.Router()
 // New
 const passport = require('passport')
 
-// New
+// add local file auth first page 
 const User = require('../app/models/User')
 const { forwardAuthenticated } = require('../config/db/auth');
 const { ensureAuthenticated } = require('../config/db/auth');
 
-// New 
+// add router -> page
 const bcrypt = require('bcryptjs');
 const siteController = require('../app/controllers/SiteController')
 const servicesController  = require('../app/controllers/ServicesController')
 const informationController  = require('../app/controllers/InformationController')
+
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('Login',{layout: 'Login_Reg.hbs'}));
 
@@ -24,7 +25,7 @@ router.get('/homepage', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
-
+// /Users/.....
 router.use('/Contact', siteController.contact)
 router.use('/Appointment_with_a_doctor', siteController.Utilities1)
 router.use('/Immediately_pills_sent', siteController.Utilities2)
@@ -34,17 +35,15 @@ router.use('/Online_medical_records', siteController.Utilities5)
 router.use('/Personal_business_healthcare', siteController.Utilities6)
 router.use('/ForgotPassword', siteController.fwd)
 router.use('/Person', siteController.person)
-
+// /Users/Services/.....
 router.use('/Services/Booking', servicesController.booking)
 router.use('/Services/Diagnose', servicesController.diagnose)
 router.use('/Services',servicesController.home)
-
+// /Users/Information/....
 router.use('/Information/About_us', informationController.about)
 router.use('/Information/FAQ', informationController.faq)
 router.use('/Information',informationController.info)
-
-
-// router.use('/', siteController.home)
+// / in first page -> in layout : 'Login_Reg.hbs'
 router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
 
 
@@ -141,99 +140,3 @@ router.get('/logout', (req, res) => {
 module.exports = router
 
 
-// const express = require('express');
-// const router = express.Router();
-// const bcrypt = require('bcryptjs');
-// const passport = require('../config/passport');
-// // Load User model
-// const User = require('../app/models/User');
-// const { forwardAuthenticated } = require('../config/db/auth');
-
-// // Login Page
-// router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
-
-// // Register Page
-// router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
-
-// // Register
-// router.post('/register', (req, res) => {
-//   const { name, email, password, password2 } = req.body;
-//   let errors = [];
-
-//   if (!name || !email || !password || !password2) {
-//     errors.push({ msg: 'Please enter all fields' });
-//   }
-
-//   if (password != password2) {
-//     errors.push({ msg: 'Passwords do not match' });
-//   }
-
-//   if (password.length < 6) {
-//     errors.push({ msg: 'Password must be at least 6 characters' });
-//   }
-
-//   if (errors.length > 0) {
-//     res.render('Register', {
-//       errors,
-//       name,
-//       email,
-//       password,
-//       password2
-//     });
-//   } else {
-//     User.findOne({ email: email }).then(user => {
-//       if (user) {
-//         errors.push({ msg: 'Email already exists' });
-//         res.render('Register', {
-//           errors,
-//           name,
-//           email,
-//           password,
-//           password2
-//         });
-//       } else {
-//         const newUser = new User({
-//           name,
-//           email,
-//           password
-//         });
-
-//         bcrypt.genSalt(10, (err, salt) => {
-//           bcrypt.hash(newUser.password, salt, (err, hash) => {
-//             if (err) throw err;
-//             newUser.password = hash;
-//             newUser
-//               .save()
-//               .then(user => {
-//                 req.flash(
-//                   'success_msg',
-//                   'You are now registered and can log in'
-//                 );
-//                 res.redirect('/login');
-//               })
-//               .catch(err => console.log(err));
-//           });
-//         });
-//       }
-//     });
-//   }
-
-// });
-
-// // Login
-// router.post('/login', (req, res, next) => {
-//   passport.authenticate('local', {
-//     successRedirect: '/',
-//     failureRedirect: '/login',
-//     failureFlash: true
-//   })(req, res, next);
-// });
-
-// // Logout
-// router.get('/logout', (req, res) => {
-//   req.logout();
-//   req.flash('success_msg', 'You are logged out');
-//   res.redirect('/login');
-// });
-
-// module.exports = router;

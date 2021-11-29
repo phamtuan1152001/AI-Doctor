@@ -81,8 +81,7 @@ app.use((req, res, next) => {
 
 // Route init
 route(app);
-// app.use('/', require('./routes/index.js'));
-// app.use('/users', require('./routes/user.js'));
+
 
 app.listen(port , () => {
   console.log(`Example app listening at http://localhost:${port}`);
