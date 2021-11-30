@@ -1,22 +1,19 @@
-const userRouter = require('./user')
+
 const siteRouter = require('./site')
-const loginRouter= require('./login')
-const bookingRouter = require('./booking')
-//const diagnoseRouter = require('./diagnose')
+const infoRouter = require('./information')
+const servicesRouter = require('./services')
+const userRouter = require('./user')
+const personRouter = require('./person')
 
 function route(app) {
 
-    app.use('/user', userRouter)
+    app.use('/Person', personRouter)
 
-    // app.use('/diagnose', diagnoseRouter)
-   
-    app.use('/booking', bookingRouter)
+    app.use('/Users',userRouter);
 
-   
-    app.use('/login', loginRouter)
-    app.use('/regis', loginRouter)
-    app.use('/forgotpwd', loginRouter)
+
     app.use('/', siteRouter)
 }
-
 module.exports = route
+
+

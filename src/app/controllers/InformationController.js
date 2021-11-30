@@ -1,10 +1,17 @@
 class InformationController {
 
-    // [GET] user
-    index(req, res) {
+    // [GET] /information
+    info(req, res){
+        res.render('Information')
+    }
+
+    about(req, res) {
         res.render('Information');
+    }
+    faq(req, res){
+        res.render('Information')
     }
 
 }
 
-module.exports = new UserController
+module.exports = new InformationController

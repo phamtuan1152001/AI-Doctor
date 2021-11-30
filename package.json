@@ -24,7 +24,11 @@
   "homepage": "https://github.com/phamtuan1152001/AI-Doctor#readme",
   "dependencies": {
     "ajax": "0.0.4",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
     "express-handlebars": "^5.3.4",
     "mongoose": "^6.0.10",
     "nodemailer": "^6.7.2"
