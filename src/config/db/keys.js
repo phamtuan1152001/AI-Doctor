@@ -1,6 +1,6 @@
 // save user in mongodb
-dbPassword = 'mongodb+srv://Abc12:123456Abc12@cluster0.pfdwt.mongodb.net/Testing?retryWrites=true&w=majority';
 
+dbPassword = 'mongodb+srv://abc:123abc@cluster0.d8sae.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 module.exports = {
     mongoURI: dbPassword
 };
