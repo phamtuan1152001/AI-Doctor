@@ -13,7 +13,7 @@ const bcrypt = require('bcryptjs');
 const siteController = require('../app/controllers/SiteController')
 const servicesController  = require('../app/controllers/ServicesController')
 const informationController  = require('../app/controllers/InformationController')
-
+const doctorsController  = require('../app/controllers/DoctorsController')
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('Login',{layout: 'Login_Reg.hbs'}));
 
@@ -43,6 +43,11 @@ router.use('/Services',servicesController.home)
 router.use('/Information/About_us', informationController.about)
 router.use('/Information/FAQ', informationController.faq)
 router.use('/Information',informationController.info)
+// /doctors
+router.use('/Doctors/ItenralMedicines', doctorsController.internal)
+router.use('/Doctors/Pediatrics', doctorsController.pediatrics)
+router.use('/Doctors/Otorhinolaryngology', doctorsController.otorhinolaryngology)
+router.use('/Doctors',doctorsController.home)
 // / in first page -> in layout : 'Login_Reg.hbs'
 router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
 
