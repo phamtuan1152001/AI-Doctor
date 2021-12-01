@@ -85,27 +85,27 @@ html {
 }
 
 #form__comment-fly {
-  top: 80px;
+  top: 60px;
 }
 
 #form__comment-fly2 {
-  top: 310px;
+  top: 210px;
   animation-delay: 3s;
   -webkit-animation-delay: 5s;
 }
 #form__comment-fly3 {
-  top: 510px;
+  top: 380px;
   animation-delay: 8s;
   -webkit-animation-delay: 10s;
 }
 
 .form {
-  height: 100%;
+  height: 100vh;
   background-color: #98d4f3;
   overflow: hidden;
   position: relative;
-  clip-path: ellipse(100% 50% at 50% 50%);
-
+  /* clip-path: ellipse(100% 50% at 50% 50%); */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   animation: moveInBottom 1s ease-out;
 }
 form {
@@ -139,7 +139,9 @@ textarea {
 .message {
   margin-bottom: 2rem;
 }
-
+#map{
+  width: 100%;
+}
 @media (max-width: 992px) {
   form {
     margin: 0 auto;
