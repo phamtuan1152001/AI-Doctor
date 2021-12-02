@@ -15,13 +15,38 @@ const servicesController  = require('../app/controllers/ServicesController')
 const informationController  = require('../app/controllers/InformationController')
 const doctorsController  = require('../app/controllers/DoctorsController')
 // Login Page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('Login',{layout: 'Login_Reg.hbs'}));
+router.get('/Login', forwardAuthenticated, (req, res) => res.render('Login',{layout: 'Login_Reg.hbs'}));
 
 // Register Page
 router.get('/Register', forwardAuthenticated, (req, res) => res.render('Register',{layout: 'Login_Reg.hbs'}));
-
-router.get('/homepage', ensureAuthenticated, (req, res) =>
+// Save page , login -> view 
+router.get('/Homepage', ensureAuthenticated, (req, res) =>
   res.render('home', {
+    user: req.user
+  })
+);
+router.get('/Contact', ensureAuthenticated, (req, res) =>
+  res.render('Contact_us', {
+    user: req.user
+  })
+);
+router.get('/Services', ensureAuthenticated, (req, res) =>
+  res.render('home', {
+    user: req.user
+  })
+);
+router.get('/Doctors', ensureAuthenticated, (req, res) =>
+  res.render('home', {
+    user: req.user
+  })
+);
+router.get('/Information', ensureAuthenticated, (req, res) =>
+  res.render('Information', {
+    user: req.user
+  })
+);
+router.get('/Person', ensureAuthenticated, (req, res) =>
+  res.render('Person', {
     user: req.user
   })
 );
