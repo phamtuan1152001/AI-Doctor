@@ -69,10 +69,10 @@
         booking_title.style.setProperty('--animate-duration', '1.0s');
       </script>
       <!-- Kết thúc hoạt ảnh -->
-      <form action="/booking" method="post">
+      <form action="/Users/Services/Booking" method="post">
         <div class="form-group">
           <label for="name">1. Name:</label>
-          <input type="text" class="form-control" placeholder="Enter your name" id="name" name="name">
+          <input type="text" class="form-control" placeholder="Enter your name" id="name" name="name" required>
         </div>
         <p>2. List of doctors to select:</p>
         <table id="symptom-detail" class="table table-striped table-bordered table-dark table-hover">
@@ -201,7 +201,7 @@
         </table>
         <div class="form-group">
           <label for="name">3. Any requirements:</label>
-          <input type="text" class="form-control" id="text-requirement" placeholder="If you have any requirements, just write these down." name="requirement">
+          <input type="text" class="form-control" id="text-requirement" placeholder="If you have any requirements, just write these down." name="requirement" required>
         </div>
         <div class="form-group text-center">
           <button type="submit" class="btn btn-primary" onclick="submitBooking()">Submit form</button>
