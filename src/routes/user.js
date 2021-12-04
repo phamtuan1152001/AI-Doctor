@@ -69,7 +69,7 @@ router.use('/Information/About_us', informationController.about)
 router.use('/Information/FAQ', informationController.faq)
 router.use('/Information',informationController.info)
 // /doctors
-router.use('/Doctors/ItenralMedicines', doctorsController.internal)
+router.use('/Doctors/IntenralMedicines', doctorsController.internal)
 router.use('/Doctors/Pediatrics', doctorsController.pediatrics)
 router.use('/Doctors/Otorhinolaryngology', doctorsController.otorhinolaryngology)
 router.use('/Doctors',doctorsController.home)
