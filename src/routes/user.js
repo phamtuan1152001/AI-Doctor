@@ -63,6 +63,7 @@ router.use('/Person', siteController.person)
 // /Users/Services/.....
 router.use('/Services/Booking', servicesController.booking)
 router.use('/Services/Diagnose', servicesController.diagnose)
+router.use('/Services/Nutrition', servicesController.nutri)
 router.use('/Services',servicesController.home)
 // /Users/Information/....
 router.use('/Information/About_us', informationController.about)
