@@ -1,6 +1,10 @@
 .service-title {
   padding-top: 0;
   margin-top: 20px;
+  text-align: center;
+}
+.carousel-inner{
+  width: 100%;
 }
 .under-title {
   height: 5px;
@@ -30,7 +34,8 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: #03b4ce;
+  /* background: #03b4ce; */
+
   border-radius: 20px;
 }
 .box {
