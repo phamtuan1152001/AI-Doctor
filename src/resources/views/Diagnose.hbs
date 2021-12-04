@@ -87,6 +87,19 @@
               <!-- End of button -->
             </form>
           </div>
+          <script>
+            $(document).ready(function() {
+              $('form').submit(function(event) {
+                $.ajax({
+                  method: $(this).attr('method'),
+                  url: $(this).attr('action'),
+                  data: $(this).serialize(),
+                }).done(function(response) {
+              });
+              event.preventDefault(); // <- avoid reloading
+              });
+            });
+          </script>
           <!-- Kết thúc nội dung -->
 
           <!-- Hoạt ảnh cho diagnose-box-left -->
