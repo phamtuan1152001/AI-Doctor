@@ -9,6 +9,9 @@ class ServicesController {
     booking(req, res) {
       res.render('Booking');
     }
+    nutri(req, res) {
+      res.render('Nutrition');
+    }
   }
   
   module.exports = new ServicesController();
