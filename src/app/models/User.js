@@ -15,7 +15,7 @@ const User = new Schema({
     // //hardAddress: {type: HardAddress},
     // createdAt: { type: Date, default: Date.now},
     // modifieddAt: { type: Date, default: Date.now}   
-   name: {
+  name: {
     type: String,
     required: true
   },
