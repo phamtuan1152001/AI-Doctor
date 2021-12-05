@@ -14,24 +14,41 @@ const User = new Schema({
     // address: { type: String, maxLength: 50},
     // //hardAddress: {type: HardAddress},
     // createdAt: { type: Date, default: Date.now},
-    // modifieddAt: { type: Date, default: Date.now}   
-    name: {
-        type: String,
-        required: true
-      },
-      email: {
-        type: String,
-        required: true
-      },
-      password: {
-        type: String,
-        required: true
-      },
-      date: {
-        type: Date,
-        default: Date.now
-      }
-
+    // modifieddAt: { type: Date, default: Date.now}
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+    /*
+  dob: {
+    type: Date,
+    required: true
+  },
+  phone: {
+    type: String,
+    required: true
+  },
+  gender: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  */
+  password: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 })
 
 module.exports = mongoose.model('User', User)

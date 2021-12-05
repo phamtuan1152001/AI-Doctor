@@ -11,12 +11,22 @@ require('./Doctor')
 var Doctor = mongoose.model('Doctor')
 
 const Booking = new Schema({
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
-    hospital: {type: Schema.Types.ObjectId, ref: 'Hospital'},
-    bookingDate: {type: Date},
-    creationDate: {type: Date},
-    doctor: {type: Schema.Types.ObjectId, ref: 'Doctor'},
-    requirement: {type: String, required: true},
+    email: {
+        type: String, 
+        required: true
+    },
+    bookingid: {
+        type: String, 
+        required: true
+    },
+    requirement: {
+        type: String, 
+        required: true
+    },
+    bookingDate: {
+        type: Date,
+        default: Date.now
+    },
 })
 
 module.exports = mongoose.model('Booking', Booking)
