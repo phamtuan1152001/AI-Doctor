@@ -14,7 +14,8 @@ function route(app) {
 
     app.use('/Users',userRouter);
 
-
+    app.use('/Booking', bookingRouter)
+    
     app.use('/', siteRouter)
 }
 module.exports = route

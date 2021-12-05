@@ -2,57 +2,65 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="/css/formstyle.css" />
 
-    <div class="wrapper">
+    <div class="container wrapper">
       <div class="title-text">
         <div class="title login">
           <!-- title of the login form-->
           Login
         </div>
       </div>
-      <div class="form-container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-container">
       
-        <div class="form-inner">
-           <form action="/users/login" method="POST" id="login">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-control"
-            placeholder="Enter Email"
-            
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-            placeholder="Enter Password"
-           
-          />
-        </div>
+            <div class="form-inner">
+              <form action="/users/login" method="POST" id="login">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Enter Email"
+
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter Password"
+
+                  />
+                </div>
       
     
-            <div class="remember">
-              <label for="rem"> Remember Password</label>
-              <input type="checkbox" id="rem" value="Remember Password">
+                <div class="remember">
+                  <label for="rem"> Remember Password</label>
+                  <input type="checkbox" id="rem" value="Remember Password">
+                </div>
+                <div class="pass-link">
+                  <a href="/ForgotPassword">Forgot password?</a>
+                </div>
+                <div class="pass-link">
+                  <a href="/Users/Register">Register!</a>
+                </div>
+                <div class="field btn">
+                  <div class="btn-layer btn"></div>
+					        <button  type="submit" class="btn">Login</button>
+				        </div>
+              </form>      
             </div>
-            <div class="pass-link">
-              <a href="/ForgotPassword">Forgot password?</a>
-            </div>
-            <div class="pass-link">
-              <a href="/Users/Register">Register!</a>
-            </div>
-              <div class="field btn">
-              <div class="btn-layer btn"></div>
-					<button  type="submit" class="btn">Login</button>
-				    </div>
-          </form>      
+          </div>
+        </div>
+        <div class="col-md-7">
+          <img class="img-fluid img-login" src="/image/hinh-3-Nam.png" alt="hinh-Login">
         </div>
       </div>
+      
     </div>
 

@@ -8,13 +8,16 @@
 body {
   overflow: hidden;
   display: grid;
-  height: 100vh;
+  height: /*100vh*/ 100%;
   width: 100%;
   place-items: center;
   background: linear-gradient(to right, #c2e59c, #64b3f4);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+.img-login {
+  border-radius: 10px;
 }
 ::selection {
   background: #c2e59c;
@@ -27,17 +30,17 @@ a {
 .wrapper {
   /*the box of the login and register */
   overflow: hidden;
-  margin-top: 20%;
-  margin-bottom: 20%;
-  max-width: 390px;
+  margin-top: 30%;
+  margin-bottom: 60%;
+  max-width: 100%;
   background: #fff;
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-
+  /*
   width: 550px;
   height: 550px;
-
+  */
 }
 .wrapper .title-text {
   display: flex;
@@ -45,10 +48,11 @@ a {
 }
 
 .wrapper .title {
+  color: linear-gradient(to right, #c2e59c, #64b3f4);
   width: 50%;
   font-size: 35px;
   font-weight: 600;
-  text-align: center;
+  /*text-align: center;*/
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 /*
