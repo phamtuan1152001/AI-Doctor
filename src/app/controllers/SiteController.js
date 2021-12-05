@@ -37,7 +37,9 @@ class SiteController {
   person(req, res) {
     res.render('Person');
   }
-  
+  booking(req, res) {
+    res.render('Booking');
+  }
 }
 
 module.exports = new SiteController();
