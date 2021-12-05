@@ -1,6 +1,13 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+mongoose.connect("mongodb://localhost:27017/doctorAI");
+require("../models/Diseases");
+require("../models/Category");
+
+// var routes = require('./routes/index');
+// var diagnose = require('./routes/diagnose');
+
 var Category = mongoose.model('Category')
 
 const Disease = new Schema({

@@ -4,8 +4,11 @@ const infoRouter = require('./information')
 const servicesRouter = require('./services')
 const userRouter = require('./user')
 const personRouter = require('./person')
+const diagnoseRouter = require('./diagnose')
 
 function route(app) {
+
+    app.use('/User/Services/Diagnose', diagnoseRouter)
 
     app.use('/Person', personRouter)
 
