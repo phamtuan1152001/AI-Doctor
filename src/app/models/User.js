@@ -14,7 +14,7 @@ const User = new Schema({
     // address: { type: String, maxLength: 50},
     // //hardAddress: {type: HardAddress},
     // createdAt: { type: Date, default: Date.now},
-    // modifieddAt: { type: Date, default: Date.now}   
+    // modifieddAt: { type: Date, default: Date.now}
   name: {
     type: String,
     required: true
@@ -23,6 +23,7 @@ const User = new Schema({
     type: String,
     required: true
   },
+    /*
   dob: {
     type: Date,
     required: true
@@ -39,6 +40,7 @@ const User = new Schema({
     type: String,
     required: true
   },
+  */
   password: {
     type: String,
     required: true
