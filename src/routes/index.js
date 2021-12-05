@@ -5,6 +5,7 @@ const servicesRouter = require('./services')
 const userRouter = require('./user')
 const personRouter = require('./person')
 const diagnoseRouter = require('./diagnose')
+const bookingRouter = require('./booking')
 
 function route(app) {
 
