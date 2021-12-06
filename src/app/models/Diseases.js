@@ -10,6 +10,7 @@ require("../models/Category");
 var Category = mongoose.model('Category')
 
 const Disease = new Schema({
+    Did: {type: String},
     name: {type: String},
     description: {type: String},
     category: {type: Schema.Types.ObjectId, ref: 'Category'},

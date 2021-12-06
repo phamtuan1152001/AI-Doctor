@@ -35,7 +35,7 @@
           <!-- Nội dung bên trái -->
           <div class="col-md-5 diagnose-box-left">
             <h4>What are you feeling ?</h4>
-            <form id="diagnose-form" method="POST" action="/User/Services/Diagnose" autocomplete="off">
+            <form id="diagnose-form" method="POST" action="/User/Services/Diagnose/diagnose" autocomplete="off">
               <!-- Input a symptom -->
               <div class="form-group container-fluid">
                 <label id="form-title" for="hospital_name">Enter a symptom you are having</label>
@@ -64,7 +64,7 @@
               <!-- Kết thúc input -->
               <!-- Button and function to search a symptom -->
               <div class="button-group">
-                <button type="submit" class="btn btn-outline-primary mt-2 btn-search" onclick="message_input()">Searching</button>
+                <button type="submit" class="btn btn-outline-primary mt-2 btn-search">Searching</button>
                 <button id="reset-input" type="button" class="btn btn-outline-primary mt-2 btn-search" onclick="reset_input()">Reset</button>
               </div>
               <script>
@@ -90,33 +90,19 @@
                 }
                 else {
                   swal("Well done", "Diagnosing Successfully", "success");
-                  document.getElementById("inputted-text").innerHTML = symptom_name;
+                  //document.getElementById("inputted-text").innerHTML = symptom_name;
                 }
                 $.ajax({
-                  method: $(this).attr('method'),
-                  url: $(this).attr('action'),
-                  data: /*$('#diagnose-form').serialize()*/symptom_name,
-                }).done(function(response) {
-                  // Process the response here
-                  if (response.result == 1) {
-                    //console.log("We have" + result + "diseases based on the symptoms you entered. You can enter more symptoms so we can diagnose better.");
-                    swal("Diagnose Fail", "Please, input with more detail", "warning");
-                  }
-                  else if (response.result == 0) {
-                    //console.log("We cannot diagnose based on the symptoms you entered. You can enter more symptoms so we can diagnose better. ");
-                    swal("Diagnose Fail", "Please, input with more detail", "error");
-                  }
-                  else {
-                    //console.log(DiseaseName);
-                    //console.log(DiseaseDescription);
-                    //console.log(DiseaseCategory);
-                    swal("Well done", "Diagnosing Successfully", "success");
-                    document.getElementById("result-detail").innerHTML = result;
+                  type: 'POST',
+                  url: '/User/Services/Diagnose/diagnose',
+                  data: symptom_name,
+                  success: function(response){
+                    console.log(${response.response});
                   }
                 });
                 event.preventDefault(); // <- avoid reloading
-              })
-            })
+              });
+            });
           </script>
           <!-- Kết thúc nội dung -->
 
