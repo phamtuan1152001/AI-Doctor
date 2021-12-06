@@ -9,6 +9,16 @@ const app = express();
 const port = 2000;
 const swal = require("sweetalert");
 
+/*
+//////////////////////////////////////////////////////////////
+//Sử dụng bodyParser cho Song Tuan task Diagnose
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.post("/input", (req, res) => {
+  res.send("Ban vua gui du lieu: " + req.body.symptomtext);
+});
+//////////////////////////////////////////////////////////////
+*/
 
 // New
 const flash = require('connect-flash');

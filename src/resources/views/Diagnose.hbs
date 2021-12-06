@@ -39,7 +39,7 @@
               <!-- Input a symptom -->
               <div class="form-group container-fluid">
                 <label id="form-title" for="hospital_name">Enter a symptom you are having</label>
-                <input id="symptom-input" type="text" class="form-control" placeholder="Enter your symptom" name="symptom-text">
+                <input id="symptom-input" type="text" class="form-control" placeholder="Enter your symptom" name="symptomtext">
                 <p class="mt-2">The symptom you have already entered:</p>
                 <!-- Bắt sự kiện khi nhấn phím enter sau khi nhập triệu chứng -->
                 <div id="inputted-text"></div>
@@ -67,11 +67,32 @@
                 <button type="submit" class="btn btn-outline-primary mt-2 btn-search">Searching</button>
                 <button id="reset-input" type="button" class="btn btn-outline-primary mt-2 btn-search" onclick="reset_input()">Reset</button>
               </div>
+              <!-- Reset input -->
               <script>
                 function reset_input() {
                   var reset_input = document.getElementById("reset-input");
                   document.getElementById('symptom-input').value='';
                 }
+              </script>
+              <!-- Searching -->
+              <script>
+                $(document).ready(function() {
+                  $('form').submit(function(event) {
+                    $.ajax({
+                      method: $(this).attr('method'),
+                      url: $(this).attr('action'),
+                      data: $(this).serialize(),
+                    }).done(function(response) {
+                      // Process the response here
+                      console.log('Ket noi sever thanh cong');
+                      swal("Well done", "Diagnosing Successfully", "success");
+                      document.getElementById('result-detail').value = response;
+                    }).fail(function(response){
+                      console.log('Ket noi sever that bai');
+                    });
+                    event.preventDefault(); // <- avoid reloading
+                  });
+                });
               </script>
               <!-- End of button -->
             </form>
@@ -120,7 +141,7 @@
           <div class=" col-md-7 diagnose-box-right">
             <h4>Information about your illness.</h4>
             <div class="container-fluid">
-              <p>You have got <strong id="result-detail"></strong></p>
+              <p>You have got <p id="result-detail"></p></p>
               <!--  -->
               <!-- Dưới đây là nơi thể hiện thông tin người bệnh một cách nghiêm túc để giúp người bệnh đặt lịch thông qua AI Doctor -->
               <!--  -->
