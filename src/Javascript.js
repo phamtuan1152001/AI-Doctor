@@ -66,6 +66,7 @@ app.set("views", path.join(__dirname, "resources\\views"));
 
 // New Bodyparser
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 // New Express session
 app.use(session ({

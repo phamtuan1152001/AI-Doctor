@@ -7,6 +7,7 @@ const personRouter = require('./person')
 const diagnoseRouter = require('./diagnose')
 const bookingRouter = require('./booking')
 
+
 function route(app) {
 
     app.use('/User/Services/Diagnose', diagnoseRouter)

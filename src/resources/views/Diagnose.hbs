@@ -35,7 +35,7 @@
           <!-- Nội dung bên trái -->
           <div class="col-md-5 diagnose-box-left">
             <h4>What are you feeling ?</h4>
-            <form id="diagnose-form" method="POST" action="('/User/Services/Diagnose/diagnose" autocomplete="off">
+            <form id="diagnose-form" method="POST" action="/User/Services/Diagnose/diagnose" autocomplete="off">
               <!-- Input a symptom -->
               <div class="form-group container-fluid">
                 <label id="form-title" for="hospital_name">Enter a symptom you are having</label>
@@ -64,7 +64,7 @@
               <!-- Kết thúc input -->
               <!-- Button and function to search a symptom -->
               <div class="button-group">
-                <input value="Searching" type="submit" class="btn btn-outline-primary mt-2 btn-search"></input>
+                <button type="submit" class="btn btn-outline-primary mt-2 btn-search">Searching</button>
                 <button id="reset-input" type="button" class="btn btn-outline-primary mt-2 btn-search" onclick="reset_input()">Reset</button>
               </div>
               <!-- Reset input -->
@@ -98,6 +98,34 @@
               <!-- End of button -->
             </form>
           </div>
+          <script>
+            $(document).ready(function(){
+              //Khai báo biến submit
+              var search_btn = $("button[type='submit']");
+              //khi nút submit được click
+              search_btn.click(function(){
+                //Khai báo các biến dữ liệu gửi lên sever
+                var symptom_name = $("input[name='symptom-text']").val(); //lấy giá trị trong input symptom
+                //Kiểm tra ô input symptom đã được nhập chưa, nếu có báo thành công, nếu không thì báo lỗi
+                if( symptom_name == '') {
+                  swal("Fail to identify your illness", "Please input your symptom!", "error");
+                }
+                else {
+                  swal("Well done", "Diagnosing Successfully", "success");
+                  //document.getElementById("inputted-text").innerHTML = symptom_name;
+                }
+                $.ajax({
+                  type: 'POST',
+                  url: '/User/Services/Diagnose/diagnose',
+                  data: symptom_name,
+                  success: function(response){
+                    console.log(${response.response});
+                  }
+                });
+                event.preventDefault(); // <- avoid reloading
+              });
+            });
+          </script>
           <!-- Kết thúc nội dung -->
 
           <!-- Hoạt ảnh cho diagnose-box-left -->

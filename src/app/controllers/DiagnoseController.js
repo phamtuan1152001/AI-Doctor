@@ -18,52 +18,55 @@ class DiagnoseController{
     // [POST] /User/Services/Diagnose
     diagnose(req, res){
         // Get the data from client to server.
-        // var symptomInput = new Diagnose({symptom: req.body.name});
-
+        //var symptomInput = new Diagnose({symptom: req.body.name});
         // const dbo = db.db("mydb");
 
-        var diagnose = Symptoms.find({Sid}, {name: {$regex : new Diagnose("/" + {symptom: req.body.name} + "/", "i" )}}, function(err, result){
+        Symptoms.find({name: req.body.name}, function(err, result){
             if (err) throw err;
             var SymptomID = result.Sid;
 
-            Diagnoses.find({Sid : SymptomID}, function(err, result){
+            const query = ([
+                {
+                    $group: {
+                        _id : null,
+                        NumberOfDisease: {$count : {Did: "$Did" }}
+                    }
+                },
+                {
+                    $match: {
+                        Sid : SymptomID
+                    }
+                }
+            ]);
+
+            Diagnoses.aggregate(query, function(err, result){
                 if (err) throw err;
-                var DiseaseID = result.disease.Sid;
-                console.log(DiseaseID);
-            }).forEach();
+                res.send({response: result});
+            });
         });
+        // Diagnose.find(query, function(err, result){
+        //     // var DiseaseName = result.disease.name;
+        //     // var DiseaseDescription = result.disease.description;
+        //     // var DiseaseCategory = result.disease.category.department;
 
-        const query = ([
-            {
-                $group: {
-                    _id : null,
-                    NumberOfDisease: {$count : {Did: "$Did" }}
-                }
-            },
-            {
-                $match: {
-                    diagnose
-                }
-            }
-        ]);
-        Diagnose.find(query, function(err, result){
-            var DiseaseName = result.disease.name;
-            var DiseaseDescription = result.disease.description;
-            var DiseaseCategory = result.disease.category.department;
-
-            if (err) throw err;
-            else if (result >= 2){
-                console.log("We have" + result + "diseases based on the symptoms you entered. You can enter more symptoms so we can diagnose better.");
-            }
-            else if (result == 0){
-                console.log("We cannot diagnose based on the symptoms you entered. You can enter more symptoms so we can diagnose better. ")
-            }
-            else{
-                console.log(DiseaseName);
-                console.log(DiseaseDescription);
-                console.log(DiseaseCategory);
-            }
-        });
+        //     if (err) throw err;
+        //     else if (result >= 2){
+        //         res.send({response: result});
+        //         //console.log("We have" + result + "diseases based on the symptoms you entered. You can enter more symptoms so we can diagnose better.");
+        //         //return "We have" + result + "diseases based on the symptoms you entered. You can enter more symptoms so we can diagnose better.";
+        //     }
+        //     else if (result == 0){
+        //         res.send({response: "error"});
+        //         //console.log("We cannot diagnose based on the symptoms you entered. You can enter more symptoms so we can diagnose better. ")
+        //         //return "We cannot diagnose based on the symptoms you entered. You can enter more symptoms so we can diagnose better. ";
+        //     }
+        //     else{
+        //         res.send({response: result});
+        //         // console.log(DiseaseName);
+        //         // console.log(DiseaseDescription);
+        //         // console.log(DiseaseCategory);
+        //     }
+        // });
 
         // MongoClient.connect(url, function(err, db){
         //      if (err){
