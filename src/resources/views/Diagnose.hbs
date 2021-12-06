@@ -86,7 +86,8 @@
                       // Process the response here
                       console.log('Ket noi sever thanh cong');
                       swal("Well done", "Diagnosing Successfully", "success");
-                      document.getElementById('result-detail').value = response;
+                      //document.getElementById('result-detail').value = response;
+                      console.log(response.data);
                     }).fail(function(response){
                       console.log('Ket noi sever that bai');
                     });
