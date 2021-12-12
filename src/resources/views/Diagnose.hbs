@@ -64,7 +64,7 @@
               <!-- Kết thúc input -->
               <!-- Button and function to search a symptom -->
               <div class="button-group">
-                <button type="submit" class="btn btn-outline-primary mt-2 btn-search">Searching</button>
+                <button type="submit" class="btn btn-outline-primary mt-2 btn-search" onclick="sendData(this)">Searching</button>
                 <button id="reset-input" type="button" class="btn btn-outline-primary mt-2 btn-search" onclick="reset_input()">Reset</button>
               </div>
               <!-- Reset input -->
@@ -75,6 +75,7 @@
                 }
               </script>
               <!-- Searching -->
+              <!--
               <script>
                 $(document).ready(function() {
                   $('form').submit(function(event) {
@@ -95,37 +96,24 @@
                   });
                 });
               </script>
+              -->
+              <!-- Tìm hiểu cái mới khúc này nè nha cha -->
+              <script>
+                function sendData(e) {
+                  fetch('getIllness', {
+                    method: 'POST',
+                    headers: {'Content-Type' : 'application/json'},
+                    body: JSON.stringify({payload: e.value})
+                  }).then(res => res.json()).then(data => {
+                      let payload = data.payload;
+                      console.log(payload);
+                  });
+                }
+              </script>
+
               <!-- End of button -->
             </form>
           </div>
-          <script>
-            $(document).ready(function(){
-              //Khai báo biến submit
-              var search_btn = $("button[type='submit']");
-              //khi nút submit được click
-              search_btn.click(function(){
-                //Khai báo các biến dữ liệu gửi lên sever
-                var symptom_name = $("input[name='symptom-text']").val(); //lấy giá trị trong input symptom
-                //Kiểm tra ô input symptom đã được nhập chưa, nếu có báo thành công, nếu không thì báo lỗi
-                if( symptom_name == '') {
-                  swal("Fail to identify your illness", "Please input your symptom!", "error");
-                }
-                else {
-                  swal("Well done", "Diagnosing Successfully", "success");
-                  //document.getElementById("inputted-text").innerHTML = symptom_name;
-                }
-                $.ajax({
-                  type: 'POST',
-                  url: '/User/Services/Diagnose/diagnose',
-                  data: symptom_name,
-                  success: function(response){
-                    console.log(${response.response});
-                  }
-                });
-                event.preventDefault(); // <- avoid reloading
-              });
-            });
-          </script>
           <!-- Kết thúc nội dung -->
 
           <!-- Hoạt ảnh cho diagnose-box-left -->
