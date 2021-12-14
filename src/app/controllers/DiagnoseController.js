@@ -28,9 +28,11 @@ class DiagnoseController{
             const query = ([
                 {
                     $group: {
-                        _id : null,
-                        NumberOfDisease: {$count : {Did: "$Did" }}
+                        _id : "$Did"
                     }
+                },
+                {
+                    $count: "Did"
                 },
                 {
                     $match: {
@@ -39,9 +41,9 @@ class DiagnoseController{
                 }
             ]);
 
-            Diagnoses.aggregate(query, function(err, result){
+            Diagnoses.aggregate(query, function(err, result1){
                 if (err) throw err;
-                res.send({response: result});
+                res.send({result1});
             });
         });
         // Diagnose.find(query, function(err, result){
