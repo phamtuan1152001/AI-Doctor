@@ -3,17 +3,21 @@
     <meta charset="UTF-8" /> 
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="/css/formstyle.css" />
+    <link rel="stylesheet" href="/css/forgot&renewped.css" />
      <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
 
   <body>
-    <div class="wrapper">
+    <div class="wrapper"> 
+      <div>
+              <i class="fas fa-lock" ></i>
+            </div>
         <div class="title-text">
+           
             <div class="title forgot">
-                Change Password
+                Forgot Password
             </div>
         </div>
       <div class="form-container">
@@ -21,21 +25,23 @@
           <form action="http://localhost:2000/Login" id="forgot" target="_self" method="post">
             <!--Forgot Password-->
             <div class="field">
+                <div>
+                    Email
+                </div>
               <input
                 type="text"
-                placeholder="Confirm Code From Your Email"
+                placeholder="Your Email"
                 required
               >
             </div>
-            <div class="field">
-              <input type="password" placeholder="New Password" id="password" class="form-control" name="password" required>
-            </div>
-            <div class="field">
-              <input type="password" placeholder="Confirm Password" id="confirmPassword" class="form-control" name="confirmPassword" required>
-            </div>
+           
             <div class="field btn">
               <div class="btn-layer btn btn-primary"></div>
-              <input onclick="changepwd()" type="submit" value="Change Password" >
+              <input onclick="changepwd()" type="submit" value="Sent me a password reset link!" >
+            </div>
+             <div class=" pass-link">
+              <span> Remember your password?</span>
+              <a href="/users/Login" >Login</a>
             </div>
           </form>
         </div>
