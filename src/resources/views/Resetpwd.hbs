@@ -10,12 +10,11 @@
     />
 
   <body>
-    <div class="wrapper"> 
-      <div>
-              <i class="fas fa-lock" ></i>
-            </div>
+    <div class="wrapper">
         <div class="title-text">
-           
+            <div>
+              <i class="fas fa-lock"></i>
+            </div>
             <div class="title forgot">
                 Forgot Password
             </div>
@@ -23,16 +22,18 @@
       <div class="form-container">
         <div class="form-inner">
           <form action="http://localhost:2000/Login" id="forgot" target="_self" method="post">
-            <!--Forgot Password-->
+            <!--Reset Password-->
             <div class="field">
-                <div>
-                    Email
+                <div class="title">
+                    New Password
                 </div>
               <input
-                type="text"
-                placeholder="Your Email"
+                type="password"
+                placeholder="New Password"
                 required
               >
+              <div class="title"> Confirm Password</div>
+              <input type="password" placeholder="Confirm Password" required>
             </div>
            
             <div class="field btn">
@@ -41,7 +42,7 @@
             </div>
              <div class=" pass-link">
               <span> Remember your password?</span>
-              <a href="/users/Login" >Login</a>
+              <a href="/users/Login" style="color: aquamarine;">Login</a>
             </div>
           </form>
         </div>
