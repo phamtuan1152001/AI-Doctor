@@ -23,12 +23,14 @@ router.get('/Login', forwardAuthenticated, (req, res) => res.render('Login',{lay
 // Register Page
 router.get('/Register', forwardAuthenticated, (req, res) => res.render('Register',{layout: 'Login_Reg.hbs'}));
 // Reset page
-/* router.get('/Resetpwd/:id', forwardAuthenticated, (req, res) => {
-  // console.log(id)
-  res.render('Resetpwd', { id: req.params.id }, {layout: 'Login_Reg.hbs'})
-}); */
+ //router.get(`/ResetPwd`, forwardAuthenticated, (req, res) => res.render('Resetpwd', {layout: 'Login_Reg.hbs'})); 
+  //router.get(`/ResetPwd`, forwardAuthenticated, (req, res) => res.render('Resetpwd', {title:'reset',_id:req.params.id}, {layout: 'Login_Reg.hbs'}));
+router.get(`/Resetpwd/:id`, forwardAuthenticated, (req, res) => {
+   // console.log(id)
+     res.render('Resetpwd', {layout: 'Login_Reg.hbs'})
+   });
 // Forgot page
-/* router.get('/Forgotpwd', forwardAuthenticated, (req, res) => res.render('Forgotpwd'), {layout: 'Login_Reg.hbs'}) */
+router.get('/ForgotPwd', forwardAuthenticated, (req, res) => res.render('Forgotpwd', {layout: 'Login_Reg.hbs'}));
 // Save page , login -> view 
 router.get('/Homepage', ensureAuthenticated, (req, res) =>
   res.render('home', {
@@ -68,8 +70,8 @@ router.use('/Multi-function pharmacy', siteController.Utilities3)
 router.use('/Online_Health_Diagnosis', siteController.Utilities4)
 router.use('/Online_medical_records', siteController.Utilities5)
 router.use('/Personal_business_healthcare', siteController.Utilities6)
-router.use('/Forgotpwd', siteController.fwd)
-router.use('/Resetpwd', siteController.resfwd)
+// router.use('/Forgotpwd', siteController.fwd)
+// router.use('/Resetpwd', siteController.resfwd)
 router.use('/Person', siteController.person)
 // /Users/Services/.....
 router.use('/Services/Booking', servicesController.booking)
@@ -145,13 +147,13 @@ router.post('/Register', (req, res) => {
               });
               const accessToken = oauth2Client.getAccessToken()
 
-              const token = jwt.sign({ name, email, password }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' });
+              const token = jwt.sign({ name, email, password }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '5m' });
               const CLIENT_URL = 'http://' + req.headers.host;
 
               const output = `
               <h2>Please click on below link to activate your account</h2>
               <p>${CLIENT_URL}/users/active/${token}</p>
-              <p><b>NOTE: </b> The above activation link expires in 30 minutes.</p>
+              <p><b>NOTE: </b> The above activation link expires in 5 minutes.</p>
               `;
 
               const transporter = nodemailer.createTransport({
@@ -212,25 +214,15 @@ router.get('/active/:token', (req, res) => {
               );
               res.redirect('/users/register');
           }
-          else {
-              const { name, email, password } = decodedToken;
-              User.findOne({ email: email }).then(user => {
-                  if (user) {
-                      // User already exists 
-                      req.flash(
-                          'error_msg',
-                          'Email ID already registered! Please log in.'
-                      );
-                      res.redirect('/users/login');
-                  } else {
+         else {const { name, email, password } = decodedToken;
                       const newUser = new User({
                           name,
                           email,
                           password
                       });
 
-                      bcryptjs.genSalt(10, (err, salt) => {
-                          bcryptjs.hash(newUser.password, salt, (err, hash) => {
+                      bcrypt.genSalt(10, (err, salt) => {
+                          bcrypt.hash(newUser.password, salt, (err, hash) => {
                               if (err) throw err;
                               newUser.password = hash;
                               newUser
@@ -246,8 +238,7 @@ router.get('/active/:token', (req, res) => {
                           });
                       });
                   }
-              });
-          }
+        
 
       })
   }
@@ -257,205 +248,203 @@ router.get('/active/:token', (req, res) => {
 });
 
 //------------ Forgot Password Handle ------------//
-router.post('/Forgotpwd/:id', (req, res) => {
-  const { email } = req.body;
+router.post('/Forgotpwd', (req, res) => {
+    const { email } = req.body;
+  
+    let errors = [];
+  
+    // Checking required fields 
+    if (!email) {
+        errors.push({ msg: 'Please enter an email ID' });
+    }
+  
+    if (errors.length > 0) {
+        res.render('Forgotpwd', {
+            errors,
+            email
+        });
+    } else {
+        User.findOne({ email: email }).then(user => {
+            if (!user) {
+                // User already exists 
+                errors.push({ msg: 'User with Email ID does not exist!' });
+                res.render('Forgotpwd', {
+                    layout: 'Login_Reg.hbs',
+                    errors,
+                    email
+                });
+            } else {
+  
+                const oauth2Client = new OAuth2(
+                    process.env.CLIENT_ID, // ClientID
+                    process.env.CLIENT_SECRET, // Client Secret
+                    process.env.REDIRECT_URI // Redirect URL
+                );
+  
+                oauth2Client.setCredentials({
+                    refresh_token: process.env.REFRESH_TOKEN
+                });
+                const accessToken = oauth2Client.getAccessToken()
+  
+                const token = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SEREST, { expiresIn: '5m' });
+                const CLIENT_URL = 'http://' + req.headers.host;
+                const output = `
+                <h2>Please click on below link to reset your account password</h2>
+                <p>${CLIENT_URL}/users/verify/${token}</p>
+                <p><b>NOTE: </b> The activation link expires in 5 minutes.</p>
+                `;
+  
+                User.updateOne({ resetLink: token }, (err, success) => {
+                    if (err) {
+                        errors.push({ msg: 'Error resetting password!' });
+                        res.render('Forgotpwd', {
+                            errors,
+                            email
+                        });
+                    }
+                    else {
+                        const transporter = nodemailer.createTransport({
+                            service: 'gmail',
+                            auth: {
+                                type: "OAuth2",
+                                user: "aidoctor.se@gmail.com",
+                                clientId: process.env.CLIENT_ID,
+                                clientSecret: process.env.CLIENT_SECRET,
+                                refreshToken: process.env.REFRESH_TOKEN,
+                                accessToken: accessToken
+                            },
+                        });
+  
+                        // send mail with defined transport object
+                        const mailOptions = {
+                            from: '"Auth Admin" <aidoctor.se@gmail.com>', // sender address
+                            to: email, // list of receivers
+                            subject: "Account Password Reset: NodeJS Auth ✔", // Subject line
+                            html: output, // html body
+                        };
+  
+                        transporter.sendMail(mailOptions, (error, info) => {
+                            if (error) {
+                                console.log(error);
+                                req.flash(
+                                    'error_msg',
+                                    'Something went wrong on our end. Please try again later.'
+                                );
+                                res.redirect('/users/Forgotpwd');
+                            }
+                            else {
+                                console.log('Mail sent : %s', info.response);
+                                req.flash(
+                                    'success_msg',
+                                    'Password reset link sent to email ID. Please follow the instructions.'
+                                );
+                                res.redirect('/users/login');
+                            }
+                        })
+                    }
+                })
+  
+            }
+        });
+    }
+  });
+  
+  //------------ Redirect to Reset Handle ------------//
+  router.get('/verify/:token', (req, res) => {
+    const  token  = req.params.token;
+    const id = req.params.id;
+    if (token) {
+        jwt.verify(token, process.env.REFRESH_TOKEN_SEREST, (err, decodedToken) => {
+            if (err) {
+                req.flash(
+                    'error_msg',
+                    'Incorrect or expired link! Please try again.'
+                );
+                res.redirect('/users/login');
+            }
+            else {
+                const { _id } = decodedToken;
+                res.redirect(`/users/Resetpwd/${_id}`)
+            }
+        })
+    }
+    else {
+        console.log("Password reset error!")
+    }
+  });
+  
+  
 
-  let errors = [];
+
+ // ------------ Reset Password Handle ------------//
+  router.post('/resetpwd/:id', (req, res) => {
+    var { password, password2 } = req.body;
+    const  token = req.params.token;
+    const id = req.params.id;
+    let errors = [];
+  
+    // Checking required fields 
+    if (!password || !password2) {
+    
+        req.flash(
+            'error_msg',
+            'Please enter all fields.'
+        );
+        res.redirect(`/users/Resetpwd/${id}`);
+    }
+  
+    // Checking password length 
+    else if (password.length < 6) {
+        req.flash(
+            'error_msg',
+            'Password must be at least 6 characters.'
+        );
+        res.redirect(`/users/Resetpwd/${id}`);
+    }
+  
+    // Checking password mismatch 
+    else if (password != password2) {
+        req.flash(
+            'error_msg',
+            'Passwords do not match.'
+        );
+       res.redirect(`/users/Resetpwd/${id}`);
+    }
+  
+    else {
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(password, salt, (err, hash) => {
+                if (err) throw err;
+                password = hash;
+  
+                User.findByIdAndUpdate(
+                    { _id:id },
+                    { password },
+                    function (err, result) {
+                        if (err) {
+                            req.flash(
+                                'error_msg',
+                                'Error resetting password!'
+                            );
+                            res.redirect(`/users/Resetpwd/${id}`);
+                        } else {
+                            req.flash(
+                                'success_msg',
+                                'Password reset successfully!'
+                            );
+                            res.redirect('/users/login');
+                        }
+                    }
+                );
+  
+            });
+        });
+    }
+  });
 
   // Checking required fields 
-  if (!email) {
-      errors.push({ msg: 'Please enter an email ID' });
-  }
+ 
 
-  if (errors.length > 0) {
-      res.render('Forgotpwd', {
-          errors,
-          email
-      });
-  } else {
-      User.findOne({ email: email }).then(user => {
-          if (!user) {
-              // User already exists 
-              errors.push({ msg: 'User with Email ID does not exist!' });
-              res.render('Forgotpwd', {
-                  layout: 'Login_Reg.hbs',
-                  errors,
-                  email
-              });
-          } else {
-
-              const oauth2Client = new OAuth2(
-                  process.env.CLIENT_ID, // ClientID
-                  process.env.CLIENT_SECRET, // Client Secret
-                  process.env.REDIRECT_URI // Redirect URL
-              );
-
-              oauth2Client.setCredentials({
-                  refresh_token: process.env.REFRESH_TOKEN
-              });
-              const accessToken = oauth2Client.getAccessToken()
-
-              const token = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SEREST, { expiresIn: '30m' });
-              const CLIENT_URL = 'http://' + req.headers.host;
-              const output = `
-              <h2>Please click on below link to reset your account password</h2>
-              <p>${CLIENT_URL}/users/Forgotpwd/${token}</p>
-              <p><b>NOTE: </b> The activation link expires in 30 minutes.</p>
-              `;
-
-              User.updateOne({ resetLink: token }, (err, success) => {
-                  if (err) {
-                      errors.push({ msg: 'Error resetting password!' });
-                      res.render('Forgotpwd', {
-                          errors,
-                          email
-                      });
-                  }
-                  else {
-                      const transporter = nodemailer.createTransport({
-                          service: 'gmail',
-                          auth: {
-                              type: "OAuth2",
-                              user: "aidoctor.se@gmail.com",
-                              clientId: process.env.CLIENT_ID,
-                              clientSecret: process.env.CLIENT_SECRET,
-                              refreshToken: process.env.REFRESH_TOKEN,
-                              accessToken: accessToken
-                          },
-                      });
-
-                      // send mail with defined transport object
-                      const mailOptions = {
-                          from: '"Auth Admin" <aidoctor.se@gmail.com>', // sender address
-                          to: email, // list of receivers
-                          subject: "Account Password Reset: NodeJS Auth ✔", // Subject line
-                          html: output, // html body
-                      };
-
-                      transporter.sendMail(mailOptions, (error, info) => {
-                          if (error) {
-                              console.log(error);
-                              req.flash(
-                                  'error_msg',
-                                  'Something went wrong on our end. Please try again later.'
-                              );
-                              res.redirect('/users/Forgotpwd');
-                          }
-                          else {
-                              console.log('Mail sent : %s', info.response);
-                              req.flash(
-                                  'success_msg',
-                                  'Password reset link sent to email ID. Please follow the instructions.'
-                              );
-                              res.redirect('/users/login');
-                          }
-                      })
-                  }
-              })
-
-          }
-      });
-  }
-});
-
-//------------ Redirect to Reset Handle ------------//
-router.post('/Resetpwd/:id', (req, res) => {
-  const { token } = req.params;
-
-  if (token) {
-      jwt.verify(token, process.env.REFRESH_TOKEN_SEREST, (err, decodedToken) => {
-          if (err) {
-              req.flash(
-                  'error_msg',
-                  'Incorrect or expired link! Please try again.'
-              );
-              res.redirect('/users/login');
-          }
-          else {
-              const { _id } = decodedToken;
-              User.findById(_id, (err, user) => {
-                  if (err) {
-                      req.flash(
-                          'error_msg',
-                          'User with email ID does not exist! Please try again.'
-                      );
-                      res.redirect('/users/login');
-                  }
-                  else {
-                      res.redirect(`/users/Resetpwd/${_id}`)
-                  }
-              })
-          }
-      })
-  }
-  else {
-      console.log("Password reset error!")
-  }
-});
-
-//------------ Reset Password Handle ------------//
-router.get('/Forgotpwd/:token', (req, res) => {
-  var { password, password2 } = req.body;
-  const id = req.params.id;
-  let errors = [];
-
-  // Checking required fields 
-  if (!password || !password2) {
-      req.flash(
-          'error_msg',
-          'Please enter all fields.'
-      );
-      res.redirect(`/users/Resetpwd/${id}`);
-  }
-
-  // Checking password length 
-  else if (password.length < 6) {
-      req.flash(
-          'error_msg',
-          'Password must be at least 6 characters.'
-      );
-      res.redirect(`/users/Resetpwd/${id}`);
-  }
-
-  // Checking password mismatch 
-  else if (password != password2) {
-      req.flash(
-          'error_msg',
-          'Passwords do not match.'
-      );
-      res.redirect(`/users/Resetpwd/${id}`);
-  }
-
-  else {
-      bcryptjs.genSalt(10, (err, salt) => {
-          bcryptjs.hash(password, salt, (err, hash) => {
-              if (err) throw err;
-              password = hash;
-
-              User.findByIdAndUpdate(
-                  { _id: id },
-                  { password },
-                  function (err, result) {
-                      if (err) {
-                          req.flash(
-                              'error_msg',
-                              'Error resetting password!'
-                          );
-                          res.redirect(`/users/Resetpwd/${id}`);
-                      } else {
-                          req.flash(
-                              'success_msg',
-                              'Password reset successfully!'
-                          );
-                          res.redirect('/users/login');
-                      }
-                  }
-              );
-
-          });
-      });
-  }
-});
 
 //------------ Login POST Handle ------------//
 router.post('/login',  (req, res, next) => {
@@ -475,5 +464,4 @@ router.get('/logout', (req, res) => {
 })
 
 module.exports = router
-
 

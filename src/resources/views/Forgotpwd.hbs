@@ -1,12 +1,6 @@
-  <meta charset="UTF-8" /> 
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forgot Password</title>
-    <link rel="stylesheet" href="/css/forgot&renewpwd.css" />
-     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
 
+    <title>Forgot Password</title>
+  <link rel="stylesheet" href="/css/forgot&renewpwd.css" />
   <body>
     <div class="wrapper">
       <div class="icon">
@@ -19,22 +13,22 @@
             </div>
         </div>
       <div class="form-container">
-          <form action="http://localhost:2000/Login" id="forgot" target="_self" method="post">
+          <form action="/Users/ForgotPwd"  method="POST">
             <!--Forgot Password-->
-            <div class="field text-left">
-                <div>
-                  <b>Email:</b>
-                 &emsp;
+            <div class="form-group">
+              <label for="email">Email</label>
               <input
-                type="text"
-                placeholder="Your Email"
-                required
-              >
-              </div>
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="Enter Email"
+   
+              />
             </div>
             <div class="field btn">
               <div class="btn-layer btn btn-primary"></div>
-              <input  type="submit" value="Sent me a password reset link!" >
+              <button  type="submit" class="btn">Sent me a password reset link!</button>
             </div>
              <div class=" pass-link">
               <span> Remember your password?</span>

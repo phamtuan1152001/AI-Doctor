@@ -12,7 +12,6 @@ router.use('/Multi-function pharmacy', siteController.Utilities3)
 router.use('/Online_Health_Diagnosis', siteController.Utilities4)
 router.use('/Online_medical_records', siteController.Utilities5)
 router.use('/Personal_business_healthcare', siteController.Utilities6)
-router.use('/Forgotpwd', siteController.fwd)
 router.use('/Person', siteController.person)
 
 
