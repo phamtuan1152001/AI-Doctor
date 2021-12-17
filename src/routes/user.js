@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
-// New
 const passport = require('passport')
+const nodemailer = require('nodemailer')
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const jwt = require('jsonwebtoken');
 
 // add local file auth first page 
 const User = require('../app/models/User')
@@ -19,6 +22,13 @@ router.get('/Login', forwardAuthenticated, (req, res) => res.render('Login',{lay
 
 // Register Page
 router.get('/Register', forwardAuthenticated, (req, res) => res.render('Register',{layout: 'Login_Reg.hbs'}));
+// Reset page
+/* router.get('/Resetpwd/:id', forwardAuthenticated, (req, res) => {
+  // console.log(id)
+  res.render('Resetpwd', { id: req.params.id }, {layout: 'Login_Reg.hbs'})
+}); */
+// Forgot page
+/* router.get('/Forgotpwd', forwardAuthenticated, (req, res) => res.render('Forgotpwd'), {layout: 'Login_Reg.hbs'}) */
 // Save page , login -> view 
 router.get('/Homepage', ensureAuthenticated, (req, res) =>
   res.render('home', {
@@ -58,7 +68,8 @@ router.use('/Multi-function pharmacy', siteController.Utilities3)
 router.use('/Online_Health_Diagnosis', siteController.Utilities4)
 router.use('/Online_medical_records', siteController.Utilities5)
 router.use('/Personal_business_healthcare', siteController.Utilities6)
-router.use('/ForgotPassword', siteController.fwd)
+router.use('/Forgotpwd', siteController.fwd)
+router.use('/Resetpwd', siteController.resfwd)
 router.use('/Person', siteController.person)
 // /Users/Services/.....
 router.use('/Services/Booking', servicesController.booking)
@@ -78,81 +89,375 @@ router.use('/Doctors',doctorsController.home)
 router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
 
 
-
-// New Register handle
+//------------ Register POST Handle ------------//
 router.post('/Register', (req, res) => {
-    const{email, password, password2, name} = req.body;
-    let errors = [];
+  const { name, email, password, password2 } = req.body;
+  let errors = [];
 
-    // Check required fields
-    if (!email || !password || !password2 || !name ){
-        errors.push({ msg: 'Please fill in all fields' });
-    }
+  // Checking required fields 
+  if (!name || !email || !password || !password2) {
+      errors.push({ msg: 'Please enter all fields' });
+  }
 
-    // Check passwords match
-    if(password != password2){
-        errors.push({ msg: 'Passwords do not match '});
-    }
+  // Checking password mismatch 
+  if (password != password2) {
+      errors.push({ msg: 'Passwords do not match' });
+  }
 
-    // Check pass length
-    if(password.length < 6){
-        errors.push({ msg: 'Password should be at least 6 characters' });
-    }
+  // Checking password length
+  if (password.length < 6) {
+      errors.push({ msg: 'Password must be at least 6 characters' });
+  }
 
-    if(errors.length > 0){
-        res.render('Register', {
-            layout: 'Login_Reg.hbs',
-            errors,
-            email,
-            password,
-            password2,
-            name,
-            
-        });
-    } else {
-        // Validation passed
-        User.findOne({email : email})
-        .then(user => {
-            if(user){
-                // User exists 
-                errors.push({ msg: 'Email is already registered'});
-                res.render('Register', {
-                    layout: 'Login_Reg.hbs',
-                    errors,
-                    email,
-                    password,
-                    password2,
-                    name
-                    
-                });
-            } else{
-                const newUser = new User({
-                    email,
-                    password,
-                    name
-                    
-                });
+  if (errors.length > 0) {
+      res.render('register', {
+          layout: 'Login_Reg.hbs',
+          errors,
+          name,
+          email,
+          password,
+          password2
+      });
+  } else {
+      // Validation passed 
+      User.findOne({ email: email }).then(user => {
+          if (user) {
+              // User already exists 
+              errors.push({ msg: 'Email ID already registered' });
+              res.render('register', {
+                  layout: 'Login_Reg.hbs',
+                  errors,
+                  name,
+                  email,
+                  password,
+                  password2
+              });
+          } else {
 
-                // Hash password
-                bcrypt.genSalt(10, (err, salt) => 
-                    bcrypt.hash(newUser.password, salt, (err, hash) =>{
-                        if(err) throw err;
-                        // Set password to hashed
-                        newUser.password = hash;
-                        // Save user
-                        newUser.save()
-                        .then(user => {
-                            req.flash('success_msg', 'You are now registered and can login');
-                            res.redirect('/users/login');
-                        })
-                        .catch(err => console.log(err));
-                }))
-            }
-        });
-    }
+              const oauth2Client = new OAuth2(
+                  process.env.CLIENT_ID, // ClientID
+                  process.env.CLIENT_SECRET, // Client Secret
+                  process.env.REDIRECT_URI // Redirect URL
+              );
+
+              oauth2Client.setCredentials({
+                  refresh_token: process.env.REFRESH_TOKEN
+              });
+              const accessToken = oauth2Client.getAccessToken()
+
+              const token = jwt.sign({ name, email, password }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' });
+              const CLIENT_URL = 'http://' + req.headers.host;
+
+              const output = `
+              <h2>Please click on below link to activate your account</h2>
+              <p>${CLIENT_URL}/users/active/${token}</p>
+              <p><b>NOTE: </b> The above activation link expires in 30 minutes.</p>
+              `;
+
+              const transporter = nodemailer.createTransport({
+                  service: 'gmail',
+                  auth: {
+                      type: "OAuth2",
+                      user: "aidoctor.se@gmail.com",
+                      clientId: process.env.CLIENT_ID,
+                      clientSecret: process.env.CLIENT_SECRET,
+                      refreshToken: process.env.REFRESH_TOKEN,
+                      accessToken: accessToken
+                  },
+              });
+
+              // send mail with defined transport object
+              const mailOptions = {
+                  from: '"Auth Admin" <aidoctor.se@gmail.com>', // sender address
+                  to: email, // list of receivers
+                  subject: "Account Verification: NodeJS Auth ✔", // Subject line
+                  generateTextFromHTML: true,
+                  html: output, // html body
+              };
+
+              transporter.sendMail(mailOptions, (error, info) => {
+                  if (error) {
+                      console.log(error);
+                      req.flash(
+                          'error_msg',
+                          'Something went wrong on our end. Please register again.'
+                      );
+                      res.redirect('/users/login');
+                  }
+                  else {
+                      console.log('Mail sent : %s', info.response);
+                      req.flash(
+                          'success_msg',
+                          'Activation link sent to email ID. Please activate to log in.'
+                      );
+                      res.redirect('/users/login');
+                  }
+              })
+
+          }
+      });
+  }
 });
 
-// Login Handle
+//------------ Activate Account Handle ------------//
+router.get('/active/:token', (req, res) => {
+  const token = req.params.token;
+  let errors = [];
+  if (token) {
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedToken) => {
+          if (err) {
+              req.flash(
+                  'error_msg',
+                  'Incorrect or expired link! Please register again.'
+              );
+              res.redirect('/users/register');
+          }
+          else {
+              const { name, email, password } = decodedToken;
+              User.findOne({ email: email }).then(user => {
+                  if (user) {
+                      // User already exists 
+                      req.flash(
+                          'error_msg',
+                          'Email ID already registered! Please log in.'
+                      );
+                      res.redirect('/users/login');
+                  } else {
+                      const newUser = new User({
+                          name,
+                          email,
+                          password
+                      });
+
+                      bcryptjs.genSalt(10, (err, salt) => {
+                          bcryptjs.hash(newUser.password, salt, (err, hash) => {
+                              if (err) throw err;
+                              newUser.password = hash;
+                              newUser
+                                  .save()
+                                  .then(user => {
+                                      req.flash(
+                                          'success_msg',
+                                          'Account activated. You can now log in.'
+                                      );
+                                      res.redirect('/users/login');
+                                  })
+                                  .catch(err => console.log(err));
+                          });
+                      });
+                  }
+              });
+          }
+
+      })
+  }
+  else {
+      console.log("Account activation error!")
+  }
+});
+
+//------------ Forgot Password Handle ------------//
+router.post('/Forgotpwd/:id', (req, res) => {
+  const { email } = req.body;
+
+  let errors = [];
+
+  // Checking required fields 
+  if (!email) {
+      errors.push({ msg: 'Please enter an email ID' });
+  }
+
+  if (errors.length > 0) {
+      res.render('Forgotpwd', {
+          errors,
+          email
+      });
+  } else {
+      User.findOne({ email: email }).then(user => {
+          if (!user) {
+              // User already exists 
+              errors.push({ msg: 'User with Email ID does not exist!' });
+              res.render('Forgotpwd', {
+                  layout: 'Login_Reg.hbs',
+                  errors,
+                  email
+              });
+          } else {
+
+              const oauth2Client = new OAuth2(
+                  process.env.CLIENT_ID, // ClientID
+                  process.env.CLIENT_SECRET, // Client Secret
+                  process.env.REDIRECT_URI // Redirect URL
+              );
+
+              oauth2Client.setCredentials({
+                  refresh_token: process.env.REFRESH_TOKEN
+              });
+              const accessToken = oauth2Client.getAccessToken()
+
+              const token = jwt.sign({ _id: user._id }, process.env.REFRESH_TOKEN_SEREST, { expiresIn: '30m' });
+              const CLIENT_URL = 'http://' + req.headers.host;
+              const output = `
+              <h2>Please click on below link to reset your account password</h2>
+              <p>${CLIENT_URL}/users/Forgotpwd/${token}</p>
+              <p><b>NOTE: </b> The activation link expires in 30 minutes.</p>
+              `;
+
+              User.updateOne({ resetLink: token }, (err, success) => {
+                  if (err) {
+                      errors.push({ msg: 'Error resetting password!' });
+                      res.render('Forgotpwd', {
+                          errors,
+                          email
+                      });
+                  }
+                  else {
+                      const transporter = nodemailer.createTransport({
+                          service: 'gmail',
+                          auth: {
+                              type: "OAuth2",
+                              user: "aidoctor.se@gmail.com",
+                              clientId: process.env.CLIENT_ID,
+                              clientSecret: process.env.CLIENT_SECRET,
+                              refreshToken: process.env.REFRESH_TOKEN,
+                              accessToken: accessToken
+                          },
+                      });
+
+                      // send mail with defined transport object
+                      const mailOptions = {
+                          from: '"Auth Admin" <aidoctor.se@gmail.com>', // sender address
+                          to: email, // list of receivers
+                          subject: "Account Password Reset: NodeJS Auth ✔", // Subject line
+                          html: output, // html body
+                      };
+
+                      transporter.sendMail(mailOptions, (error, info) => {
+                          if (error) {
+                              console.log(error);
+                              req.flash(
+                                  'error_msg',
+                                  'Something went wrong on our end. Please try again later.'
+                              );
+                              res.redirect('/users/Forgotpwd');
+                          }
+                          else {
+                              console.log('Mail sent : %s', info.response);
+                              req.flash(
+                                  'success_msg',
+                                  'Password reset link sent to email ID. Please follow the instructions.'
+                              );
+                              res.redirect('/users/login');
+                          }
+                      })
+                  }
+              })
+
+          }
+      });
+  }
+});
+
+//------------ Redirect to Reset Handle ------------//
+router.post('/Resetpwd/:id', (req, res) => {
+  const { token } = req.params;
+
+  if (token) {
+      jwt.verify(token, process.env.REFRESH_TOKEN_SEREST, (err, decodedToken) => {
+          if (err) {
+              req.flash(
+                  'error_msg',
+                  'Incorrect or expired link! Please try again.'
+              );
+              res.redirect('/users/login');
+          }
+          else {
+              const { _id } = decodedToken;
+              User.findById(_id, (err, user) => {
+                  if (err) {
+                      req.flash(
+                          'error_msg',
+                          'User with email ID does not exist! Please try again.'
+                      );
+                      res.redirect('/users/login');
+                  }
+                  else {
+                      res.redirect(`/users/Resetpwd/${_id}`)
+                  }
+              })
+          }
+      })
+  }
+  else {
+      console.log("Password reset error!")
+  }
+});
+
+//------------ Reset Password Handle ------------//
+router.get('/Forgotpwd/:token', (req, res) => {
+  var { password, password2 } = req.body;
+  const id = req.params.id;
+  let errors = [];
+
+  // Checking required fields 
+  if (!password || !password2) {
+      req.flash(
+          'error_msg',
+          'Please enter all fields.'
+      );
+      res.redirect(`/users/Resetpwd/${id}`);
+  }
+
+  // Checking password length 
+  else if (password.length < 6) {
+      req.flash(
+          'error_msg',
+          'Password must be at least 6 characters.'
+      );
+      res.redirect(`/users/Resetpwd/${id}`);
+  }
+
+  // Checking password mismatch 
+  else if (password != password2) {
+      req.flash(
+          'error_msg',
+          'Passwords do not match.'
+      );
+      res.redirect(`/users/Resetpwd/${id}`);
+  }
+
+  else {
+      bcryptjs.genSalt(10, (err, salt) => {
+          bcryptjs.hash(password, salt, (err, hash) => {
+              if (err) throw err;
+              password = hash;
+
+              User.findByIdAndUpdate(
+                  { _id: id },
+                  { password },
+                  function (err, result) {
+                      if (err) {
+                          req.flash(
+                              'error_msg',
+                              'Error resetting password!'
+                          );
+                          res.redirect(`/users/Resetpwd/${id}`);
+                      } else {
+                          req.flash(
+                              'success_msg',
+                              'Password reset successfully!'
+                          );
+                          res.redirect('/users/login');
+                      }
+                  }
+              );
+
+          });
+      });
+  }
+});
+
+//------------ Login POST Handle ------------//
 router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/Users/Person?#popup__medical',
@@ -161,7 +466,8 @@ router.post('/login',  (req, res, next) => {
     })(req, res, next);
 });
 
-// Logout handle
+
+//------------ Logout GET Handle ------------//
 router.get('/logout', (req, res) => {
     req.logout();
     req.flash('success_msg', 'You are logged out');
