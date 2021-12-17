@@ -6,8 +6,11 @@ const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const route = require("./routes");
 const app = express();
-const port = 2000;
 const swal = require("sweetalert");
+require('dotenv').config();
+
+// Connect DB
+require('./config/db/keys').mongoURI;
 
 /*
 //////////////////////////////////////////////////////////////
@@ -38,15 +41,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Passport Config
 require('./config/db/passport')(passport);
-//Connect to DB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true ,useUnifiedTopology: true}
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
-
 
 // HTTP logger
 app.use(morgan("combined"));
@@ -101,7 +95,7 @@ app.use((req, res, next) => {
 // Route init
 route(app);
 
-
+const port = process.env.PORT;
 app.listen(port , () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
