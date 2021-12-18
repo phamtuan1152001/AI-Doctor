@@ -34,6 +34,9 @@ class SiteController {
   fwd(req, res){
     res.render('Forgotpwd', {layout: 'Login_Reg.hbs'})
   }
+  resfwd(req, res){
+    res.render('Resetpwd', {layout: 'Login_Reg.hbs'})
+  }
   person(req, res) {
     res.render('Person');
   }

@@ -48,7 +48,15 @@ const User = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  verified: {
+    type: Boolean,
+    default: false
+  },
+  resetLink: {
+    type: String,
+    default: ' '
   }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('User', User)

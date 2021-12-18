@@ -42,19 +42,19 @@ router.post('/', (req, res) => {
         var phone = result.phone;
 
         var transporter = nodemailer.createTransport({
-            service: 'gmail',
-            host: 'smtp.gmail.com',
+            service: process.env.SERVICE,
+            host: process.env.SERVICE,
             port: 587,
             secure: false,
             requireTLS: true,
             auth: {
-                user: 'aidoctor.se@gmail.com',
-                pass: 'segrp32021'
+                user: process.env.USER,
+                pass: process.env.PASS
                 }
             });
 
         var mailOptions = {
-            from: 'aidoctor.se@gmail.com',
+            from: process.env.USER,
             to: req.body.email,
             subject: 'Email notification of booking progress at AI Doctor',
             html:
