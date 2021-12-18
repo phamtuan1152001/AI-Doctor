@@ -3,30 +3,21 @@ const Schema = mongoose.Schema
 
 
 require("../models/Diseases");
-require("../models/Symptom");
+require("./Symptom");
 require("../models/Category");
 
 // var routes = require('../routes/index');
 // var diagnose = require('../routes/diagnose');
 
 var Disease = mongoose.model('Disease')
-var Symptom = mongoose.model('Symptom')
+var Symptoms = mongoose.model('Symptom')
 var Category = mongoose.model('Category')
 
 
 const Diagnose = new Schema({
-    disease: {type: Schema.Types.ObjectId, ref: 'Disease'},
-    symptom: {type: Schema.Types.ObjectId, ref: 'Symptom'},
-    category: {type: Schema.Types.ObjectId, ref: 'Category'},
+    Did: {type: Schema.Types.ObjectId, ref: 'Disease'},
+    Sid: {type: Schema.Types.ObjectId, ref: 'Symptom'},
+    //category: {type: Schema.Types.ObjectId, ref: 'Category'},
 })
 
 module.exports = mongoose.model('Diagnose', Diagnose)
-
-// const Diagnose = new Schema({
-//     disease: {type: String},
-//     description: {type: String},
-//     symptom: {type: String},
-//     category: {type: String},
-// })
-    
-//     module.exports = mongoose.model('Diagnose', Diagnose)
