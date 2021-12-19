@@ -71,3 +71,7 @@
   background: linear-gradient(to top, #c2e59c, #64b3f4);
   border-top-right-radius: 10px;
 }
+#resultdetail {
+  font-size: 20px;
+  font-weight: 700;
+}
