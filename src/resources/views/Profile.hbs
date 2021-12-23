@@ -1,0 +1,53 @@
+
+  
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+
+  <body>
+    <div class="wrapper">
+        <div class="title-text">
+            
+            <div class="title person">
+                Information User
+            </div>
+        </div>
+      <div class="form-container">
+        <div class="form-inner">
+          <form action="" method="POST">
+          <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input class="form-control" type="text" placeholder="Name" aria-label="default input example" required="" id="Name">
+            </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" aria-describedby="emailHelp" required="">
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date of birth</label>
+            <input type="text" id="datepicker" required="" >
+          </div>
+          <div class="mb-3">
+            <label for="PhoneNumber" class="form-label">Phone</label>
+            <input type='tel' class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="" id="PhoneNumber">
+          </div>
+          
+          <div class="mb-3">
+            <label for ="">Gender: &nbsp;&nbsp;</label>
+            <input type="radio" value="male" name="gender" id="male" checked>
+            <label for ="male">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" value="female" name="gender" id="female">
+            <label for ="female">Female</label>
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <textarea class="form-control"  placeholder="Address"  aria-label="With textarea" required="" id="address"></textarea>
+        </div> 
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+        </div>
+      </div>
+    </div>
+   
