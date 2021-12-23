@@ -17,6 +17,7 @@ const siteController = require('../app/controllers/SiteController')
 const servicesController  = require('../app/controllers/ServicesController')
 const informationController  = require('../app/controllers/InformationController')
 const doctorsController  = require('../app/controllers/DoctorsController')
+
 // Login Page
 router.get('/Login', forwardAuthenticated, (req, res) => res.render('Login',{layout: 'Login_Reg.hbs'}));
 
@@ -29,6 +30,11 @@ router.get(`/Resetpwd/:id`, forwardAuthenticated, (req, res) => {
    });
 // Forgot page
 router.get('/ForgotPwd', forwardAuthenticated, (req, res) => res.render('Forgotpwd', {layout: 'Login_Reg.hbs'}));
+// infoUser
+router.get('/InfoPerson', ensureAuthenticated, (req, res) =>
+  res.render('Profile', {layout: 'Login_Reg.hbs'})
+);
+
 // Save page , login -> view 
 router.get('/Homepage', ensureAuthenticated, (req, res) =>
   res.render('home', {
@@ -60,6 +66,7 @@ router.get('/Person', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
+
 // /Users/.....
 router.use('/Contact', siteController.contact)
 router.use('/Appointment_with_a_doctor', siteController.Utilities1)
@@ -83,6 +90,8 @@ router.use('/Doctors/ItenralMedicines', doctorsController.internal)
 router.use('/Doctors/Pediatrics', doctorsController.pediatrics)
 router.use('/Doctors/Otorhinolaryngology', doctorsController.otorhinolaryngology)
 router.use('/Doctors',doctorsController.home)
+// /Person
+
 // / in first page -> in layout : 'Login_Reg.hbs'
 router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
 
@@ -449,7 +458,7 @@ router.post('/Forgotpwd', (req, res) => {
 //------------ Login POST Handle ------------//
 router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/Users/Person?#popup__medical',
+        successRedirect: '/Users/InfoPerson',
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
