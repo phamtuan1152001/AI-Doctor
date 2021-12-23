@@ -1,5 +1,5 @@
 * {
-    margin: 2px;
+    margin: 1px;
     padding: 2px;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -8,7 +8,7 @@
   body {
     overflow: hidden;
     display: grid;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     place-items: center;
     background: linear-gradient(to right, #c2e59c, #64b3f4);
@@ -28,7 +28,7 @@
   .wrapper {
     overflow: hidden;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     background: #fff;
     padding: 30px;
     border-radius: 5px;
@@ -67,7 +67,7 @@
   .form-inner form .field {
     height: 50px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .form-inner form .field input {
     height: 100%;
@@ -98,7 +98,7 @@
   }
   .form-inner form .register-link {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   
   .form-inner form .pass-link a {
