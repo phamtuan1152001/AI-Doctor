@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Category = new Schema({
+    Cid: {type: String},
     department: {type: String},
 })
 

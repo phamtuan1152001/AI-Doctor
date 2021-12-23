@@ -39,43 +39,25 @@
               <!-- Input a symptom -->
               <div class="form-group container-fluid">
                 <label id="form-title" for="hospital_name">Enter a symptom you are having</label>
-                <input id="symptom-input" type="text" class="form-control" placeholder="Enter your symptom" name="symptomtext">
+                <input id="symptom-input" type="text" class="form-control" placeholder="Enter your symptom" name="name">
                 <p class="mt-2">The symptom you have already entered:</p>
-                <!-- Bắt sự kiện khi nhấn phím enter sau khi nhập triệu chứng -->
                 <div id="inputted-text"></div>
-                <script>
-                $('#symptom-input').keypress(function(event){
-                  var keycode = (event.keyCode ? event.keyCode : event.which);
-                  if (keycode == '13') {
-                    var btn_search = document.getElementsByClassName("btn-search");
-                    var sym_input = document.getElementById("symptom-input").value;
-                    if (sym_input == "") {
-                      swal("Fail to identify your illness", "Please input your symptom or more symptom which you have entered!", "error");
-                    }
-                    else {
-                      swal("Well done", "Diagnosing Successfully", "success");
-                      document.getElementById("inputted-text").innerHTML = sym_input;
-                    }
-                  }
-                });
-                </script>
-                <!-- Kết thúc sự kiện -->
               </div>
               <!-- Kết thúc input -->
               <!-- Button and function to search a symptom -->
               <div class="button-group">
-                <button type="submit" class="btn btn-outline-primary mt-2 btn-search" onclick="sendData(this)">Searching</button>
+                <button type="submit" class="btn btn-outline-primary mt-2 btn-search">Searching</button>
                 <button id="reset-input" type="button" class="btn btn-outline-primary mt-2 btn-search" onclick="reset_input()">Reset</button>
               </div>
               <!-- Reset input -->
               <script>
                 function reset_input() {
-                  var reset_input = document.getElementById("reset-input");
+                  //var reset_input = document.getElementById("reset-input");
                   document.getElementById('symptom-input').value='';
+                  document.getElementById('resultdetail').innerHTML='';
                 }
               </script>
               <!-- Searching -->
-              <!--
               <script>
                 $(document).ready(function() {
                   $('form').submit(function(event) {
@@ -85,32 +67,15 @@
                       data: $(this).serialize(),
                     }).done(function(response) {
                       // Process the response here
-                      console.log('Ket noi sever thanh cong');
-                      swal("Well done", "Diagnosing Successfully", "success");
-                      //document.getElementById('result-detail').value = response;
-                      console.log(response.data);
-                    }).fail(function(response){
-                      console.log('Ket noi sever that bai');
+                      //console.log(response);
+                      var sym_input = document.getElementById("symptom-input").value;  
+                      $('#resultdetail').append(response);
+                      $('#inputted-text').append(sym_input);
                     });
                     event.preventDefault(); // <- avoid reloading
                   });
-                });
-              </script>
-              -->
-              <!-- Tìm hiểu cái mới khúc này nè nha cha -->
-              <script>
-                function sendData(e) {
-                  fetch('getIllness', {
-                    method: 'POST',
-                    headers: {'Content-Type' : 'application/json'},
-                    body: JSON.stringify({payload: e.value})
-                  }).then(res => res.json()).then(data => {
-                      let payload = data.payload;
-                      console.log(payload);
-                  });
-                }
-              </script>
-
+                });            
+              </script> 
               <!-- End of button -->
             </form>
           </div>
@@ -130,10 +95,8 @@
           <div class=" col-md-7 diagnose-box-right">
             <h4>Information about your illness.</h4>
             <div class="container-fluid">
-              <p>You have got <p id="result-detail"></p></p>
-              <!--  -->
-              <!-- Dưới đây là nơi thể hiện thông tin người bệnh một cách nghiêm túc để giúp người bệnh đặt lịch thông qua AI Doctor -->
-              <!--  -->
+              <p>You have got</p>
+              <div id="resultdetail"></div>
             </div>
             <a type="button" class="btn btn-outline-primary mt-2" href="/Users/Services/Booking">Make an oppointment</a>
           </div>
