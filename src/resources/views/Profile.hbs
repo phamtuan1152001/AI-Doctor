@@ -11,9 +11,11 @@
                 Information User
             </div>
         </div>
+      
       <div class="form-container">
         <div class="form-inner">
           <form action="" method="POST">
+            <div class="form-left">
           <div class="mb-2">
             <label for="Name" class="form-label">FullName</label>
             <input class="form-control" type="text" placeholder="FullName" aria-label="default input example" required="" id="FullName" name="FullName">
@@ -34,26 +36,28 @@
           
           <div class="mb-2">
             <label for ="">Gender: &nbsp;&nbsp;</label>
-            <input type="radio" value="male" name="gender" id="male" checked>
-            <label for ="male">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="radio" value="female" name="gender" id="female">
-            <label for ="female">Female</label>
+            <input type="text" placeholder="Male or Female" name="gender" id="gender" required="">
         </div>
+            
+          
         <div class="mb-2">
           <label for="address" class="form-label">Address</label>
-          <textarea class="form-control"  placeholder="Address"  aria-label="With textarea" required="" id="address" name="address"></textarea>
+          <input class="form-control"  placeholder="Address"  required="" id="address" name="address" ></input>
         </div> 
+        </div>
+        <div class="form-right">
         <div class="mb-2">
             <label for="inputBackgroundisease">Background disease</label> 
-            <textarea class="form-control" id="inputBackgroundisease"name="inputBackgroundisease" required="" placeholder="You need to provide information about the diseases you have such as Diabetes mellitus, lung diseases, Acute kidney injury, obesity, allergies etc"></textarea> 
+            <textarea class="form-control" rows="4" cols="50" id="inputBackgroundisease"name="inputBackgroundisease" required="" placeholder="You need to provide information about the diseases you have such as Diabetes mellitus, lung diseases, Acute kidney injury, obesity, allergies etc"></textarea> 
           </div>
           <div class="mb-2">
             <label for="inputHPC">History of presenting complaint (HPC)/ History of present illness (HPI): </label> 
-            <textarea class="form-control" id="inputHPC" name ="inputHPC"required="" placeholder="You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc."></textarea> 
+            <textarea class="form-control" rows="4" cols="50" id="inputHPC" name ="inputHPC"required="" placeholder="You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc."></textarea> 
           </div>
-
+      </div>
         <div class="mb-2">
           <button type="submit" class="btn btn-primary">Submit</button>
+        
         </div>
         </form>
         </div>
