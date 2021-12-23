@@ -129,10 +129,16 @@
   }
   form .btn {
     height: 50px;
-    width: 100%;
+    width: 30%;
     border-radius: 5px;
-    position: relative;
+    justify-content:center;
+    text-align: center;
     overflow: hidden;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2%;
   }
   form .btn .btn-layer {
     height: 100%;
