@@ -43,6 +43,7 @@ class SiteController {
   booking(req, res) {
     res.render('Booking');
   }
+
 }
 
 module.exports = new SiteController();
