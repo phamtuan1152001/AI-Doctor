@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 
 // add local file auth first page 
 const User = require('../app/models/User')
+const infoPerson = require('../app/models/infoPerson')
 const { forwardAuthenticated } = require('../config/db/auth');
 const { ensureAuthenticated } = require('../config/db/auth');
 
@@ -31,7 +32,7 @@ router.get(`/Resetpwd/:id`, forwardAuthenticated, (req, res) => {
 // Forgot page
 router.get('/ForgotPwd', forwardAuthenticated, (req, res) => res.render('Forgotpwd', {layout: 'Login_Reg.hbs'}));
 // infoUser
-router.get('/InfoPerson', ensureAuthenticated, (req, res) =>
+router.get(`/InfoPerson`, (req, res) =>
   res.render('Profile', {layout: 'Login_Reg.hbs'})
 );
 
@@ -152,7 +153,7 @@ router.post('/Register', (req, res) => {
               });
               const accessToken = oauth2Client.getAccessToken()
 
-              const token = jwt.sign({ name, email, password }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' });
+              const token = jwt.sign({name, email, password }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' });
               const CLIENT_URL = 'http://' + req.headers.host;
 
               const output = `
@@ -210,6 +211,7 @@ router.post('/Register', (req, res) => {
 router.get('/active/:token', (req, res) => {
     const token = req.params.token;
     let errors = [];
+    const id = req.params.id;
     if (token) {
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedToken) => {
             if (err) {
@@ -220,6 +222,7 @@ router.get('/active/:token', (req, res) => {
                 res.redirect('/users/register');
             }
             else {
+                const {_id} = decodedToken;
                 const { name, email, password } = decodedToken;
                 User.findOne({ email: email }).then(user => {
                     if (user) {
@@ -247,7 +250,7 @@ router.get('/active/:token', (req, res) => {
                                             'success_msg',
                                             'Account activated. You can now log in.'
                                         );
-                                        res.redirect('/users/login');
+                                        res.redirect(`/users/infoPerson`);
                                     })
                                     .catch(err => console.log(err));
                             });
@@ -454,7 +457,41 @@ router.post('/Forgotpwd', (req, res) => {
         });
     }
   });
- 
+
+router.post('/Users/infoPerson', (req, res) => {
+    const{fullname, yyyy, mm, dd, phone,gender,inputBackgroundisease,inputHPC} = req.body;
+    let errors = [];
+ const newinfoPerson = new infoPerson({
+                    fullname,
+                     yyyy, 
+                    mm, 
+                 dd, 
+                    phone,
+                    gender,
+                      inputBackgroundisease,
+                      inputHPC
+                
+                });
+                res.redirect('/users/login');
+
+                // Hash password
+             
+            });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //------------ Login POST Handle ------------//
 router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
