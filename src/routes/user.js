@@ -458,40 +458,6 @@ router.post('/Forgotpwd', (req, res) => {
     }
   });
 
-router.post('/Users/infoPerson', (req, res) => {
-    const{fullname, yyyy, mm, dd, phone,gender,inputBackgroundisease,inputHPC} = req.body;
-    let errors = [];
- const newinfoPerson = new infoPerson({
-                    fullname,
-                     yyyy, 
-                    mm, 
-                 dd, 
-                    phone,
-                    gender,
-                      inputBackgroundisease,
-                      inputHPC
-                
-                });
-                res.redirect('/users/login');
-
-                // Hash password
-             
-            });
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //------------ Login POST Handle ------------//
 router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
