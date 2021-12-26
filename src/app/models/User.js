@@ -6,6 +6,10 @@ const User = new Schema({
     type: String,
     required: true
   },
+  NickName: {
+    type: String,
+    default: ' '
+  },
   email: {
     type: String,
     required: true
@@ -32,6 +36,40 @@ const User = new Schema({
     type: String,
     required: true
   },
+ 
+  yyyy: {
+    type: String,
+    rdefault: ' '
+    
+  },
+  dd: {
+    type: String,
+    default: ' '
+  },
+  mm: {
+    type: String,
+    default: ' '
+  },
+  yyyy: {
+    type: String,
+    default: ' '
+  },
+  phone: {
+    type: String,
+    default: ' '
+  },
+  gender: {
+    type: String,
+    default: ' '
+  },
+  inputBackgroundisease: {
+    type: String,
+    default: ' '
+  },
+  inputHPC: {
+    type: String,
+    default: ' '
+  },
   date: {
     type: Date,
     default: Date.now
@@ -43,7 +81,7 @@ const User = new Schema({
   resetLink: {
     type: String,
     default: ' '
-  }
+  },
 }, { timestamps: true })
 
 module.exports = mongoose.model('User', User)

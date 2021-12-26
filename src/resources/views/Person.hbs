@@ -17,7 +17,8 @@
 
 
 
-
+     {{> messages }}
+    {{#each user}}
   <div class="container">
     <div class="row profile">
 		<div class="col-md-3">
@@ -29,7 +30,7 @@
 			
 				<div class="profile-sidebar__profile-usertitle">
 					<div class="profile-sidebar__profile-usertitle--name">
-						Name 
+						{{this.name}} 
 					</div>
 				</div>				
 				
@@ -40,58 +41,61 @@
 				<div class="profile-sidebar__profile-usermenu">
 					<ul class="nav">
 						<li class="active">
-							<a href="#popup__information">
+							<a href="/Users/InfoPerson">
 							<i class="glyphicon glyphicon-info-sign"></i>
 							Update Personal Information </a>
 						</li>
-            <li>
-							<a href="#popup__medical">
-                <i class="glyphicon glyphicon-info-sign"></i>
-                Update Medical record </a>
-						</li>
-						<li>
-							<a href="/Users/Resetpwd">
-                <i class="glyphicon glyphicon-info-sign"></i>
-                Change Password </a>
-						</li>
+					
 					</ul>
 				</div>
 				
 			</div>
 		</div>
+    
 		<div class="col-md-9">
       <div>
+ 
         <table class="table table-striped">
             <tbody><tr>
                 <td class="first-colmn">Full name</td>
-                <td></td>
+                <td>{{this.name}}</td>
+            </tr>
+         <tr>
+                <td class="first-colmn">Nick name</td>
+                <td>{{this.NickName}}</td>
             </tr>
             <tr>
                 <td class="first-colmn">Email</td>
-                <td>
-                    
-                </td>
+                
+                   <td>{{ this.email }}</td> 
+                
             </tr>
+           
             <tr>
                 <td class="first-colmn">General</td>
-                <td>  </td>
+               <td>{{ this.gender }}</td>
             </tr>
             <tr>
                 <td class="first-colmn">Date of birth</td>
-                <td></td>
+                <td>{{this.yyyy}}/{{this.mm}}/{{this.dd}}</td>
             </tr>
          
             <tr>
                 <td class="first-colmn">PhoneNumber</td>
-                <td></td>
+                <td>{{this.phone}}</td>
             </tr>
 
             <tr>
                 <td class="first-colmn">About</td>
                 <td>
+                  {{this.inputBackgroundisease}}
+                   /
+                  {{this.inputHPC}}
                 </td>
             </tr>
-        </tbody></table>
+            
+        
+        </tbody></table>{{/each}}
     </div>
 		</div>
 	</div>

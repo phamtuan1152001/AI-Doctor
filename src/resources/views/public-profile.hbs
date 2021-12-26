@@ -1,0 +1,26 @@
+{{!-- //{{> messages }} --}}
+{{#each users}}
+<h2>{{ name }}'s profile</h2>
+<table class="table">
+  <tr>
+    <td>Name:</td>
+    <td>{{ this.name }}</td>
+  </tr>
+  <tr>
+    <td>GitHub:</td>
+    <td>{{ this.email }}</td>
+  </tr>
+  <tr>
+    <td>Twitter:</td>
+    <td>{{ twitter }}</td>
+  </tr>
+  <tr>
+    <td>Facebook:</td>
+    <td>{{ facebook }}</td>
+  </tr>
+  <tr>
+    <a href="/users/{{this._id}}" class="btn btn-primary">edit</a>
+  </tr>
+</table>
+{{/each}}
+<h2>helu</h2>

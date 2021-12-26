@@ -1,7 +1,4 @@
-
-  
-    <title>Forgot Password</title>
-    <link rel="stylesheet" href="/css/profile.css" />
+ <link rel="stylesheet" href="/css/profile.css" />
 
   <body>
     <div class="wrapper">
@@ -14,11 +11,11 @@
       
       <div class="form-container">
         <div class="form-inner">
-          <form action="" method="POST">
+          <form action="/Users/infoPerson" method="POST">
             <div class="form-left">
           <div class="mb-2">
-            <label for="Name" class="form-label">FullName</label>
-            <input class="form-control" type="text" placeholder="FullName" aria-label="default input example" required="" id="FullName" name="FullName">
+            <label for="Name" class="form-label">NickName</label>
+            <input class="form-control" type="text" placeholder="NickName" aria-label="default input example" required="" id="NickName" name="NickName" value="{{user.name}}">
             </div>
           <div class="mb-2">
             <label >Date of birthday</label>
@@ -59,6 +56,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
         
         </div>
+        <p><a href="/users/infoPerson/list" >Back your profile</a></p>
         </form>
         </div>
       </div>
@@ -150,6 +148,3 @@ function change_month(select) {
 }
 </script>
 
-
-
-  
