@@ -549,7 +549,6 @@ router.post('/Forgotpwd', (req, res) => {
         });
     }
   });
- 
 
 //------------ Login POST Handle ------------//
 router.post('/login',  (req, res, next) => {
