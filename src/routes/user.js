@@ -5,9 +5,10 @@ const nodemailer = require('nodemailer')
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const jwt = require('jsonwebtoken');
-
+const bodyParser = require('body-parser');
 // add local file auth first page 
 const User = require('../app/models/User')
+const infoPerson = require('../app/models/infoPerson')
 const { forwardAuthenticated } = require('../config/db/auth');
 const { ensureAuthenticated } = require('../config/db/auth');
 
@@ -17,6 +18,7 @@ const siteController = require('../app/controllers/SiteController')
 const servicesController  = require('../app/controllers/ServicesController')
 const informationController  = require('../app/controllers/InformationController')
 const doctorsController  = require('../app/controllers/DoctorsController')
+const ObjectId = require('mongodb').ObjectId;
 // Login Page
 router.get('/Login', forwardAuthenticated, (req, res) => res.render('Login',{layout: 'Login_Reg.hbs'}));
 
@@ -27,8 +29,17 @@ router.get(`/Resetpwd/:id`, forwardAuthenticated, (req, res) => {
    // console.log(id)
      res.render('Resetpwd', {layout: 'Login_Reg.hbs'})
    });
+
+// router.get('/InfoPerson/:name', forwardAuthenticated, (req, res, next) => { res.render('public-profile', {layout: 'Login_Reg.hbs'})
+//  });
+
 // Forgot page
 router.get('/ForgotPwd', forwardAuthenticated, (req, res) => res.render('Forgotpwd', {layout: 'Login_Reg.hbs'}));
+// infoUser
+router.get(`/InfoPerson`, (req, res) =>
+  res.render('Profile', {layout: 'Login_Reg.hbs',})
+);
+
 // Save page , login -> view 
 router.get('/Homepage', ensureAuthenticated, (req, res) =>
   res.render('home', {
@@ -55,11 +66,100 @@ router.get('/Information', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
-router.get('/Person', ensureAuthenticated, (req, res) =>
-  res.render('Person', {
-    user: req.user
-  })
-);
+// router.get('/Person', ensureAuthenticated, (req, res) =>
+//   res.render('Person', {
+//     user: req.user,
+//     viewtitle: "t ddepj"
+//   })
+// );
+// router.get('/infoPerson/:name', (req, res) =>
+//   res.render('Person', {
+//     user: req.user,
+    
+//   })
+// );
+
+
+// Configure user account profile edit
+// --------------------------------------------------
+router.get('/infoPerson', function(req, res, next) {
+    if (!req.isAuthenticated()) { 
+      res.redirect('/users/login');
+    }
+    const user = req.app.locals.user;
+    const _id = ObjectId(req.session.passport.user);
+  
+    User.findOne({ _id }, (err, results) => {
+      if (err) {
+        throw err;
+      }
+  
+      res.render('Profile', { ...results });
+    });
+  });
+  // --------------------------------------------------
+  
+  
+  // Get public profile for any user
+  // --------------------------------------------------
+//   router.get('/:name', (req, res) => {
+//     const user = req.app.locals.user;
+//     const name = req.params.name;
+//     const email = req.params.email;
+//     const id = req.params.id;
+//     User.findOne({name}, (err, results) => {
+//       if (err || !results) {
+//         res.render('Person', { messages: { error: ['User not found'] } });
+//       }
+  
+//       res.render('Person', { name  });
+      
+//     });
+//   })
+  // --------------------------------------------------
+  
+  
+  // Handle updating user profile data
+  // --------------------------------------------------
+  router.post('/infoPerson', (req, res, next) => {
+    if (!req.isAuthenticated()) {
+      res.redirect('/users/login');
+    }
+  
+    const user = req.app.locals.user;
+    const { NickName, yyyy, dd, mm, phone, gender, inputBackgroundisease, inputHPC } = req.body;
+    const _id = ObjectId(req.session.passport.user);
+  
+    User.updateOne({ _id }, { $set: { NickName, yyyy, dd, mm, phone, gender, inputBackgroundisease, inputHPC} }, (err) => {
+      if (err) {
+        throw err;
+      }
+      
+      res.redirect('/users/infoPerson');
+    });
+  });
+  // --------------------------------------------------
+router.get('/infoPerson/list', (req, res,next) =>{
+    
+    const _id = ObjectId(req.session.passport.user);
+    User.find({_id}).then(user =>{
+        res.render('Person', {
+            user: user.map(user => user.toJSON())
+        });
+    })
+});
+
+// router.get('/infoPerson/:id', (req, res) =>{
+    
+//     User.findById(req.params.id,(err,user) =>{
+//         if(!err)
+//         res.render('Profile', {
+//             user: user.toJSON() 
+//         });
+//     })
+// });
+
+
 // /Users/.....
 router.use('/Contact', siteController.contact)
 router.use('/Appointment_with_a_doctor', siteController.Utilities1)
@@ -83,13 +183,15 @@ router.use('/Doctors/ItenralMedicines', doctorsController.internal)
 router.use('/Doctors/Pediatrics', doctorsController.pediatrics)
 router.use('/Doctors/Otorhinolaryngology', doctorsController.otorhinolaryngology)
 router.use('/Doctors',doctorsController.home)
+// /Person
+
 // / in first page -> in layout : 'Login_Reg.hbs'
 router.get('/', forwardAuthenticated, (req, res) => res.render('Login', {layout: 'Login_Reg.hbs'}));
 
 
 //------------ Register POST Handle ------------//
 router.post('/Register', (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const { _id, name, email, password, password2 } = req.body;
   let errors = [];
 
   // Checking required fields 
@@ -143,7 +245,7 @@ router.post('/Register', (req, res) => {
               });
               const accessToken = oauth2Client.getAccessToken()
 
-              const token = jwt.sign({ name, email, password }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' });
+              const token = jwt.sign({ _id,name, email, password }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' });
               const CLIENT_URL = 'http://' + req.headers.host;
 
               const output = `
@@ -201,6 +303,7 @@ router.post('/Register', (req, res) => {
 router.get('/active/:token', (req, res) => {
     const token = req.params.token;
     let errors = [];
+    const id = req.params.id;
     if (token) {
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedToken) => {
             if (err) {
@@ -211,6 +314,7 @@ router.get('/active/:token', (req, res) => {
                 res.redirect('/users/register');
             }
             else {
+                const {_id} = decodedToken;
                 const { name, email, password } = decodedToken;
                 User.findOne({ email: email }).then(user => {
                     if (user) {
@@ -238,7 +342,7 @@ router.get('/active/:token', (req, res) => {
                                             'success_msg',
                                             'Account activated. You can now log in.'
                                         );
-                                        res.redirect('/users/login');
+                                        res.redirect(`/users/Login`);
                                     })
                                     .catch(err => console.log(err));
                             });
@@ -445,11 +549,11 @@ router.post('/Forgotpwd', (req, res) => {
         });
     }
   });
- 
+
 //------------ Login POST Handle ------------//
 router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/Users/Person?#popup__medical',
+        successRedirect: '/Users/Homepage',
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
@@ -464,4 +568,3 @@ router.get('/logout', (req, res) => {
 })
 
 module.exports = router
-

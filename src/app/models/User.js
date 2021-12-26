@@ -2,22 +2,13 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const User = new Schema({
-    // name: {type: String, maxLength: 50},
-    // ssn: {type: String, maxLength: 50},
-    // dob: {type: Date},
-    // phoneNumber: {type: String},
-    // email: {type: String},
-    // username: { type: String, maxLength: 30},
-    // password: { type: String, maxLength: 50},
-    // healthInsuranceID: { type: String, maxLength: 50},
-    // credit: { type: String, maxLength: 16},
-    // address: { type: String, maxLength: 50},
-    // //hardAddress: {type: HardAddress},
-    // createdAt: { type: Date, default: Date.now},
-    // modifieddAt: { type: Date, default: Date.now}
   name: {
     type: String,
     required: true
+  },
+  NickName: {
+    type: String,
+    default: ' '
   },
   email: {
     type: String,
@@ -45,6 +36,40 @@ const User = new Schema({
     type: String,
     required: true
   },
+ 
+  yyyy: {
+    type: String,
+    rdefault: ' '
+    
+  },
+  dd: {
+    type: String,
+    default: ' '
+  },
+  mm: {
+    type: String,
+    default: ' '
+  },
+  yyyy: {
+    type: String,
+    default: ' '
+  },
+  phone: {
+    type: String,
+    default: ' '
+  },
+  gender: {
+    type: String,
+    default: ' '
+  },
+  inputBackgroundisease: {
+    type: String,
+    default: ' '
+  },
+  inputHPC: {
+    type: String,
+    default: ' '
+  },
   date: {
     type: Date,
     default: Date.now
@@ -56,7 +81,7 @@ const User = new Schema({
   resetLink: {
     type: String,
     default: ' '
-  }
+  },
 }, { timestamps: true })
 
 module.exports = mongoose.model('User', User)

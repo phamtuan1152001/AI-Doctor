@@ -8,7 +8,7 @@ const route = require("./routes");
 const app = express();
 const swal = require("sweetalert");
 require('dotenv').config();
-
+const bodyParser = require('body-parser');
 // Connect DB
 require('./config/db/keys').mongoURI;
 
@@ -49,6 +49,8 @@ app.set("views", path.join(__dirname, "resources\\views"));
 // New Bodyparser
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json());
 
 // New Express session
 app.use(session ({
