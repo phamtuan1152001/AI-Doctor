@@ -59,6 +59,10 @@ const User = new Schema({
     type: String,
     default: ' '
   },
+  address: {
+    type: String,
+    default: ' '
+  },
   inputBackgroundisease: {
     type: String,
     default: ' '

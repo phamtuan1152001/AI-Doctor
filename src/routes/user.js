@@ -127,10 +127,10 @@ router.get('/infoPerson', function(req, res, next) {
     }
   
     const user = req.app.locals.user;
-    const {yyyy, dd, mm, phone, gender, inputBackgroundisease, inputHPC } = req.body;
+    const {yyyy, dd, mm, phone, gender,address, inputBackgroundisease, inputHPC } = req.body;
     const _id = ObjectId(req.session.passport.user);
   
-    User.updateOne({ _id }, { $set: {yyyy, dd, mm, phone, gender, inputBackgroundisease, inputHPC} }, (err) => {
+    User.updateOne({ _id }, { $set: {yyyy, dd, mm, phone, gender,address,inputBackgroundisease, inputHPC} }, (err) => {
       if (err) {
         throw err;
       }
