@@ -12,23 +12,7 @@ require('dotenv').config();
 // Connect DB
 require('./config/db/keys').mongoURI;
 
-/*
-//////////////////////////////////////////////////////////////
-//Sử dụng bodyParser cho Song Tuan task Diagnose
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
-app.post("/input", (req, res) => {
-  res.send("Ban vua gui du lieu: " + req.body.symptomtext);
-});
-//////////////////////////////////////////////////////////////
-*/
-/**/
-//Phần Song Tuấn làm thử cho Diagnose
-app.post('/getIllness', async (req, res) => {
-  let payload = req.body.payload.trim(); //payload này lấy từ trong trang Diagnose.hbs, và trim() để loại bỏ kí tự khoảng trắng đầu và cuối
-  let search = await Symptom.find({ name: req.body.name }).exec();//Biến search t dùng để search Symptom ấy, dựa trên database lấy ra nên nếu có sai thì m sửa lại (Coi lại cái thằng Symptom.find() á)
-  res.send({ payload: search });
-});
+
 
 // New
 const flash = require('connect-flash');
