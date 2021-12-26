@@ -6,10 +6,7 @@ const User = new Schema({
     type: String,
     required: true
   },
-  NickName: {
-    type: String,
-    default: ' '
-  },
+  
   email: {
     type: String,
     required: true
