@@ -75,6 +75,10 @@ const User = new Schema({
     type: Date,
     default: Date.now
   },
+  avatarUser:{
+    type: String,
+    default:''
+  },
   verified: {
     type: Boolean,
     default: false
@@ -83,6 +87,7 @@ const User = new Schema({
     type: String,
     default: ' '
   },
+ 
 }, { timestamps: true })
 
 module.exports = mongoose.model('User', User)

@@ -35,8 +35,8 @@
 .profile-sidebar__profile-userpic img {
   float: none;
   margin: 0 auto;
-  width: 50%;
-  height: 50%;
+  width: 150px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   -webkit-border-radius: 50% !important;

@@ -30,14 +30,15 @@ router.get(`/Resetpwd/:id`, forwardAuthenticated, (req, res) => {
      res.render('Resetpwd', {layout: 'Login_Reg.hbs'})
    });
 
-// router.get('/InfoPerson/:name', forwardAuthenticated, (req, res, next) => { res.render('public-profile', {layout: 'Login_Reg.hbs'})
-//  });
-
 // Forgot page
 router.get('/ForgotPwd', forwardAuthenticated, (req, res) => res.render('Forgotpwd', {layout: 'Login_Reg.hbs'}));
 // infoUser
-router.get(`/InfoPerson`, (req, res) =>
-  res.render('Profile', {layout: 'Login_Reg.hbs',})
+// router.get(`/InfoPerson/Update`, (req, res) =>
+//   res.render('Profile', {layout: 'Login_Reg.hbs',})
+// );
+// cnange ava
+router.get(`/ChangeAvatar`, (req, res) =>
+  res.render('Userimg', {layout: 'Login_Reg.hbs',})
 );
 
 // Save page , login -> view 
@@ -66,23 +67,11 @@ router.get('/Information', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
-// router.get('/Person', ensureAuthenticated, (req, res) =>
-//   res.render('Person', {
-//     user: req.user,
-//     viewtitle: "t ddepj"
-//   })
-// );
-// router.get('/infoPerson/:name', (req, res) =>
-//   res.render('Person', {
-//     user: req.user,
-    
-//   })
-// );
 
 
 // Configure user account profile edit
 // --------------------------------------------------
-router.get('/infoPerson', function(req, res, next) {
+router.get('/ChangeAvatar', function(req, res, next) {
     if (!req.isAuthenticated()) { 
       res.redirect('/users/login');
     }
@@ -94,34 +83,29 @@ router.get('/infoPerson', function(req, res, next) {
         throw err;
       }
   
-      res.render('Profile', { ...results });
+      res.render('Userimg', { ...results });
     });
   });
   // --------------------------------------------------
+  router.get('/infoPerson/Update', function(req, res, next) {
+    if (!req.isAuthenticated()) { 
+      res.redirect('/users/login');
+    }
+    const user = req.app.locals.user;
+    const _id = ObjectId(req.session.passport.user);
   
-  
-  // Get public profile for any user
+    User.find({_id}).then(user =>{
+        res.render('Profile', {
+            user: user.map(user => user.toJSON()),
+            layout: 'Login_Reg.hbs'
+        });
+    })
+  });
   // --------------------------------------------------
-//   router.get('/:name', (req, res) => {
-//     const user = req.app.locals.user;
-//     const name = req.params.name;
-//     const email = req.params.email;
-//     const id = req.params.id;
-//     User.findOne({name}, (err, results) => {
-//       if (err || !results) {
-//         res.render('Person', { messages: { error: ['User not found'] } });
-//       }
-  
-//       res.render('Person', { name  });
-      
-//     });
-//   })
-  // --------------------------------------------------
-  
   
   // Handle updating user profile data
   // --------------------------------------------------
-  router.post('/infoPerson', (req, res, next) => {
+  router.post('/infoPerson/Update', (req, res, next) => {
     if (!req.isAuthenticated()) {
       res.redirect('/users/login');
     }
@@ -130,15 +114,39 @@ router.get('/infoPerson', function(req, res, next) {
     const {yyyy, dd, mm, phone, gender,address, inputBackgroundisease, inputHPC } = req.body;
     const _id = ObjectId(req.session.passport.user);
   
-    User.updateOne({ _id }, { $set: {yyyy, dd, mm, phone, gender,address,inputBackgroundisease, inputHPC} }, (err) => {
+    User.updateOne({ _id }, { $set: {yyyy, dd, mm, phone, gender,address, inputBackgroundisease, inputHPC} }, (err) => {
       if (err) {
         throw err;
       }
       
-      res.redirect('/users/infoPerson');
+      res.redirect('/users/infoPerson/Update');
     });
   });
+
+
   // --------------------------------------------------
+  router.post('/ChangeAvatar', (req, res, next) => {
+    if (!req.isAuthenticated()) {
+      res.redirect('/users/login');
+    }
+  
+    const user = req.app.locals.user;
+    // const {yyyy, dd, mm, phone, gender,address, inputBackgroundisease, inputHPC } = req.body;
+    const {avatarUser } = req.body;
+    const _id = ObjectId(req.session.passport.user);
+  
+    User.updateOne({ _id }, { $set: {avatarUser} }, (err) => {
+      if (err) {
+        throw err;
+      }
+      
+      res.redirect('/users/ChangeAvatar');
+    });
+  });
+
+
+  // --------------------------------------------------
+
 router.get('/infoPerson/list', (req, res,next) =>{
     
     const _id = ObjectId(req.session.passport.user);
@@ -149,15 +157,6 @@ router.get('/infoPerson/list', (req, res,next) =>{
     })
 });
 
-// router.get('/infoPerson/:id', (req, res) =>{
-    
-//     User.findById(req.params.id,(err,user) =>{
-//         if(!err)
-//         res.render('Profile', {
-//             user: user.toJSON() 
-//         });
-//     })
-// });
 
 
 // /Users/.....

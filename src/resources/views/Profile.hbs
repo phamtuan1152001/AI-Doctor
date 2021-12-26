@@ -8,44 +8,51 @@
                 Information User
             </div>
         </div>
-      
+        {{#each user}}
       <div class="form-container">
         <div class="form-inner">
-          <form action="/Users/infoPerson" method="POST">
+          <form action="/Users/infoPerson/Update" method="POST">
+          <input type="hidden" name = "id" value="{{this._id}}">
             <div class="form-left">
           <div class="mb-2">
             <label >Date of birthday</label>
               <SELECT id ="year" name = "yyyy" onchange="change_year(this)">
+                <option >{{this.yyyy}}</option>
               </SELECT>
               <SELECT  id ="month" name = "mm" onchange="change_month(this)">
+                <option>{{this.mm}}</option>
               </SELECT>
-              <SELECT id ="day" name = "dd" >
+              <SELECT id ="day" name = "dd">
+                <option>{{this.dd}}</option>
               </SELECT>
           </div>
           <div class="mb-2">
             <label for="PhoneNumber" class="form-label">Phone</label>
-            <input type='tel' placeholder="Phone Number"  class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="" id="PhoneNumber" name="phone">
+            <input value="{{ this.phone}}" type='tel' placeholder="Phone Number"  class="form-control" pattern='\d{3}\d{4}\d{3}' title='Phone Number (Format: 099 9999 999)' required="" id="PhoneNumber" name="phone">
           </div>
           
           <div class="mb-2">
             <label for ="">Gender: &nbsp;&nbsp;</label>
-            <input type="text" placeholder="Male or Female" name="gender" id="gender" required="">
+            <input type="radio" value="Male" name="gender" id="male" checked>
+            <label for ="male">Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="radio" value="Female" name="gender" id="female">
+            <label for ="female">Female</label>
         </div>
             
           
         <div class="mb-2">
           <label for="address" class="form-label">Address</label>
-          <input class="form-control"  placeholder="Address"  required="" id="address" name="address" ></input>
+          <input value="{{ this.address}}" class="form-control"  placeholder="Address"  required="" id="address" name="address" ></input>
         </div> 
         </div>
         <div class="form-right">
         <div class="mb-2">
             <label for="inputBackgroundisease">Background disease</label> 
-            <textarea class="form-control" rows="4" cols="50" id="inputBackgroundisease"name="inputBackgroundisease" required="" placeholder="You need to provide information about the diseases you have such as Diabetes mellitus, lung diseases, Acute kidney injury, obesity, allergies etc"></textarea> 
+            <textarea class="form-control" rows="4" cols="50" id="inputBackgroundisease"name="inputBackgroundisease" required="" placeholder="You need to provide information about the diseases you have such as Diabetes mellitus, lung diseases, Acute kidney injury, obesity, allergies etc">{{ this.inputBackgroundisease}}</textarea> 
           </div>
           <div class="mb-2">
             <label for="inputHPC">History of presenting complaint (HPC)/ History of present illness (HPI): </label> 
-            <textarea class="form-control" rows="4" cols="50" id="inputHPC" name ="inputHPC"required="" placeholder="You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc."></textarea> 
+            <textarea class="form-control" rows="4" cols="50" id="inputHPC" name ="inputHPC"required="" placeholder="You need to provide information about diseases you have had, Past medical and surgical Hx, Drug history, etc.">{{ this.inputHPC}}</textarea> 
           </div>
       </div>
         <div class="mb-2">
@@ -57,7 +64,7 @@
         </div>
       </div>
     </div>
-   
+{{/each}}
 <script >
 var Days = [31,28,31,30,31,30,31,31,30,31,30,31];// index => month [0-11]
 $(document).ready(function(){
