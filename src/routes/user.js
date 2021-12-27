@@ -269,7 +269,7 @@ router.post('/Register', (req, res) => {
               const mailOptions = {
                   from: '"AI Doctor" <aidoctor.se@gmail.com>', // sender address
                   to: email, // list of receivers
-                  subject: "Account Verification: NodeJS Auth ✔", // Subject line
+                  subject: "Account Verification: AI Doctor ✔", // Subject line
                   generateTextFromHTML: true,
                   html: output, // html body
               };
@@ -429,7 +429,7 @@ router.post('/Forgotpwd', (req, res) => {
                         const mailOptions = {
                             from: '"AI Doctor" <aidoctor.se@gmail.com>', // sender address
                             to: email, // list of receivers
-                            subject: "Account Password Reset: NodeJS Auth ✔", // Subject line
+                            subject: "Account Password Reset: AI Doctor ✔", // Subject line
                             html: output, // html body
                         };
   
