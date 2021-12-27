@@ -69,6 +69,7 @@ router.post('/', (req, res) => {
             }
         });
     });
+    res.redirect('/users/Services/Booking');
 })
 
 module.exports = router;

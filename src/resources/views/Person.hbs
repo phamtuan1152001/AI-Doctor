@@ -25,7 +25,7 @@
 			<div class="profile-sidebar">
 			
 				<div class="profile-sidebar__profile-userpic">
-					<img src="/image/Userpic/profile_user{{this.dd}}.png" class="img-responsive" alt="Thông tin cá nhân">
+					<img src="/image/Userpic/profile_user{{this.avatarUser}}.png"  class="img-responsive" alt="Thông tin cá nhân">
 				</div>				
 			
 				<div class="profile-sidebar__profile-usertitle">
@@ -41,9 +41,14 @@
 				<div class="profile-sidebar__profile-usermenu">
 					<ul class="nav">
 						<li class="active">
-							<a href="/Users/InfoPerson">
+							<a href="/Users/InfoPerson/Update">
 							<i class="glyphicon glyphicon-info-sign"></i>
 							Update Personal Information </a>
+						</li>
+            <li class="">
+							<a href="/Users/ChangeAvatar">
+							<i class="glyphicon glyphicon-info-sign"></i>
+							Change avatar </a>
 						</li>
 					
 					</ul>
@@ -60,10 +65,7 @@
                 <td class="first-colmn">Full name</td>
                 <td>{{this.name}}</td>
             </tr>
-         <tr>
-                <td class="first-colmn">Nick name</td>
-                <td>{{this.NickName}}</td>
-            </tr>
+         
             <tr>
                 <td class="first-colmn">Email</td>
                 
@@ -84,16 +86,23 @@
                 <td class="first-colmn">PhoneNumber</td>
                 <td>{{this.phone}}</td>
             </tr>
-
             <tr>
-                <td class="first-colmn">About</td>
+                <td class="first-colmn">Address</td>
+                <td>{{this.address}}</td>
+            </tr>
+            <tr>
+                <td class="first-colmn">Backgroun disease</td>
                 <td>
                   {{this.inputBackgroundisease}}
-                   /
+                
+                </td>
+            </tr>
+            <tr>
+                <td class="first-colmn">HPC</td>
+                <td>
                   {{this.inputHPC}}
                 </td>
             </tr>
-            
         
         </tbody></table>{{/each}}
     </div>

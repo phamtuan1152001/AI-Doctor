@@ -6,10 +6,7 @@ const User = new Schema({
     type: String,
     required: true
   },
-  NickName: {
-    type: String,
-    default: ' '
-  },
+  
   email: {
     type: String,
     required: true
@@ -62,6 +59,10 @@ const User = new Schema({
     type: String,
     default: ' '
   },
+  address: {
+    type: String,
+    default: ' '
+  },
   inputBackgroundisease: {
     type: String,
     default: ' '
@@ -74,6 +75,10 @@ const User = new Schema({
     type: Date,
     default: Date.now
   },
+  avatarUser:{
+    type: String,
+    default:''
+  },
   verified: {
     type: Boolean,
     default: false
@@ -82,6 +87,7 @@ const User = new Schema({
     type: String,
     default: ' '
   },
+ 
 }, { timestamps: true })
 
 module.exports = mongoose.model('User', User)
